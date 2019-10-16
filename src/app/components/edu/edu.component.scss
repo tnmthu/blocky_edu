@@ -1,0 +1,29 @@
+@import '../../../assets/scss/Colors.scss';
+
+.half-screen {
+  width: 50%;
+  float: right;
+  background-color: $whitesmoke;
+}
+
+.search {
+  &__container {
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    overflow: hidden;
+  }
+  &__input {
+    padding: 10px;
+    margin-left: 15px;
+    flex-grow: 1;
+  }
+  &__button {
+    float: right;
+    margin-right: 15px;
+  }
+}
+.slogan {
+  color: $dark-slate-gray;
+  text-align: center;
+}
