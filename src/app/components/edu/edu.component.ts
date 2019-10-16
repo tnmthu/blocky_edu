@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EduComponent implements OnInit {
 
-  mylist: any[];
-
   constructor() {
-    this.mylist = [1, 2, 3];
   }
 
   ngOnInit() {
