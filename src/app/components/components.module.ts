@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { EduComponent } from './edu/edu.component';
 import { SharedModule } from '../shared/shared.module';
 

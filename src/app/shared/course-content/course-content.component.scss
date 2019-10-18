@@ -1,0 +1,47 @@
+@import '../../../assets/scss/Colors.scss';
+
+.routing {
+  margin: 20px;
+  color: $deep-sky-blue;
+}
+.routing:hover {
+  color: $dark-orange;
+  cursor: pointer;
+}
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+  box-shadow: none;
+}
+.mat-expansion-panel-header {
+  border-bottom: 1px solid $deep-sky-blue;
+}
+.expansion {
+
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  &__content {
+    margin: 10px;
+
+    &__item {
+      padding: 10px 0;
+      border-bottom: 1px solid $lightgray;
+      color: $deep-sky-blue;
+      display: flex;
+      align-items: center;
+
+      &__icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        color: $deep-sky-blue;
+      }
+    }
+
+    &__item:hover {
+      color: $dark-orange;
+      cursor: pointer;
+    }
+  }
+}
