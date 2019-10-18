@@ -1,10 +1,13 @@
 @import '../../../assets/scss/Colors.scss';
 
+$fontSize: '21' 21px, '23' 23px, '25' 25px, '26' 26px, '27' 27px, '28' 28px, '31' 31px, '38' 38px, '48' 48px, '49' 49px;
+$fontWeight: '400' 400, '600' 600, 'bold' bold;
+
 .section {
   width: 100%;
   &_1 {
     height: 400px;
-    background: $emerald;
+    background: $mountain-meadow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +22,37 @@
     }
   }
 
+  &_2 {
+    background: $blue-chill;
+    display: flex;
+    &_right-container {
+      height: 100%;
+    }
+
+    &_right {
+      &_top {
+        text-align: center;
+        padding: 55px 100px;
+
+        &_bottom {
+          padding: 20px 25px;
+        }
+      }
+
+      &_bottom {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+
+        &_top {
+          padding: 0 139px;
+        }
+      }
+    }
+  }
+
   &_3 {
     // height: 650px;
     background: $tundora;
@@ -28,40 +62,84 @@
     justify-content: space-around;
 
     &_left {
-        width: 30%;
+        width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
 
         &_container {
-            height: 90%;
+            // height: 90%;
+            margin-left: 200px;
+            margin-top: 110px;
+            box-sizing: border-box;
+
+            &_middle {
+              margin: 50px 0;
+            }
         }
     }
     &_right {
         width: 30%;
     }
   }
+
+  &_4 {
+    background: $mountain-meadow;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 45px 0;
+
+    box-sizing: border-box;
+
+    &_right-container {
+      margin-top: 55px;
+    }
+
+  }
+
+  &_5 {
+    background: $blue-chill;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+
+    &_right-container {
+      margin: 0px 300px 0 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
 }
 
 .text {
+  @each $tuple in $fontSize {
+    &_size-#{nth($tuple, 1)} {
+      font-size: nth($tuple, 2);
+    }
+  }
+
+  @each $tuple in $fontWeight {
+    &_weight-#{nth($tuple, 1)} {
+      font-weight: nth($tuple, 2);
+    }
+  }
+
   &_white {
-    font-size: 38px;
     color: $white;
-    font-weight: 600;
   }
+
   &_black {
-    font-size: 26px;
     color: $black;
-    font-weight: 600;
   }
 
-  &_emerald {
-      color: $emerald;
-      font-size: 28px;;
+  &_mountain-meadow {
+      color: $mountain-meadow;
   }
 
-  &_quote {
-      width: 50%;
+  &_italic {
+      font-style: italic;
   }
 }
 
@@ -69,4 +147,25 @@
   border-top: 3px solid white;
   width: 80px;
   height: 20px;
+}
+
+.gif {
+  max-width: 55%;
+}
+
+#blocky-gif {
+  max-width: 65%;
+}
+
+.trynow-btn {
+  background: transparent;
+  border: 4px solid $white;
+  padding: 12px;
+
+  transition: 0.5s;
+
+  &:hover {
+    background: $black;
+    border: 4px solid $black;
+  }
 }
