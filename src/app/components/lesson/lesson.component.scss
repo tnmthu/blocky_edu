@@ -1,0 +1,32 @@
+@import '../../../assets/scss/Colors.scss';
+
+.header {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    background-color: #e7f7fe;
+}
+
+.search {
+    &__container {
+        width: 20%;
+
+    }
+}
+
+.title {
+    &__container {
+
+    }
+    &__main {
+
+    }
+    &__return {
+
+    }
+}
+
+.resize {
+
+}

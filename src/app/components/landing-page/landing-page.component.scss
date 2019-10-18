@@ -1,0 +1,72 @@
+@import '../../../assets/scss/Colors.scss';
+
+.section {
+  width: 100%;
+  &_1 {
+    height: 400px;
+    background: $emerald;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_container {
+      height: 200px;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &_3 {
+    // height: 650px;
+    background: $tundora;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-around;
+
+    &_left {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &_container {
+            height: 90%;
+        }
+    }
+    &_right {
+        width: 30%;
+    }
+  }
+}
+
+.text {
+  &_white {
+    font-size: 38px;
+    color: $white;
+    font-weight: 600;
+  }
+  &_black {
+    font-size: 26px;
+    color: $black;
+    font-weight: 600;
+  }
+
+  &_emerald {
+      color: $emerald;
+      font-size: 28px;;
+  }
+
+  &_quote {
+      width: 50%;
+  }
+}
+
+.top-border {
+  border-top: 3px solid white;
+  width: 80px;
+  height: 20px;
+}
