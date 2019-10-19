@@ -4,6 +4,7 @@
   width: 50%;
   float: right;
   background-color: $whitesmoke;
+  padding: 10px;
 }
 
 .search {
@@ -27,3 +28,18 @@
   color: $dark-slate-gray;
   text-align: center;
 }
+.course__container {
+  width: 100%;
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+}
+// @media screen and (max-width: 450px) {
+//   .course__container {
+//     display: grid;
+//     // overflow: auto;
+//     grid-template-columns: 230px 230px;
+//   }
+// }
