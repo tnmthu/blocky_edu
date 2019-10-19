@@ -1,0 +1,66 @@
+<div class="header">
+  <img class="header__menu" src="../../../assets/images/menu.png" alt="menu icon" (click)="menuBtnClicked()">
+
+  <h3 class="header__title">Phần Giới Thiệu Và Khái Niệm Cơ Bản</h3>
+
+  <button class="header__back edu__button" type="button">Quay lại khóa học</button>
+</div>
+
+<div class="container" [ngClass]="{'container--withmenu': showMenu}">
+  <div *ngIf="showMenu" class="menu">
+    <mat-expansion-panel class="expansion menu__content" hideToggle="true" expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="expansion__title">
+          Phần Giới Thiệu Và Khái Niệm Cơ Bản
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul class="expansion__content">
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+      </ul>
+    </mat-expansion-panel>
+    <mat-expansion-panel class="expansion" hideToggle="true" expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="expansion__title">
+          Heading 2
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ul class="expansion__content">
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+        <li class="expansion__content__item">
+          <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
+          Section 1
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </div>
+
+  <div class="content">
+    helppppppp
+  </div>
+</div>
