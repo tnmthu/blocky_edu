@@ -1,9 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  transition,
+  state,
+  trigger,
+  style,
+  animate,
+  useAnimation
+} from '@angular/animations';
+
+import { fadeIn, slideInRight, typeWriting, rotate3D } from '../../shared/animation/animations';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss']
+  styleUrls: ['./landing-page.component.scss'],
+  animations: [
+
+    fadeIn('fadeInWhiteText', '1s', '0.5s'),
+    fadeIn('fadeInBlackText', '1s', '1.5s'),
+    fadeIn('fadeInBlynk', '1s', '0.5s'),
+
+    slideInRight('slideInRight_section2top', '30', '2s', '0.5s'),
+    slideInRight('slideInRight_section2bottom', '30', '2s', '2.5s'),
+    slideInRight('slideInRight_image', '30', '1s', '0.5s'),
+
+    typeWriting('typeWritingBlynk', '1s', '0.5s'),
+
+    rotate3D('rotate3DHardware', '1s', '0.5s')
+  ]
 })
 export class LandingPageComponent implements OnInit {
 

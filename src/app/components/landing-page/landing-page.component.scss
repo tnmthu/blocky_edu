@@ -33,6 +33,7 @@ $fontWeight: '400' 400, '600' 600, 'bold' bold;
       &_top {
         text-align: center;
         padding: 55px 100px;
+        // Animation
 
         &_bottom {
           padding: 20px 25px;
@@ -140,6 +141,11 @@ $fontWeight: '400' 400, '600' 600, 'bold' bold;
 
   &_italic {
       font-style: italic;
+  }
+
+  &_overflow-hidden {
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 
