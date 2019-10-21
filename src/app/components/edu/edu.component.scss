@@ -1,12 +1,5 @@
 @import '../../../assets/scss/Colors.scss';
 
-.half-screen {
-  width: 50%;
-  float: right;
-  background-color: $whitesmoke;
-  padding: 10px;
-}
-
 .search {
   &__container {
     width: 100%;
@@ -28,18 +21,29 @@
   color: $dark-slate-gray;
   text-align: center;
 }
-.course__container {
-  width: 100%;
-  margin: 15px 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  row-gap: 20px;
+.course {
+
+  &__container {
+    width: 100%;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 15px;
+    row-gap: 20px;
+  }
+
+  &__item {
+    justify-self: center;
+  }
 }
-// @media screen and (max-width: 450px) {
+
+// @media screen and (max-width: 750px) {
 //   .course__container {
+//     width: 100%;
+//     margin: 15px 0;
 //     display: grid;
-//     // overflow: auto;
-//     grid-template-columns: 230px 230px;
+//     grid-template-columns: repeat(2, 1fr);
+//     column-gap: 15px;
+//     row-gap: 20px;
 //   }
 // }
