@@ -175,3 +175,7 @@ $fontWeight: '400' 400, '600' 600, 'bold' bold;
     border: 4px solid $black;
   }
 }
+
+ul, li {
+  list-style: disc;
+}
