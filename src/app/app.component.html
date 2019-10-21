@@ -1,12 +1,13 @@
-<div class="container full-height">
+<div class="container full-height" *ngIf="router.url !== '/'">
   <button class="drawer edu__button" (click)="onClick()">Edu</button>
   <div class="half-screen" *ngIf="buttonClicked">
     <app-logo></app-logo>
     <router-outlet></router-outlet>
   </div>
-  <!-- <app-course-content></app-course-content> -->
-  <!-- <app-course-content-detail></app-course-content-detail> -->
-  <!-- <router-outlet></router-outlet> -->
 </div>
 
-<!-- <app-landing-page></app-landing-page> -->
+
+<!-- Landing Page -->
+<div *ngIf="router.url === '/'">
+  <router-outlet></router-outlet>
+</div>

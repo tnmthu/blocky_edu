@@ -1,13 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  transition,
-  state,
-  trigger,
-  style,
-  animate,
-  useAnimation
-} from '@angular/animations';
-
 import { fadeIn, slideInRight, typeWriting, rotate3D } from '../../shared/animation/animations';
 
 @Component({
@@ -51,7 +42,8 @@ export class LandingPageComponent implements OnInit {
   section_5_txt_1 = "Modules";
   section_5_txt_2 = "\"Every modules will add another features to the Controller. We have a shared ecosystem of over 200 modules.\"";
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }
