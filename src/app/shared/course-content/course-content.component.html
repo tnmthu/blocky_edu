@@ -1,14 +1,14 @@
 <!-- <logo></logo> -->
 <p class="routing">routinggg</p>
 
-<mat-expansion-panel class="expansion">
+<mat-expansion-panel class="expansion"  hideToggle="true" expanded="true">
   <mat-expansion-panel-header>
     <mat-panel-title class="expansion__title">
       Phần Giới Thiệu Và Khái Niệm Cơ Bản
     </mat-panel-title>
   </mat-expansion-panel-header>
   <ul class="expansion__content">
-    <li class="expansion__content__item">
+    <li class="expansion__content__item" [routerLink]="['/course-content-detail']" routerLinkActive="router-link-active" >
       <img src="../../../assets/images/icon-file.jpg" alt="file icon" class="expansion__content__item__icon">
       Section 1
     </li>
@@ -26,7 +26,7 @@
     </li>
   </ul>
 </mat-expansion-panel>
-<mat-expansion-panel class="expansion">
+<mat-expansion-panel class="expansion"  hideToggle="true" expanded="true">
   <mat-expansion-panel-header>
     <mat-panel-title class="expansion__title">
       Heading 2
@@ -51,7 +51,7 @@
     </li>
   </ul>
 </mat-expansion-panel>
-<mat-expansion-panel class="expansion">
+<mat-expansion-panel class="expansion"  hideToggle="true" expanded="true">
   <mat-expansion-panel-header>
     <mat-panel-title class="expansion__title">
       Heading 3

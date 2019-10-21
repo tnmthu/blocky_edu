@@ -3,7 +3,7 @@
 
   <h3 class="header__title">Phần Giới Thiệu Và Khái Niệm Cơ Bản</h3>
 
-  <button class="header__back edu__button" type="button">Quay lại khóa học</button>
+  <button class="header__back edu__button" type="button" [routerLink]="['/course-content']" routerLinkActive="router-link-active" >Quay lại khóa học</button>
 </div>
 
 <div class="container" [ngClass]="{'container--withmenu': showMenu}">
