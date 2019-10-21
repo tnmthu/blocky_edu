@@ -91,5 +91,14 @@ li {
   font-weight: bold;
 }
 
+.half-screen {
+  width: 50%;
+  height: 100%;
+  float: right;
+  background-color: $whitesmoke;
+  // padding: 10px;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
