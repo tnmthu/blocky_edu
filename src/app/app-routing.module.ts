@@ -23,10 +23,6 @@ const routes: Routes = [
     path: 'course-content-detail',
     component: CourseContentDetailComponent,
   },
-  {
-    path: 'codelab',
-    component: CodelabComponent,
-  }
 ];
 
 @NgModule({

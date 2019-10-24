@@ -26,6 +26,7 @@ import { CodelabComponent } from './codelab/codelab.component';
   exports: [
     EduComponent,
     LandingPageComponent,
+    CodelabComponent,
   ],
 })
 export class ComponentsModule {
