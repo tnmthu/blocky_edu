@@ -8,6 +8,7 @@ import { EduComponent } from './edu/edu.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { WordpressComponent } from './wordpress/wordpress.component';
+import { MainPipeModule } from '../pipes/main-pipe.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { WordpressComponent } from './wordpress/wordpress.component';
     RouterModule,
     SharedModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    MainPipeModule
   ],
   providers: [],
   entryComponents: [],
