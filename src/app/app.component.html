@@ -9,16 +9,15 @@
 <app-landing-page></app-landing-page>
 =======
 <div class="container full-height" *ngIf="router.url !== '/'">
+  <app-codelab [ngClass]="{'half-screen half-screen__left': buttonClicked}"></app-codelab>
   <button class="drawer edu__button" (click)="onClick()">Edu</button>
-  <div class="half-screen" *ngIf="buttonClicked">
+  <div class="half-screen half-screen__right" *ngIf="buttonClicked">
     <app-logo></app-logo>
     <router-outlet></router-outlet>
   </div>
 </div>
 
-
 <!-- Landing Page -->
 <div *ngIf="router.url === '/'">
   <router-outlet></router-outlet>
 </div>
->>>>>>> 43da59bbf3fee73dd872ea085ca9d881c83282cd

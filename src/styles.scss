@@ -94,9 +94,16 @@ li {
 .half-screen {
   width: 50%;
   height: 100%;
-  float: right;
-  background-color: $whitesmoke;
-  // padding: 10px;
+
+  &__right{
+    float: right;
+    background-color: $whitesmoke;
+    // padding: 10px;
+  }
+
+  &__left {
+    float: left;
+  }
 }
 
 
