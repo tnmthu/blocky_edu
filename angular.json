@@ -29,7 +29,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/blockly/blockly.js",
+              "node_modules/blockly/blocks.js",
+              "node_modules/blockly/msg/en.js",
+              "src/assets/blockly/custom_blocks.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

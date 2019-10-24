@@ -1,0 +1,68 @@
+<div class="section_1 section">
+  <div class="section_1_container">
+    <div class="text_white text_size-38 text_weight-600" [@fadeInWhiteText]>{{section_1_txt_1}}</div>
+    <div class="text_white text_size-38 text_weight-600" [@fadeInWhiteText]>{{section_1_txt_2}}</div>
+    <div class="top-border"></div>
+    <div class="text_black text_size-26 text_weight-600" [@fadeInBlackText]>{{section_1_txt_3}}</div>
+  </div>
+</div>
+
+<div class="section_2 section">
+  <img src="../../../assets/images/landing-page/blocky.gif" alt="Blocky" id="blocky-gif">
+  <div class="section_2_right-container ">
+    <div class="section_2_right_top">
+      <div class="section_2_right_top_codelab" [@slideInRight_section2top]>
+        <span class="text_white text_size-49">{{section_2_txt_1}}</span>
+        <span class="text_black text_size-49">{{section_2_txt_2}}</span>
+      </div>
+      <div class="text_white text_size-21 section_2_right_top_bottom" [@slideInRight_section2top]>{{section_2_txt_3}}</div>
+    </div>
+    <div class="section_2_right_bottom">
+      <ul class="section_2_right_bottom_top">
+        <li *ngFor="let value of section_2_txt_4" class="text_white text_size-25" [@slideInRight_section2bottom]>
+          {{value}}
+        </li>
+      </ul>
+      <button class="trynow-btn text_white text_size-31 text_weight-bold" [@slideInRight_section2bottom] [routerLink]="['/edu']">{{section_2_txt_5}}</button>
+    </div>
+  </div>
+</div>
+
+<div class="section_3 section">
+  <div class="section_3_left">
+    <div class="section_3_left_container">
+      <img src="../../../assets/images/landing-page/blynk-logo.png" alt="Blynk Logo" [@fadeInBlynk]/>
+      <div class="section_3_left_container_middle">
+        <div class="text_mountain-meadow text_size-28 text_weight-600 text_overflow-hidden" [@typeWritingBlynk]>{{section_3_txt_1}}</div>
+        <div class="text_mountain-meadow text_size-28 text_overflow-hidden" [@typeWritingBlynk]>{{section_3_txt_2}}</div>
+      </div>
+      <div class="text_italic text_white text_size-23 text_weight-400" [@fadeInWhiteText]>{{section_3_txt_3}}</div>
+    </div>
+  </div>
+  <div class="section_3_right">
+    <img src="../../../assets/images/landing-page/blynk-device.png" alt="Blynk Device" [@slideInRight_image] />
+  </div>
+
+</div>
+
+<div class="section_4 section">
+  <img src="../../../assets/images/landing-page/board.png" alt="Board" [@rotate3DHardware]>
+  <div>
+    <div class="text_white text_size-48">{{section_4_txt_1}}</div>
+    <div class="section_4_right-container">
+      <ul>
+        <li *ngFor="let value of section_4_txt_2" class="text_white text_size-25">
+          {{value}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section_5 section">
+  <img src="../../../assets/images/landing-page/board.gif" alt="Board" class="gif">
+  <div class="section_5_right-container">
+    <div class="text_white text_size-48 text_weight-bold">{{section_5_txt_1}}</div>
+    <div class="text_white text_italic text_size-27">{{section_5_txt_2}}</div>
+  </div>
+</div>
