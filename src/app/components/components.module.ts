@@ -4,26 +4,38 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { EduComponent } from './edu/edu.component';
-import { SharedModule } from '../shared/shared.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CourseComponent } from './course/course.component';
+import { CourseContentComponent } from './course-content/course-content.component';
+import { CourseContentDetailComponent } from './course-content-detail/course-content-detail.component';
+import { LogoComponent } from './logo/logo.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     EduComponent,
     LandingPageComponent,
+    CourseComponent,
+    CourseContentComponent,
+    CourseContentDetailComponent,
+    LogoComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
-    SharedModule,
-    CommonModule
+    CommonModule,
+    MatExpansionModule
   ],
   providers: [],
   entryComponents: [],
   exports: [
     EduComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CourseComponent,
+    CourseContentComponent,
+    CourseContentDetailComponent,
+    LogoComponent,
   ],
 })
 export class ComponentsModule {
