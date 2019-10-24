@@ -12,6 +12,7 @@ import { CourseContentDetailComponent } from './course-content-detail/course-con
 import { LogoComponent } from './logo/logo.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { WordpressComponent } from './wordpress/wordpress.component';
+import { CodelabComponent } from './codelab/codelab.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { WordpressComponent } from './wordpress/wordpress.component';
     CourseContentDetailComponent,
     LogoComponent,
     WordpressComponent,
+    CodelabComponent,
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { WordpressComponent } from './wordpress/wordpress.component';
     CourseContentComponent,
     CourseContentDetailComponent,
     LogoComponent,
-    WordpressComponent
+    WordpressComponent,
+    CodelabComponent,
   ],
 })
 export class ComponentsModule {

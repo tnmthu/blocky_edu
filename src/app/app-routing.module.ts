@@ -4,6 +4,7 @@ import { EduComponent } from './components/edu/edu.component';
 import { CourseContentComponent } from './components/course-content/course-content.component';
 import { CourseContentDetailComponent } from './components/course-content-detail/course-content-detail.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { CodelabComponent } from './components/codelab/codelab.component';
 
 const routes: Routes = [
   {
