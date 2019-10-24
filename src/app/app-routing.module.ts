@@ -4,6 +4,7 @@ import { EduComponent } from './components/edu/edu.component';
 import { CourseContentComponent } from './shared/course-content/course-content.component';
 import { CourseContentDetailComponent } from './shared/course-content-detail/course-content-detail.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { CodelabComponent } from './components/codelab/codelab.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'course-content-detail',
     component: CourseContentDetailComponent,
   },
+  {
+    path: 'codelab',
+    component: CodelabComponent,
+  }
 ];
 
 @NgModule({
