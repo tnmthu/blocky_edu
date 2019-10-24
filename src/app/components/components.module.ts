@@ -31,7 +31,7 @@ import { CodelabComponent } from './codelab/codelab.component';
     HttpClientModule,
     BrowserModule,
     RouterModule,
-    MatExpansionModule
+    MatExpansionModule,
     MainPipeModule
   ],
   providers: [],
