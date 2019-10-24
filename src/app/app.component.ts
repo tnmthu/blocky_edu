@@ -12,7 +12,6 @@ export class AppComponent {
     
   }
 
-
   onClick() {
     this.buttonClicked = !this.buttonClicked;
   }

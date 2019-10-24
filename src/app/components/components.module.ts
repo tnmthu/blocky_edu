@@ -12,6 +12,7 @@ import { CourseContentDetailComponent } from './course-content-detail/course-con
 import { LogoComponent } from './logo/logo.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { WordpressComponent } from './wordpress/wordpress.component';
+import { MainPipeModule } from '../pipes/main-pipe.module';
 import { CodelabComponent } from './codelab/codelab.component';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CodelabComponent } from './codelab/codelab.component';
     BrowserModule,
     RouterModule,
     MatExpansionModule
+    MainPipeModule
   ],
   providers: [],
   entryComponents: [],
