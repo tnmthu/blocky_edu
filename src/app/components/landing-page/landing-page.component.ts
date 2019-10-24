@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeIn, slideInRight, typeWriting, rotate3D } from '../../shared/animation/animations';
+import { fadeIn, slideInRight, typeWriting, rotate3D } from '../animation/animations';
 
 @Component({
   selector: 'app-landing-page',
@@ -35,14 +35,14 @@ export class LandingPageComponent implements OnInit {
   section_3_txt_1 = "Intergrated with Blynk.";
   section_3_txt_2 = "World's most popular app for IoT devices.";
   section_3_txt_3 = "\"Blynk enable you to create the control interface easily. Since it is integrated, you only need to drag and drop blocks to create the interface. !\"";
-  
+
   section_4_txt_1 = "Controller";
   section_4_txt_2 = ['Built for Internet of Things.', 'Can connect to 8 Modules', 'Simplified design. *'];
 
   section_5_txt_1 = "Modules";
   section_5_txt_2 = "\"Every modules will add another features to the Controller. We have a shared ecosystem of over 200 modules.\"";
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
