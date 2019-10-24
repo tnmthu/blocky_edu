@@ -1,13 +1,1 @@
-<div class="container full-height" *ngIf="router.url !== '/'">
-  <button class="drawer edu__button" (click)="onClick()">Edu</button>
-  <div class="half-screen" *ngIf="buttonClicked">
-    <app-logo></app-logo>
-    <router-outlet></router-outlet>
-  </div>
-</div>
-
-
-<!-- Landing Page -->
-<div *ngIf="router.url === '/'">
-  <router-outlet></router-outlet>
-</div>
+<app-wordpress></app-wordpress>
