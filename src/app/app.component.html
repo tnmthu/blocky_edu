@@ -12,7 +12,76 @@
   <router-outlet></router-outlet>
 </div> -->
 <!-- <app-codelab ></app-codelab> -->
-<!-- <ngx-blockly (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly> -->
-<ngx-blockly [config]="config" [generatorConfig]="generatorConfig" (javascriptCode)="onCode($event)" (pythonCode)="onCode($event)"></ngx-blockly>
+
 <!-- <router-outlet></router-outlet> -->
 <!-- <app-wordpress></app-wordpress> -->
+
+
+<div flex layout = "row" id = "app-codelab">
+  <!-- <ngx-blockly (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly> -->
+<ngx-blockly [config]="config" [generatorConfig]="generatorConfig" (javascriptCode)="onCode($event)" (pythonCode)="onCode($event)"></ngx-blockly>
+</div>
+
+
+<!-- 
+<div flex layout="row" id="code-lab">
+    <div flex id="main-content" layout="column">
+        <div ng-include src="vm.blocklyToolbox"></div>
+        <div ng-include src="vm.blocklyWorkspace"></div>
+        <div flex id="blocklyDiv" style="position: absolute" ng-style="{'visibility': vm.script.mode ==='block'?'visible':'hidden'}"></div>
+        <div flex ui-ace="vm.pythonEditorOptions" ng-style="{'visibility': vm.script.mode ==='python'?'visible':'hidden'}" ng-model="vm.script.python"></div>
+    </div>
+
+    <md-sidenav flex-gt-sm="25" flex="30" id="side-bar" class="md-whiteframe-1dp md-sidenav-right" md-is-locked-open="vm.isSidenavOpen && $mdMedia('gt-xs')"
+        md-component-id="right">
+        <div flex layout="column" layout-padding>
+            <div layout="row" id="device-actions">
+                <div layout="row">
+                    <md-button ng-hide="true" ng-disabled="!vm.isUserLoaded || !vm.currentDevice" ng-click="vm.updateFirmware()" class="md-icon-button"
+                        aria-label="Device Menu">
+                        <md-tooltip md-direction="bottom">
+                            Update firmware to latest version
+                        </md-tooltip>
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    </md-button>
+                    <md-button ng-disabled="!vm.isUserLoaded || !vm.currentDevice" ng-click="vm.uploadScript('ota')"
+                        class="md-icon-button" aria-label="Device Menu">
+                        <md-tooltip md-direction="bottom">
+                            Send and save script. It will be run every time blocky starts.
+                        </md-tooltip>
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                    </md-button>
+                </div>
+                <md-select ng-model="vm.currentDevice" placeholder="Select a device" class="md-no-underline" ng-disabled="vm.otaInProgress">
+                    <md-option ng-repeat="device in vm.devices | orderBy:'name'" ng-value="device">
+                        <i ng-class="device.status ? 'fa fa-circle device-online' : 'fa fa-circle device-offline'"
+                        aria-hidden="true"></i> {{device.name}}
+                    </md-option>
+                </md-select>
+
+                <md-button ng-show="vm.isUserLoaded" ng-click="vm.reloadLoadUserDevices()" class="md-icon-button"
+                    aria-label="Reload Device">
+                    <md-tooltip md-direction="bottom">
+                        Reload devices
+                    </md-tooltip>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </md-button>
+            </div>
+            <md-card flex id="device-log">
+                <md-toolbar class="md-primary md-hue-1">
+                    <md-card-header layout="row" layout-align="center">
+                        <md-card-header-text flex>
+                            <span class="md-title">Device Log</span>
+                        </md-card-header-text>
+                        <md-button aria-label="Clear Log" ng-click="vm.clearDeviceLog()">
+                            <i class="fa fa-ban" aria-hidden="true"></i>
+                        </md-button>
+                    </md-card-header>
+                </md-toolbar>
+                <md-card-content flex>
+                    <p ng-bind-html="vm.currentLog"></p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-sidenav>
+</div> -->
