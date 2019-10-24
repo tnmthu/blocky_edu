@@ -30,21 +30,48 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/blockly/blockly.js",
-              "node_modules/blockly/blocks.js",
-              "node_modules/blockly/msg/en.js",
-              "src/assets/blockly/custom_blocks.js"
+              "src/pxt-blockly/Global.js",
+              "src/pxt-blockly/blockly_compressed.js",
+              "src/pxt-blockly/blocks_compressed.js",
+              "src/pxt-blockly/python_compressed.js",
+              "src/pxt-blockly/msg/js/en.js",
+              "src/pxt-blockly/msg/js/en-gb.js",
+              "src/pxt-blockly/core/options.js",
+              "src/pxt-blockly/core/field_dropdown.js",
+              "src/pxt-blockly/__const__.js",
+              "src/pxt-blockly/closure-library/closure/goog/ui/tree/treecontrol.js",
+              "src/pxt-blockly/core/colours.js",
+              "src/pxt-blockly/core/variables.js",
+              "src/pxt-blockly/core/css.js",
+              "src/pxt-blockly/core/toolbox.js",
+              "src/pxt-blockly/core/blockly.js",
+              "src/pxt-blockly/core/generator.js",
+              "src/pxt-blockly/core/events.js",
+              "src/pxt-blockly/core/gesture.js",
+              "src/pxt-blockly/generators/python.js",
+              "src/pxt-blockly/generators/python/colour.js",
+              "src/pxt-blockly/generators/python/lists.js",
+              "src/pxt-blockly/generators/python/logic.js",
+              "src/pxt-blockly/generators/python/loops.js",
+              "src/pxt-blockly/generators/python/math.js",
+              "src/pxt-blockly/generators/python/procedures.js",
+              "src/pxt-blockly/generators/python/text.js",
+              "src/pxt-blockly/generators/python/variables_dynamic.js",
+              "src/pxt-blockly/generators/python/variables.js",
+              "src/pxt-blockly/__controller__.js",
+              "src/pxt-blockly/__template__.js",
+              "src/pxt-blockly/__blocks__.js",
+              "src/pxt-blockly/__widget__.js",
+              "src/pxt-blockly/__python__.js"
             ],
             "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -54,13 +81,11 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }]
             }
           }
         },
