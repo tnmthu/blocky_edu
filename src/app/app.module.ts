@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPipeModule } from './pipes/main-pipe.module';
 
 import { NgxBlocklyModule } from 'ngx-blockly';
-
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,5 +25,6 @@ import { NgxBlocklyModule } from 'ngx-blockly';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
