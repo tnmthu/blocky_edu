@@ -6,11 +6,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EduComponent } from './edu/edu.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CodebaseComponent } from './codebase/codebase.component';
 
 @NgModule({
   declarations: [
     EduComponent,
     LandingPageComponent,
+    CodebaseComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   entryComponents: [],
   exports: [
     EduComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CodebaseComponent
   ],
 })
 export class ComponentsModule {
