@@ -62,7 +62,12 @@
               "src/pxt-blockly/__template__.js",
               "src/pxt-blockly/__blocks__.js",
               "src/pxt-blockly/__widget__.js",
-              "src/pxt-blockly/__python__.js"
+              "src/pxt-blockly/__python__.js",
+
+              "node_modules/ngx-blockly/scripts/blockly/blockly_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/blocks_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/python_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/msg/js/en.js"
             ],
             "es5BrowserSupport": true
           },

@@ -8,6 +8,8 @@ import { ComponentsModule } from './components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPipeModule } from './pipes/main-pipe.module';
 
+import { NgxBlocklyModule } from 'ngx-blockly';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,8 @@ import { MainPipeModule } from './pipes/main-pipe.module';
     AppRoutingModule,
     ComponentsModule,
     BrowserAnimationsModule,
-    MainPipeModule
+    MainPipeModule,
+    NgxBlocklyModule
   ],
   providers: [],
   bootstrap: [AppComponent],
