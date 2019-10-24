@@ -30,9 +30,9 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/blockly/blockly_compressed.js",
-              "node_modules/blockly/blocks_compressed.js",
-              "node_modules/blockly/msg/js/en.js",
+              "node_modules/blockly/blockly.js",
+              "node_modules/blockly/blocks.js",
+              "node_modules/blockly/msg/en.js",
               "src/assets/blockly/custom_blocks.js"
             ],
             "es5BrowserSupport": true

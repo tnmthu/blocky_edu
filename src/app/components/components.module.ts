@@ -6,13 +6,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { EduComponent } from './edu/edu.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { CodebaseComponent } from './codebase/codebase.component';
+import { CodelabComponent } from './codelab/codelab.component';
 
 @NgModule({
   declarations: [
     EduComponent,
     LandingPageComponent,
-    CodebaseComponent,
+    CodelabComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +26,6 @@ import { CodebaseComponent } from './codebase/codebase.component';
   exports: [
     EduComponent,
     LandingPageComponent,
-    CodebaseComponent
   ],
 })
 export class ComponentsModule {
