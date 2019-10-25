@@ -1,0 +1,20 @@
+<footer class="footer">
+    <button class="change_mode" (click)="changeMode()">
+        <i class="material-icons">
+            {{ mode.icon }}
+        </i>
+        {{ mode.text }}
+    </button>
+
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Project's name"></textarea>
+    </mat-form-field>
+
+    <button class="btn_op" onclick="">Save</button>
+    <button class="btn_op" onclick="">New</button>
+    <button class="btn_op" onclick="">Open</button>
+    <button class="btn_op" onclick="">Download</button>
+
+    <button class="btn_show"></button>
+
+</footer>

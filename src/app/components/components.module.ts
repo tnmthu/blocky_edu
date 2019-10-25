@@ -11,6 +11,8 @@ import { CourseContentComponent } from "./course-content/course-content.componen
 import { CourseContentDetailComponent } from "./course-content-detail/course-content-detail.component";
 import { LogoComponent } from "./logo/logo.component";
 import { MatExpansionModule } from "@angular/material/expansion";
+import {MatInputModule} from '@angular/material/input';
+
 import { WordpressComponent } from "./wordpress/wordpress.component";
 import { MainPipeModule } from "../pipes/main-pipe.module";
 import { CodelabComponent } from "./codelab/codelab.component";
@@ -38,6 +40,7 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     MatExpansionModule,
     MainPipeModule,
     NgxBlocklyModule,
+    MatInputModule
   ],
   providers: [],
   entryComponents: [],
@@ -49,7 +52,8 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     CourseContentDetailComponent,
     LogoComponent,
     WordpressComponent,
-    CodelabComponent
+    CodelabComponent,
+    CodelabFooterComponent
   ]
 })
 export class ComponentsModule {}

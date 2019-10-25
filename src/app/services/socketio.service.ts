@@ -16,7 +16,7 @@
     db.project.profile
     db.user.profile
 
-*/
+
 
 
 
@@ -284,3 +284,4 @@ export class ChatComponent implements OnInit, AfterViewInit {
     this.socketService.send(message);
   }
 }
+*/
