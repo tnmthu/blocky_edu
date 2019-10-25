@@ -993,7 +993,7 @@ Blockly.Blocks['pxt.xpath.requestData'] = {
                 ['EMPTY', 'EMPTY']
             ]), 'RESULT');
         this.__dict__ = {};
-        updateResult = function (result) {
+        function updateResult (result) {
             this.setFieldValue(result, 'result');
         };
         this.setOnChange(function (change) {

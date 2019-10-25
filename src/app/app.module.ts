@@ -13,6 +13,7 @@ import { ToolboxService } from './services/toolbox.service';
 import { CodelabControllerDirective } from './codelab-controller.directive';
 import { CodelabHeaderComponent } from './components/codelab-header/codelab-header.component';
 
+// import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { CodelabHeaderComponent } from './components/codelab-header/codelab-head
     BrowserAnimationsModule,
     MainPipeModule,
     NgxBlocklyModule,
+    // SweetAlert2Module.forRoot()
   ],
   providers: [
     ToolboxService,

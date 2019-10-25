@@ -22,22 +22,19 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": [
-              // "node_modules/ngx-blockly/scripts/blockly/blockly_compressed.js",
-              // "node_modules/ngx-blockly/scripts/blockly/blocks_compressed.js",
-              // "node_modules/ngx-blockly/scripts/blockly/python_compressed.js",
-              // "node_modules/ngx-blockly/scripts/blockly/msg/js/en.js",
+              "node_modules/ngx-blockly/scripts/blockly/blockly_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/blocks_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/python_compressed.js",
+              "node_modules/ngx-blockly/scripts/blockly/msg/js/en.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
               "src/pxt-blockly/Global.js",
               "src/pxt-blockly/blockly_compressed.js",
               "src/pxt-blockly/blocks_compressed.js",
               "src/pxt-blockly/python_compressed.js",
+              "src/pxt-blockly/core/xml.js",
               "src/pxt-blockly/msg/js/en.js",
               "src/pxt-blockly/msg/js/en-gb.js",
               "src/pxt-blockly/core/options.js",
@@ -66,18 +63,18 @@
               "src/pxt-blockly/__template__.js",
               "src/pxt-blockly/__blocks__.js",
               "src/pxt-blockly/__widget__.js",
-              "src/pxt-blockly/__python__.js",
-
-              
+              "src/pxt-blockly/__python__.js"
             ],
             "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -87,11 +84,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -119,26 +118,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -164,9 +153,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

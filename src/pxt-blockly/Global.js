@@ -15,7 +15,7 @@ var Global = {};
 		delete , change , create 
 	Update : Now uses parser from xml to json 
 */
-
+var codelab = null ; // Overwrite this from Angular
 
 
 //------------------------------------------------------

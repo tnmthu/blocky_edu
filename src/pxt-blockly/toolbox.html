@@ -1,118 +1,1101 @@
 <xml id="toolbox" style="display: none">
-        <category name = "CODELAB">
-            <label text="Face Recognition"></label>
-            <button text="Add a face :D" callbackKey="buzzerKeyboardTrigger"></button>
-            <block type = "pxt.codelab.face"></block>
+  <category name="CODELAB">
+    <label text="Face Recognition"></label>
+    <button text="Add a face :D" callbackKey="buzzerKeyboardTrigger"></button>
+    <block type="pxt.codelab.face"></block>
+
+    <label text="Voice Recognition"></label>
+    <button text="Add a phrase" callbackKey="buzzerKeyboardTrigger"></button>
+    <block type="pxt.codelab.voice"></block>
+
+    <label text="Emotion Recognition"></label>
+    <block type="pxt.codelab.emotion"></block>
+    <block type="pxt.blynk.virtualWrite">
+      <value name="MAIN">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.node.trigger"></block>
+    <block type="pxt.node.waitfor"></block>
+
+  </category>
+  <category name="INPUT" colour="%{BKY_TOOLBOX_INPUT_SOURCE}" icon="fa-dot-circle-o">
+    <category name="BUTTON" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-hand-o-up">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">BUTTON</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.button.onClick"></block>
+      <block type="pxt.button.getState"></block>
+      <block type="pxt.demo.voiceRecognition"></block>
+      <block type="pxt.demo.faceRecognition"></block>
+      <block type="pxt.demo.emotion"></block>
+    </category>
+    <category name="SOUND" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-signing">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">SOUND</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.sound.onClap"></block>
+    </category>
+    <category name="SLIDER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-sliders">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">SLIDER</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.slider.getValue"></block>
+    </category>
+    <category name="WEATHER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-thermometer">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">WEATHER</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.weather.getValue">
+        <field name="MODE">temperature</field>
+      </block>
+      <block type="pxt.weather.getValue">
+        <field name="MODE">humidity</field>
+      </block>
+
+    </category>
+
+    <category name="LIGHT" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-lightbulb-o">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">LIGHT</field>
+      </block>
+      <label text="Usage"></label>
+
+      <block type="pxt.light.getValue"></block>
+    </category>
+    <category name="MOTION" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-blind">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">MOTION</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.motion.onDetect">
+      </block>
+
+
+
+    </category>
+    <category name="DISTANCE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-arrows-h">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">DISTANCE</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.distance.getValue"></block>
+    </category>
+    <category name="MOISTURE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-tint">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">MOISTURE</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.moisture.getValue"></block>
+    </category>
+    <!-- <category name="TOUCH">
+                <block type="mpr121-event"></block>
+            </category> -->
+    <category name="REMOTE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-podcast">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">REMOTE</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.remote.onPress"></block>
+      <!-- <block type="rfreceiver_message"></block>
+                <label text=""></label>
+                <label text="Example Application"></label>
+                <block type="controls_if">
+                    <value name="IF0">
     
-            <label text="Voice Recognition"></label>
-            <button text="Add a phrase" callbackKey="buzzerKeyboardTrigger"></button>
-            <block type = "pxt.codelab.voice"></block>
-            
-            <label text="Emotion Recognition"></label>
-            <block type = "pxt.codelab.emotion"></block>
-            <block type="pxt.blynk.virtualWrite">
-                <value name="MAIN">
+                        <shadow type="logic_compare">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                                <shadow type="rfreceiver_message"></block>
+                            </value>
+                            <value name="B">
+                                <shadow type="rfreceiver_message_dropdown"></block>
+                            </value>
+                        </shadow>
+    
+                    </value>
+                </block> -->
+    </category>
+  </category>
+  <category name="ACTION" colour="%{BKY_TOOLBOX_OUTPUT_SOURCE}" icon="fa-gamepad">
+    <category name="SPEECH" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-wechat">
+      <block type="pxt.gtts.say">
+        <value name="MAIN">
+          <shadow type="text">
+            <field name="TEXT">Hello World</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="pxt.gtts.say">
+        <value name="MAIN">
+          <shadow type="text_join">
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <category name="PIXEL" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-lightbulb-o">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">PIXEL</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.pixel.setColour">
+        <value name="MAIN">
+          <shadow type="pxt.dropdown.onoff"></shadow>
+        </value>
+      </block>
+      <block type="pxt.pixel.setColour">
+        <value name="MAIN">
+          <shadow type="colour_picker"></shadow>
+        </value>
+      </block>
+    </category>
+    <category name="RELAY" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-flash">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">RELAY</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.relay.setValue">
+        <value name="MAIN">
+          <shadow type="pxt.dropdown.onoff">
+          </shadow>
+        </value>
+      </block>
+    </category>
+
+
+    <category name="BUZZER" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-bell">
+      <!-- <button text="Create your song now !" callbackKey="buzzerKeyboardTrigger"></button> -->
+
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">BUZZER</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.buzzer.setValue">
+        <value name="MAIN">
+          <shadow type="pxt.dropdown.onoff">
+          </shadow>
+        </value>
+      </block>
+      <block type="pxt.buzzer.beep">
+        <value name="MAIN">
+          <shadow type="math_number">
+          </shadow>
+        </value>
+
+      </block>
+      <block type="pxt.buzzer.playMelody">
+      </block>
+      <block type="pxt.buzzer.playNote">
+      </block>
+      <block type="pxt.buzzer.playFrequency">
+        <value name="MAIN">
+          <shadow type="math_number">
+            <!-- <field name="NUM">3000</field> -->
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <!-- <category name="MP3">
+                <block type="music-set-play"></block>
+                <block type="music-set-volume"></block>
+                <block type="music-set-stop"></block>
+                <block type="music-set-pause"></block>
+            </category> -->
+    <category name="INFRARED" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-sun-o">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">INFRARED</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.infrared.learn">
+        <value name="MAIN">
+          <shadow type="text">
+            <field name="TEXT">Turn On</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="pxt.infrared.send">
+        <value name="MAIN">
+          <shadow type="text">
+            <field name="TEXT">Turn On</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+
+    <!-- <category name="MOTOR">
+                <block type = "pxt.motor.setValue">
+    
+                </block>
+            </category> -->
+    <category name="SERVO" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-steam">
+      <label text="Connection"></label>
+      <block type="pxt.core.portDeclare">
+        <field name="MODULE">SERVO</field>
+      </block>
+      <label text="Usage"></label>
+      <block type="pxt.servo.setAngle">
+        <value name="MAIN">
+          <shadow type="math_number">
+
+          </shadow>
+        </value>
+      </block>
+      <!-- <block type="pxt.servo.setAngle">
+                    <value name="MAIN">
+                        <shadow type="pxt.field.angle">
+    
+                        </shadow>
+                    </value>
+                </block> -->
+
+    </category>
+    <!-- <category name="LED">
+                <block type="led-set">
+                    <value name="MAIN">
+                        <shadow type="state_output">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="led-fade">
+                    <value name="MAIN">
+                        <shadow type="led_pwm_output">
+                        </shadow>
+                    </value>
+                </block>
+            </category> -->
+  </category>
+
+  <category name="DISPLAY" colour="%{BKY_TOOLBOX_DISPLAY_SOURCE}" icon="fa-tv">
+    <!-- <category name="LCD" colour = "%{BKY_TOOLBOX_DISPLAY}"> -->
+    <label text="Connection"></label>
+    <block type="pxt.core.portDeclare">
+      <field name="MODULE">LCD</field>
+    </block>
+    <label text="Usage"></label>
+    <block type="pxt.lcd.display">
+      <value name="LEFT">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+      <value name="RIGHT">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.lcd.clear">
+    </block>
+    <block type="pxt.lcd.backlight">
+      <value name="MAIN">
+        <shadow type="pxt.dropdown.onoff"></shadow>
+      </value>
+    </block>
+    <!-- </category> -->
+    <!-- 
+            <category name="RGB">
+                <block type="rgb-set-multiple">
+                    <value name="COLOUR">
+                        <shadow type="rgb_colour">
+                        </shadow>
+                    </value>
+                    <value name="MAIN">
+                        <shadow type="display_number">
+                        </shadow>
+                    </value>
+                    <value name="TO">
+                        <shadow type="display_number">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="indicator_set_multiple">
+                    <value name="COLOUR">
+                        <shadow type="rgb_colour">
+                        </shadow>
+                    </value>
+                    <value name="MAIN">
+                        <shadow type="display_number">
+                        </shadow>
+                    </value>
+                    <value name="TO">
+                        <shadow type="display_number">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="indicator_set_single">
+                    <value name="COLOUR">
+                        <shadow type="rgb_colour">
+                        </shadow>
+                    </value>
+                    <value name="MAIN">
+                        <shadow type="display_number">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="rgb_brightness">
+                </block>
+            </category> -->
+  </category>
+  <category name="BLYNK" colour="%{BKY_TOOLBOX_APP}" icon="fa-bold">
+    <label text="Project Settings"></label>
+    <block type="pxt.widget.tab">
+      <value name="NAME">
+        <shadow type="text">
+          <value name="TEXT">My Tab</value>
+        </shadow>
+      </value>
+    </block>
+
+
+    <category name="INPUT" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
+      <category name="BUTTON" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.button.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.button.onEvent"></block>
+      </category>
+      <category name="SLIDER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.slider.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.slider.getValue"></block>
+      </category>
+      <category name="STEP" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.step.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.step.getValue"></block>
+      </category>
+      <category name="JOYSTICK" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.joystick.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.joystick.getValue"></block>
+      </category>
+    </category>
+    <category name="DISPLAY" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
+      <category name="NUMBER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.number.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="PREFIX">
+            <block type="text">
+              <field name="TEXT">℃</field>
+
+            </block>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.number.setValue">
+          <value name="VALUE">
+            <shadow type="math_number"></shadow>
+          </value>
+        </block>
+      </category>
+      <category name="LED" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.led.declare">
+          <value name="WIDGETNAME">
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.led.setValue">
+          <value name="VALUE">
+            <shadow type="colour_picker"></shadow>
+          </value>
+        </block>
+      </category>
+      <category name="GAUGE" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.gauge.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.gauge.setValue">
+          <value name="VALUE">
+            <shadow type="math_number">
+
+            </shadow>
+          </value>
+        </block>
+
+      </category>
+      <category name="TERMINAL" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.terminal.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.terminal.setValue">
+          <value name="VALUE">
+            <shadow type="text">
+
+            </shadow>
+          </value>
+        </block>
+      </category>
+      <category name="CHART" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+        <label text="Config"></label>
+        <block type="pxt.widget.superchart.declare">
+          <value name="WIDGETNAME">x
+            <shadow type="text">
+              <field name="TEXT">My Widget</field>
+            </shadow>
+          </value>
+          <value name="COLOUR">
+            <shadow type="colour_picker">
+            </shadow>
+          </value>
+        </block>
+        <block type="pxt.widget.superchart.channel.declare">
+          <value name="WIDGETNAME">
+            <block type="text"></block>
+          </value>
+          <value name="COLOUR">
+            <block type="colour_picker"></block>
+          </value>
+          <!-- <value name = "MIN">
+                            <block type = "math_number"></block>
+                        </value>
+                        <value name = "MAX">
+                            <block type ="math_number">
+    
+                            </block>
+                        </value> -->
+
+
+        </block>
+        <label text="Usage"></label>
+        <block type="pxt.widget.superchart.setValue">
+          <value name="VALUE">
+            <shadow type="math_number"></shadow>
+          </value>
+        </block>
+
+      </category>
+
+
+
+
+      <!-- <block type="pxt.widget.led.display">
+                    <value name="VALUE">
+                        <shadow type="pxt.dropdown.onoff">
+                        </shadow>
+                    </value>
+                </block>
+                <block type="pxt.widget.gauge.display">
+                    <value name="VALUE">
+                        <shadow type="math_number">
+                        </shadow>
+                    </value>
+                </block> -->
+    </category>
+    <!-- <category name="OTHERS" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
+                <label text="Notification"></label>
+                <label text="Email"></label>
+                <label text="Webhool"></label>
+            </category> -->
+  </category>
+  <category name="NETWORK" colour="%{BKY_TOOLBOX_NETWORK}" icon="fa-rss">
+    <label text="Blynk Appp"></label>
+    <block type="pxt.blynk.onReceive"></block>
+    <block type="pxt.blynk.onRequest">
+      <value name="VALUE">
+        <shadow type="text">
+
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.blynk.virtualWrite">
+      <value name="MAIN">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.blynk.notify">
+      <value name="MAIN">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.blynk.email">
+      <value name="EMAIL">
+        <shadow type="text">
+          <field name="TEXT">yourmail@gmail.com</field>
+        </shadow>
+      </value>
+      <value name="SUBJECT">
+        <shadow type="text">
+          <field name="TEXT">Your Subject</field>
+        </shadow>
+      </value>
+      <value name="CONTENT">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.blynk.log">
+      <value name="MAIN">
+        <shadow type="text">
+          <field name="TEXT"> </field>
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.blynk.getMessage"></block>
+    <!-- <block type="pxt.blynk.getMessageIteration"></block> -->
+    <label text="IFTTT"></label>
+    <block type="pxt.ifttt.setKey">
+      <value name="MAIN">
+        <shadow type="text">
+
+        </shadow>
+      </value>
+    </block>
+    <block type="pxt.ifttt.trigger">
+      <value name="MAIN">
+        <shadow type="text">
+
+        </shadow>
+      </value>
+    </block>
+    <label text="XPATH"></label>
+    <block type="pxt.xpath.requestData">
+      <value name="URL">
+        <shadow type="text">
+          <!-- <field name  = "TEXT">https://www.facebook.com/uii.ueh.edu.vn/</field> -->
+
+        </shadow>
+      </value>
+      <value name="XPATH">
+        <shadow type="text">
+
+
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="TIMER" colour="%{BKY_TOOLBOX_TIMER}" icon="fa-clock-o">
+    <!-- <block type="timer-event-repeat"></block>
+            <block type="timer-event-alarm"></block>
+            <block type="timer-wait"></block>
+            <block type="timer-runtime"></block>
+            <block type="timer-ntp"></block>
+            <label text = "Advanced" ></label>
+            <block type="rtc-sync"></block> -->
+
+    <block type="pxt.timer.createTask">
+      <!-- <value name = "MAIN">
+                    <shadow type = "pxt.dropdown.timeselect">
+    
+                    </shadow>
+                </value> -->
+    </block>
+    <block type="pxt.timer.wait">
+      <value name="MAIN">
+        <shadow type="pxt.dropdown.timeselect"></shadow>
+      </value>
+    </block>
+    <block type="pxt.timer.runtime">
+
+    </block>
+    <block type="pxt.timer.createAlarm"></block>
+    <block type="pxt.timer.ntp.get"></block>
+  </category>
+  <category name="LOOPS" colour="%{BKY_LOOPS_HUE}" icon="fa-repeat">
+    <block type="controls_repeat_ext">2
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_whileUntil">
+      <field name="MODE">WHILE</field>
+    </block>
+    <block type="controls_for">
+      <field name="VAR" id="p(1APX:tPbR@_S=dKwsa" variabletype="">i</field>
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">10</field>
+        </shadow>
+      </value>
+      <value name="BY">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_forEach">
+      <field name="VAR" id="LV!pxm=y2ER5K*iRn=gY" variabletype="">j</field>
+    </block>
+    <block type="controls_flow_statements">
+      <field name="FLOW">BREAK</field>
+    </block>
+  </category>
+  <category name="LOGIC" colour="%{BKY_LOGIC_HUE}" icon="fa-random">
+    <block type="controls_if">
+      <value name="IF0">
+        <shadow type="logic_compare">
+          <field name="OP">EQ</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="controls_if"></block>
+    <block type="logic_compare">
+      <field name="OP">EQ</field>
+    </block>
+    <block type="logic_operation">
+      <field name="OP">AND</field>
+    </block>
+    <block type="logic_negate"></block>
+    <block type="logic_boolean">
+      <field name="BOOL">TRUE</field>
+    </block>
+  </category>
+  <category name="VARIABLES" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}" icon="fa-vine"> </category>
+  <category name="MATH" colour="%{BKY_MATH_HUE}" icon="fa-calculator">
+    <block type="math_number">
+      <field name="NUM">123</field>
+    </block>
+    <block type="math_arithmetic"></block>
+    <block type="math_single"></block>
+    <block type="math_trig"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_constrain">
+      <value name="LOW">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="HIGH">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_int">
+      <value name="FROM">
+        <shadow type="math_number">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+      <value name="TO">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="math_random_float"></block>
+    <block type="pxt.math.map">
+      <value name="FROMLOW">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="FROMHIGH">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+      <value name="TOLOW">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="TOHIGH">
+        <shadow type="math_number">
+          <field name="NUM">1000</field>
+        </shadow>
+      </value>
+      <value name="NUM">
+        <shadow type="math_number">
+          <field name="NUM">20</field>
+        </shadow>
+      </value>
+    </block>
+  </category>
+  <category name="TEXT" colour="%{BKY_TEXTS_HUE}" icon="fa-text-width">
+    <block type="text"></block>
+    <block type="text_join"></block>
+    <block type="text_append">
+      <value name="TEXT">
+        <shadow type="text"></shadow>
+      </value>
+    </block>
+    <block type="text_length">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_isEmpty">
+      <value name="VALUE">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_indexOf">
+      <value name="VALUE">
+        <shadow type="variables_get">
+          <field name="VAR">text</field>
+        </shadow>
+      </value>
+      <value name="FIND">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_charAt">
+      <value name="VALUE">
+        <shadow type="variables_get">
+          <field name="VAR">text</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_getSubstring">
+      <value name="STRING">
+        <shadow type="variables_get">
+          <field name="VAR">text</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_changeCase">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="text_trim">
+      <value name="TEXT">
+        <shadow type="text">
+          <field name="TEXT">abc</field>
+        </shadow>
+      </value>
+    </block>
+    <!-- <block type="text_print">
+                <value name="TEXT">
                     <shadow type="text">
-                        <field name="TEXT"> </field>
+                        <field name="TEXT">abc</field>
                     </shadow>
                 </value>
             </block>
-            <block type = "pxt.node.trigger"></block>
-            <block type = "pxt.node.waitfor"></block>
-            
-        </category>
-        <category name="INPUT" colour="%{BKY_TOOLBOX_INPUT_SOURCE}" icon="fa-dot-circle-o">
+            <block type="text_prompt_ext">
+                <value name="TEXT">
+                    <shadow type="text">
+                        <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+            </block> -->
+  </category>
+  <sep></sep>
+  <category name="ADVANCED" colour="#000000" icon="fa-plus-circle">
+    <!-- <category name="DICTIONARY" colour=100>
+                <block type="dicts_create_with_container"></block>
+                <block type="dicts_create_with_item"></block>
+                <block type="dicts_create_with"></block>
+                <block type="dict_get"></block>
+            </category>
+            <category name="JSON" colour=100></category>
+            <category name="STORAGE" colour=100>
+                <category name="CSV" colour=50>
+                    <shadow type="pxt.csv.newData"></block>
+                    <shadow type="pxt.csv.setDataField"></block>
+                    <shadow type="pxt.csv.createFile">
+                        <value name="FILENAME">
+                            <shadow type="text">
+                                <field name="TEXT">My CSV File</field>
+                            </shadow>
+                        </value>
+                        <value name="ATTRIBUTES">
+                            <shadow type="text">
+    
+                            </shadow>
+                        </value>
+                    </shadow>
+                </category>
+                <category name="FILE" colour=50></category>
+            </category>
+            <category name="CONNECTION" colour=100>
+                <category name="BLUETOOTH"></category>
+                <category name="LORA"></category>
+                <category name="GSM"></category>
+                <category name="SMS"></category>
+            </category> -->
+
+    <category name="ARRAYS" colour="%{BKY_LISTS_HUE}" icon="fa-database">
+      <block type="lists_create_with">
+        <mutation items="3"></mutation>
+      </block>
+      <block type="lists_indexOf">
+        <field name="END">FIRST</field>
+        <value name="VALUE">
+          <shadow type="variables_get">
+            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_getIndex">
+        <mutation statement="false" at="true"></mutation>
+        <field name="MODE">GET</field>
+        <field name="WHERE">FROM_START</field>
+        <value name="VALUE">
+          <shadow type="variables_get">
+            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <mutation at="true"></mutation>
+        <field name="MODE">SET</field>
+        <field name="WHERE">FROM_START</field>
+        <value name="LIST">
+          <shadow type="variables_get">
+            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <mutation at1="true" at2="true"></mutation>
+        <field name="WHERE1">FROM_START</field>
+        <field name="WHERE2">FROM_START</field>
+        <value name="LIST">
+          <shadow type="variables_get">
+            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+          </shadow>
+        </value>
+        <xml id="toolbox" style="display: none">
+          <category name="CODELAB">
+            <label text="Face Recognition"></label>
+            <button text="Add a face :D" callbackKey="buzzerKeyboardTrigger"></button>
+            <block type="pxt.codelab.face"></block>
+
+            <label text="Voice Recognition"></label>
+            <button text="Add a phrase" callbackKey="buzzerKeyboardTrigger"></button>
+            <block type="pxt.codelab.voice"></block>
+
+            <label text="Emotion Recognition"></label>
+            <block type="pxt.codelab.emotion"></block>
+            <block type="pxt.blynk.virtualWrite">
+              <value name="MAIN">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
+            </block>
+            <block type="pxt.node.trigger"></block>
+            <block type="pxt.node.waitfor"></block>
+
+          </category>
+          <category name="INPUT" colour="%{BKY_TOOLBOX_INPUT_SOURCE}" icon="fa-dot-circle-o">
             <category name="BUTTON" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-hand-o-up">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">BUTTON</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.button.onClick"></block>
-                <block type="pxt.button.getState"></block>
-                <block type= "pxt.demo.voiceRecognition"></block>
-                <block type= "pxt.demo.faceRecognition"></block>
-                <block type= "pxt.demo.emotion"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">BUTTON</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.button.onClick"></block>
+              <block type="pxt.button.getState"></block>
+              <block type="pxt.demo.voiceRecognition"></block>
+              <block type="pxt.demo.faceRecognition"></block>
+              <block type="pxt.demo.emotion"></block>
             </category>
             <category name="SOUND" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-signing">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SOUND</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.sound.onClap"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">SOUND</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.sound.onClap"></block>
             </category>
             <category name="SLIDER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-sliders">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SLIDER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.slider.getValue"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">SLIDER</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.slider.getValue"></block>
             </category>
             <category name="WEATHER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-thermometer">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">WEATHER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.weather.getValue">
-                    <field name="MODE">temperature</field>
-                </block>
-                <block type="pxt.weather.getValue">
-                    <field name="MODE">humidity</field>
-                </block>
-    
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">WEATHER</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.weather.getValue">
+                <field name="MODE">temperature</field>
+              </block>
+              <block type="pxt.weather.getValue">
+                <field name="MODE">humidity</field>
+              </block>
+
             </category>
-    
+
             <category name="LIGHT" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-lightbulb-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">LIGHT</field>
-                </block>
-                <label text="Usage"></label>
-    
-                <block type="pxt.light.getValue"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">LIGHT</field>
+              </block>
+              <label text="Usage"></label>
+
+              <block type="pxt.light.getValue"></block>
             </category>
             <category name="MOTION" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-blind">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">MOTION</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.motion.onDetect">
-                </block>
-    
-    
-    
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">MOTION</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.motion.onDetect">
+              </block>
+
+
+
             </category>
             <category name="DISTANCE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-arrows-h">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">DISTANCE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.distance.getValue"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">DISTANCE</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.distance.getValue"></block>
             </category>
             <category name="MOISTURE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-tint">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">MOISTURE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.moisture.getValue"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">MOISTURE</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.moisture.getValue"></block>
             </category>
             <!-- <category name="TOUCH">
                 <block type="mpr121-event"></block>
             </category> -->
             <category name="REMOTE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-podcast">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">REMOTE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.remote.onPress"></block>
-                <!-- <block type="rfreceiver_message"></block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">REMOTE</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.remote.onPress"></block>
+              <!-- <block type="rfreceiver_message"></block>
                 <label text=""></label>
                 <label text="Example Application"></label>
                 <block type="controls_if">
@@ -131,87 +1114,87 @@
                     </value>
                 </block> -->
             </category>
-        </category>
-        <category name="ACTION" colour="%{BKY_TOOLBOX_OUTPUT_SOURCE}" icon="fa-gamepad">
+          </category>
+          <category name="ACTION" colour="%{BKY_TOOLBOX_OUTPUT_SOURCE}" icon="fa-gamepad">
             <category name="SPEECH" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-wechat">
-                <block type="pxt.gtts.say">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Hello World</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.gtts.say">
-                    <value name="MAIN">
-                        <shadow type="text_join">
-                        </shadow>
-                    </value>
-                </block>
+              <block type="pxt.gtts.say">
+                <value name="MAIN">
+                  <shadow type="text">
+                    <field name="TEXT">Hello World</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="pxt.gtts.say">
+                <value name="MAIN">
+                  <shadow type="text_join">
+                  </shadow>
+                </value>
+              </block>
             </category>
             <category name="PIXEL" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-lightbulb-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">PIXEL</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.pixel.setColour">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff"></shadow>
-                    </value>
-                </block>
-                <block type="pxt.pixel.setColour">
-                    <value name="MAIN">
-                        <shadow type="colour_picker"></shadow>
-                    </value>
-                </block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">PIXEL</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.pixel.setColour">
+                <value name="MAIN">
+                  <shadow type="pxt.dropdown.onoff"></shadow>
+                </value>
+              </block>
+              <block type="pxt.pixel.setColour">
+                <value name="MAIN">
+                  <shadow type="colour_picker"></shadow>
+                </value>
+              </block>
             </category>
             <category name="RELAY" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-flash">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">RELAY</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.relay.setValue">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff">
-                        </shadow>
-                    </value>
-                </block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">RELAY</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.relay.setValue">
+                <value name="MAIN">
+                  <shadow type="pxt.dropdown.onoff">
+                  </shadow>
+                </value>
+              </block>
             </category>
-    
-    
+
+
             <category name="BUZZER" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-bell">
-                <!-- <button text="Create your song now !" callbackKey="buzzerKeyboardTrigger"></button> -->
-    
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">BUZZER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.buzzer.setValue">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.buzzer.beep">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-                        </shadow>
-                    </value>
-    
-                </block>
-                <block type="pxt.buzzer.playMelody">
-                </block>
-                <block type="pxt.buzzer.playNote">
-                </block>
-                <block type="pxt.buzzer.playFrequency">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-                            <!-- <field name="NUM">3000</field> -->
-                        </shadow>
-                    </value>
-                </block>
+              <!-- <button text="Create your song now !" callbackKey="buzzerKeyboardTrigger"></button> -->
+
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">BUZZER</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.buzzer.setValue">
+                <value name="MAIN">
+                  <shadow type="pxt.dropdown.onoff">
+                  </shadow>
+                </value>
+              </block>
+              <block type="pxt.buzzer.beep">
+                <value name="MAIN">
+                  <shadow type="math_number">
+                  </shadow>
+                </value>
+
+              </block>
+              <block type="pxt.buzzer.playMelody">
+              </block>
+              <block type="pxt.buzzer.playNote">
+              </block>
+              <block type="pxt.buzzer.playFrequency">
+                <value name="MAIN">
+                  <shadow type="math_number">
+                    <!-- <field name="NUM">3000</field> -->
+                  </shadow>
+                </value>
+              </block>
             </category>
             <!-- <category name="MP3">
                 <block type="music-set-play"></block>
@@ -220,53 +1203,53 @@
                 <block type="music-set-pause"></block>
             </category> -->
             <category name="INFRARED" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-sun-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">INFRARED</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.infrared.learn">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Turn On</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.infrared.send">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Turn On</field>
-                        </shadow>
-                    </value>
-                </block>
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">INFRARED</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.infrared.learn">
+                <value name="MAIN">
+                  <shadow type="text">
+                    <field name="TEXT">Turn On</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="pxt.infrared.send">
+                <value name="MAIN">
+                  <shadow type="text">
+                    <field name="TEXT">Turn On</field>
+                  </shadow>
+                </value>
+              </block>
             </category>
-    
+
             <!-- <category name="MOTOR">
                 <block type = "pxt.motor.setValue">
     
                 </block>
             </category> -->
             <category name="SERVO" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-steam">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SERVO</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.servo.setAngle">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-    
-                        </shadow>
-                    </value>
-                </block>
-                <!-- <block type="pxt.servo.setAngle">
+              <label text="Connection"></label>
+              <block type="pxt.core.portDeclare">
+                <field name="MODULE">SERVO</field>
+              </block>
+              <label text="Usage"></label>
+              <block type="pxt.servo.setAngle">
+                <value name="MAIN">
+                  <shadow type="math_number">
+
+                  </shadow>
+                </value>
+              </block>
+              <!-- <block type="pxt.servo.setAngle">
                     <value name="MAIN">
                         <shadow type="pxt.field.angle">
     
                         </shadow>
                     </value>
                 </block> -->
-    
+
             </category>
             <!-- <category name="LED">
                 <block type="led-set">
@@ -282,33 +1265,33 @@
                     </value>
                 </block>
             </category> -->
-        </category>
-    
-        <category name="DISPLAY" colour="%{BKY_TOOLBOX_DISPLAY_SOURCE}" icon="fa-tv">
+          </category>
+
+          <category name="DISPLAY" colour="%{BKY_TOOLBOX_DISPLAY_SOURCE}" icon="fa-tv">
             <!-- <category name="LCD" colour = "%{BKY_TOOLBOX_DISPLAY}"> -->
             <label text="Connection"></label>
             <block type="pxt.core.portDeclare">
-                <field name="MODULE">LCD</field>
+              <field name="MODULE">LCD</field>
             </block>
             <label text="Usage"></label>
             <block type="pxt.lcd.display">
-                <value name="LEFT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-                <value name="RIGHT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
+              <value name="LEFT">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
+              <value name="RIGHT">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
             </block>
             <block type="pxt.lcd.clear">
             </block>
             <block type="pxt.lcd.backlight">
-                <value name="MAIN">
-                    <shadow type="pxt.dropdown.onoff"></shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="pxt.dropdown.onoff"></shadow>
+              </value>
             </block>
             <!-- </category> -->
             <!-- 
@@ -354,197 +1337,197 @@
                 <block type="rgb_brightness">
                 </block>
             </category> -->
-        </category>
-        <category name="BLYNK" colour="%{BKY_TOOLBOX_APP}" icon="fa-bold">
+          </category>
+          <category name="BLYNK" colour="%{BKY_TOOLBOX_APP}" icon="fa-bold">
             <label text="Project Settings"></label>
             <block type="pxt.widget.tab">
-                <value name="NAME">
-                    <shadow type="text">
-                        <value name="TEXT">My Tab</value>
-                    </shadow>
-                </value>
+              <value name="NAME">
+                <shadow type="text">
+                  <value name="TEXT">My Tab</value>
+                </shadow>
+              </value>
             </block>
-    
-    
+
+
             <category name="INPUT" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
-                <category name="BUTTON" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.button.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.button.onEvent"></block>
-                </category>
-                <category name="SLIDER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.slider.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.slider.getValue"></block>
-                </category>
-                <category name="STEP" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.step.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.step.getValue"></block>
-                </category>
-                <category name="JOYSTICK" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.joystick.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.joystick.getValue"></block>
-                </category>
+              <category name="BUTTON" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.button.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.button.onEvent"></block>
+              </category>
+              <category name="SLIDER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.slider.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.slider.getValue"></block>
+              </category>
+              <category name="STEP" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.step.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.step.getValue"></block>
+              </category>
+              <category name="JOYSTICK" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.joystick.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.joystick.getValue"></block>
+              </category>
             </category>
             <category name="DISPLAY" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
-                <category name="NUMBER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.number.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="PREFIX">
-                            <block type="text">
-                                <field name="TEXT">℃</field>
-    
-                            </block>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
+              <category name="NUMBER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.number.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="PREFIX">
+                    <block type="text">
+                      <field name="TEXT">℃</field>
+
                     </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.number.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number"></shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="LED" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.led.declare">
-                        <value name="WIDGETNAME">
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.led.setValue">
-                        <value name="VALUE">
-                            <shadow type="colour_picker"></shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="GAUGE" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.gauge.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.gauge.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number">
-    
-                            </shadow>
-                        </value>
-                    </block>
-    
-                </category>
-                <category name="TERMINAL" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.terminal.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.terminal.setValue">
-                        <value name="VALUE">
-                            <shadow type="text">
-    
-                            </shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="CHART" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.superchart.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="pxt.widget.superchart.channel.declare">
-                        <value name="WIDGETNAME">
-                            <block type="text"></block>
-                        </value>
-                        <value name="COLOUR">
-                            <block type="colour_picker"></block>
-                        </value>
-                        <!-- <value name = "MIN">
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.number.setValue">
+                  <value name="VALUE">
+                    <shadow type="math_number"></shadow>
+                  </value>
+                </block>
+              </category>
+              <category name="LED" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.led.declare">
+                  <value name="WIDGETNAME">
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.led.setValue">
+                  <value name="VALUE">
+                    <shadow type="colour_picker"></shadow>
+                  </value>
+                </block>
+              </category>
+              <category name="GAUGE" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.gauge.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.gauge.setValue">
+                  <value name="VALUE">
+                    <shadow type="math_number">
+
+                    </shadow>
+                  </value>
+                </block>
+
+              </category>
+              <category name="TERMINAL" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.terminal.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.terminal.setValue">
+                  <value name="VALUE">
+                    <shadow type="text">
+
+                    </shadow>
+                  </value>
+                </block>
+              </category>
+              <category name="CHART" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
+                <label text="Config"></label>
+                <block type="pxt.widget.superchart.declare">
+                  <value name="WIDGETNAME">x
+                    <shadow type="text">
+                      <field name="TEXT">My Widget</field>
+                    </shadow>
+                  </value>
+                  <value name="COLOUR">
+                    <shadow type="colour_picker">
+                    </shadow>
+                  </value>
+                </block>
+                <block type="pxt.widget.superchart.channel.declare">
+                  <value name="WIDGETNAME">
+                    <block type="text"></block>
+                  </value>
+                  <value name="COLOUR">
+                    <block type="colour_picker"></block>
+                  </value>
+                  <!-- <value name = "MIN">
                             <block type = "math_number"></block>
                         </value>
                         <value name = "MAX">
@@ -552,22 +1535,22 @@
     
                             </block>
                         </value> -->
-    
-    
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.superchart.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number"></shadow>
-                        </value>
-                    </block>
-    
-                </category>
-    
-    
-    
-    
-                <!-- <block type="pxt.widget.led.display">
+
+
+                </block>
+                <label text="Usage"></label>
+                <block type="pxt.widget.superchart.setValue">
+                  <value name="VALUE">
+                    <shadow type="math_number"></shadow>
+                  </value>
+                </block>
+
+              </category>
+
+
+
+
+              <!-- <block type="pxt.widget.led.display">
                     <value name="VALUE">
                         <shadow type="pxt.dropdown.onoff">
                         </shadow>
@@ -585,89 +1568,89 @@
                 <label text="Email"></label>
                 <label text="Webhool"></label>
             </category> -->
-        </category>
-        <category name="NETWORK" colour="%{BKY_TOOLBOX_NETWORK}" icon="fa-rss">
+          </category>
+          <category name="NETWORK" colour="%{BKY_TOOLBOX_NETWORK}" icon="fa-rss">
             <label text="Blynk Appp"></label>
             <block type="pxt.blynk.onReceive"></block>
             <block type="pxt.blynk.onRequest">
-                <value name="VALUE">
-                    <shadow type="text">
-    
-                    </shadow>
-                </value>
+              <value name="VALUE">
+                <shadow type="text">
+
+                </shadow>
+              </value>
             </block>
             <block type="pxt.blynk.virtualWrite">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
             </block>
             <block type="pxt.blynk.notify">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
             </block>
             <block type="pxt.blynk.email">
-                <value name="EMAIL">
-                    <shadow type="text">
-                        <field name="TEXT">yourmail@gmail.com</field>
-                    </shadow>
-                </value>
-                <value name="SUBJECT">
-                    <shadow type="text">
-                        <field name="TEXT">Your Subject</field>
-                    </shadow>
-                </value>
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
+              <value name="EMAIL">
+                <shadow type="text">
+                  <field name="TEXT">yourmail@gmail.com</field>
+                </shadow>
+              </value>
+              <value name="SUBJECT">
+                <shadow type="text">
+                  <field name="TEXT">Your Subject</field>
+                </shadow>
+              </value>
+              <value name="CONTENT">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
             </block>
             <block type="pxt.blynk.log">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="text">
+                  <field name="TEXT"> </field>
+                </shadow>
+              </value>
             </block>
             <block type="pxt.blynk.getMessage"></block>
             <!-- <block type="pxt.blynk.getMessageIteration"></block> -->
             <label text="IFTTT"></label>
             <block type="pxt.ifttt.setKey">
-                <value name="MAIN">
-                    <shadow type="text">
-    
-                    </shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="text">
+
+                </shadow>
+              </value>
             </block>
             <block type="pxt.ifttt.trigger">
-                <value name="MAIN">
-                    <shadow type="text">
-    
-                    </shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="text">
+
+                </shadow>
+              </value>
             </block>
             <label text="XPATH"></label>
             <block type="pxt.xpath.requestData">
-                <value name="URL">
-                    <shadow type="text">
-                        <!-- <field name  = "TEXT">https://www.facebook.com/uii.ueh.edu.vn/</field> -->
-    
-                    </shadow>
-                </value>
-                <value name="XPATH">
-                    <shadow type="text">
-    
-    
-                    </shadow>
-                </value>
+              <value name="URL">
+                <shadow type="text">
+                  <!-- <field name  = "TEXT">https://www.facebook.com/uii.ueh.edu.vn/</field> -->
+
+                </shadow>
+              </value>
+              <value name="XPATH">
+                <shadow type="text">
+
+
+                </shadow>
+              </value>
             </block>
-        </category>
-        <category name="TIMER" colour="%{BKY_TOOLBOX_TIMER}" icon="fa-clock-o">
+          </category>
+          <category name="TIMER" colour="%{BKY_TOOLBOX_TIMER}" icon="fa-clock-o">
             <!-- <block type="timer-event-repeat"></block>
             <block type="timer-event-alarm"></block>
             <block type="timer-wait"></block>
@@ -675,85 +1658,85 @@
             <block type="timer-ntp"></block>
             <label text = "Advanced" ></label>
             <block type="rtc-sync"></block> -->
-    
+
             <block type="pxt.timer.createTask">
-                <!-- <value name = "MAIN">
+              <!-- <value name = "MAIN">
                     <shadow type = "pxt.dropdown.timeselect">
     
                     </shadow>
                 </value> -->
             </block>
             <block type="pxt.timer.wait">
-                <value name="MAIN">
-                    <shadow type="pxt.dropdown.timeselect"></shadow>
-                </value>
+              <value name="MAIN">
+                <shadow type="pxt.dropdown.timeselect"></shadow>
+              </value>
             </block>
             <block type="pxt.timer.runtime">
-    
+
             </block>
             <block type="pxt.timer.createAlarm"></block>
             <block type="pxt.timer.ntp.get"></block>
-        </category>
-        <category name="LOOPS" colour="%{BKY_LOOPS_HUE}" icon="fa-repeat">
+          </category>
+          <category name="LOOPS" colour="%{BKY_LOOPS_HUE}" icon="fa-repeat">
             <block type="controls_repeat_ext">2
-                <value name="TIMES">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
+              <value name="TIMES">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
             </block>
             <block type="controls_whileUntil">
-                <field name="MODE">WHILE</field>
+              <field name="MODE">WHILE</field>
             </block>
             <block type="controls_for">
-                <field name="VAR" id="p(1APX:tPbR@_S=dKwsa" variabletype="">i</field>
-                <value name="FROM">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="TO">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-                <value name="BY">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
+              <field name="VAR" id="p(1APX:tPbR@_S=dKwsa" variabletype="">i</field>
+              <value name="FROM">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="TO">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+              <value name="BY">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
             </block>
             <block type="controls_forEach">
-                <field name="VAR" id="LV!pxm=y2ER5K*iRn=gY" variabletype="">j</field>
+              <field name="VAR" id="LV!pxm=y2ER5K*iRn=gY" variabletype="">j</field>
             </block>
             <block type="controls_flow_statements">
-                <field name="FLOW">BREAK</field>
+              <field name="FLOW">BREAK</field>
             </block>
-        </category>
-        <category name="LOGIC" colour="%{BKY_LOGIC_HUE}" icon="fa-random">
+          </category>
+          <category name="LOGIC" colour="%{BKY_LOGIC_HUE}" icon="fa-random">
             <block type="controls_if">
-                <value name="IF0">
-                    <shadow type="logic_compare">
-                        <field name="OP">EQ</field>
-                    </shadow>
-                </value>
+              <value name="IF0">
+                <shadow type="logic_compare">
+                  <field name="OP">EQ</field>
+                </shadow>
+              </value>
             </block>
             <block type="controls_if"></block>
             <block type="logic_compare">
-                <field name="OP">EQ</field>
+              <field name="OP">EQ</field>
             </block>
             <block type="logic_operation">
-                <field name="OP">AND</field>
+              <field name="OP">AND</field>
             </block>
             <block type="logic_negate"></block>
             <block type="logic_boolean">
-                <field name="BOOL">TRUE</field>
+              <field name="BOOL">TRUE</field>
             </block>
-        </category>
-        <category name="VARIABLES" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}" icon="fa-vine"> </category>
-        <category name="MATH" colour="%{BKY_MATH_HUE}" icon="fa-calculator">
+          </category>
+          <category name="VARIABLES" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}" icon="fa-vine"> </category>
+          <category name="MATH" colour="%{BKY_MATH_HUE}" icon="fa-calculator">
             <block type="math_number">
-                <field name="NUM">123</field>
+              <field name="NUM">123</field>
             </block>
             <block type="math_arithmetic"></block>
             <block type="math_single"></block>
@@ -764,119 +1747,119 @@
             <block type="math_on_list"></block>
             <block type="math_modulo"></block>
             <block type="math_constrain">
-                <value name="LOW">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="HIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
+              <value name="LOW">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="HIGH">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
             </block>
             <block type="math_random_int">
-                <value name="FROM">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="TO">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
+              <value name="FROM">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="TO">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
             </block>
             <block type="math_random_float"></block>
             <block type="pxt.math.map">
-                <value name="FROMLOW">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="FROMHIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-                <value name="TOLOW">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="TOHIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">1000</field>
-                    </shadow>
-                </value>
-                <value name="NUM">
-                    <shadow type="math_number">
-                        <field name="NUM">20</field>
-                    </shadow>
-                </value>
+              <value name="FROMLOW">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="FROMHIGH">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
+              <value name="TOLOW">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="TOHIGH">
+                <shadow type="math_number">
+                  <field name="NUM">1000</field>
+                </shadow>
+              </value>
+              <value name="NUM">
+                <shadow type="math_number">
+                  <field name="NUM">20</field>
+                </shadow>
+              </value>
             </block>
-        </category>
-        <category name="TEXT" colour="%{BKY_TEXTS_HUE}" icon="fa-text-width">
+          </category>
+          <category name="TEXT" colour="%{BKY_TEXTS_HUE}" icon="fa-text-width">
             <block type="text"></block>
             <block type="text_join"></block>
             <block type="text_append">
-                <value name="TEXT">
-                    <shadow type="text"></shadow>
-                </value>
+              <value name="TEXT">
+                <shadow type="text"></shadow>
+              </value>
             </block>
             <block type="text_length">
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
+              <value name="VALUE">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
             </block>
             <block type="text_isEmpty">
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
-                </value>
+              <value name="VALUE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
             </block>
             <block type="text_indexOf">
-                <value name="VALUE">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
-                </value>
-                <value name="FIND">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
+              <value name="VALUE">
+                <shadow type="variables_get">
+                  <field name="VAR">text</field>
+                </shadow>
+              </value>
+              <value name="FIND">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
             </block>
             <block type="text_charAt">
-                <value name="VALUE">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
-                </value>
+              <value name="VALUE">
+                <shadow type="variables_get">
+                  <field name="VAR">text</field>
+                </shadow>
+              </value>
             </block>
             <block type="text_getSubstring">
-                <value name="STRING">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
-                </value>
+              <value name="STRING">
+                <shadow type="variables_get">
+                  <field name="VAR">text</field>
+                </shadow>
+              </value>
             </block>
             <block type="text_changeCase">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
             </block>
             <block type="text_trim">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
             </block>
             <!-- <block type="text_print">
                 <value name="TEXT">
@@ -892,9 +1875,9 @@
                     </shadow>
                 </value>
             </block> -->
-        </category>
-        <sep></sep>
-        <category name="ADVANCED" colour="#000000" icon="fa-plus-circle">
+          </category>
+          <sep></sep>
+          <category name="ADVANCED" colour="#000000" icon="fa-plus-circle">
             <!-- <category name="DICTIONARY" colour=100>
                 <block type="dicts_create_with_container"></block>
                 <block type="dicts_create_with_item"></block>
@@ -927,1075 +1910,94 @@
                 <category name="GSM"></category>
                 <category name="SMS"></category>
             </category> -->
-    
+
             <category name="ARRAYS" colour="%{BKY_LISTS_HUE}" icon="fa-database">
-                <block type="lists_create_with">
-                    <mutation items="3"></mutation>
-                </block>
-                <block type="lists_indexOf">
-                    <field name="END">FIRST</field>
-                    <value name="VALUE">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_repeat">
-                    <value name="NUM">
-                        <shadow type="math_number">
-                            <field name="NUM">5</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_length"></block>
-                <block type="lists_isEmpty"></block>
-                <block type="lists_create_with">
-                    <mutation items="0"></mutation>
-                </block>
-                <block type="lists_getIndex">
-                    <mutation statement="false" at="true"></mutation>
-                    <field name="MODE">GET</field>
-                    <field name="WHERE">FROM_START</field>
-                    <value name="VALUE">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_setIndex">
-                    <mutation at="true"></mutation>
-                    <field name="MODE">SET</field>
-                    <field name="WHERE">FROM_START</field>
-                    <value name="LIST">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_getSublist">
-                    <mutation at1="true" at2="true"></mutation>
-                    <field name="WHERE1">FROM_START</field>
-                    <field name="WHERE2">FROM_START</field>
-                    <value name="LIST">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value><xml id="toolbox" style="display: none">
-        <category name = "CODELAB">
-            <label text="Face Recognition"></label>
-            <button text="Add a face :D" callbackKey="buzzerKeyboardTrigger"></button>
-            <block type = "pxt.codelab.face"></block>
-    
-            <label text="Voice Recognition"></label>
-            <button text="Add a phrase" callbackKey="buzzerKeyboardTrigger"></button>
-            <block type = "pxt.codelab.voice"></block>
-            
-            <label text="Emotion Recognition"></label>
-            <block type = "pxt.codelab.emotion"></block>
-            <block type="pxt.blynk.virtualWrite">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type = "pxt.node.trigger"></block>
-            <block type = "pxt.node.waitfor"></block>
-            
-        </category>
-        <category name="INPUT" colour="%{BKY_TOOLBOX_INPUT_SOURCE}" icon="fa-dot-circle-o">
-            <category name="BUTTON" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-hand-o-up">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">BUTTON</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.button.onClick"></block>
-                <block type="pxt.button.getState"></block>
-                <block type= "pxt.demo.voiceRecognition"></block>
-                <block type= "pxt.demo.faceRecognition"></block>
-                <block type= "pxt.demo.emotion"></block>
-            </category>
-            <category name="SOUND" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-signing">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SOUND</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.sound.onClap"></block>
-            </category>
-            <category name="SLIDER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-sliders">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SLIDER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.slider.getValue"></block>
-            </category>
-            <category name="WEATHER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-thermometer">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">WEATHER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.weather.getValue">
-                    <field name="MODE">temperature</field>
-                </block>
-                <block type="pxt.weather.getValue">
-                    <field name="MODE">humidity</field>
-                </block>
-    
-            </category>
-    
-            <category name="LIGHT" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-lightbulb-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">LIGHT</field>
-                </block>
-                <label text="Usage"></label>
-    
-                <block type="pxt.light.getValue"></block>
-            </category>
-            <category name="MOTION" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-blind">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">MOTION</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.motion.onDetect">
-                </block>
-    
-    
-    
-            </category>
-            <category name="DISTANCE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-arrows-h">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">DISTANCE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.distance.getValue"></block>
-            </category>
-            <category name="MOISTURE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-tint">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">MOISTURE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.moisture.getValue"></block>
-            </category>
-            <!-- <category name="TOUCH">
-                <block type="mpr121-event"></block>
-            </category> -->
-            <category name="REMOTE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-podcast">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">REMOTE</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.remote.onPress"></block>
-                <!-- <block type="rfreceiver_message"></block>
-                <label text=""></label>
-                <label text="Example Application"></label>
-                <block type="controls_if">
-                    <value name="IF0">
-    
-                        <shadow type="logic_compare">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                                <shadow type="rfreceiver_message"></block>
-                            </value>
-                            <value name="B">
-                                <shadow type="rfreceiver_message_dropdown"></block>
-                            </value>
-                        </shadow>
-    
-                    </value>
-                </block> -->
-            </category>
-        </category>
-        <category name="ACTION" colour="%{BKY_TOOLBOX_OUTPUT_SOURCE}" icon="fa-gamepad">
-            <category name="SPEECH" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-wechat">
-                <block type="pxt.gtts.say">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Hello World</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.gtts.say">
-                    <value name="MAIN">
-                        <shadow type="text_join">
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-            <category name="PIXEL" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-lightbulb-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">PIXEL</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.pixel.setColour">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff"></shadow>
-                    </value>
-                </block>
-                <block type="pxt.pixel.setColour">
-                    <value name="MAIN">
-                        <shadow type="colour_picker"></shadow>
-                    </value>
-                </block>
-            </category>
-            <category name="RELAY" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-flash">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">RELAY</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.relay.setValue">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff">
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-    
-    
-            <category name="BUZZER" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-bell">
-                <!-- <button text="Create your song now !" callbackKey="buzzerKeyboardTrigger"></button> -->
-    
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">BUZZER</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.buzzer.setValue">
-                    <value name="MAIN">
-                        <shadow type="pxt.dropdown.onoff">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.buzzer.beep">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-                        </shadow>
-                    </value>
-    
-                </block>
-                <block type="pxt.buzzer.playMelody">
-                </block>
-                <block type="pxt.buzzer.playNote">
-                </block>
-                <block type="pxt.buzzer.playFrequency">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-                            <!-- <field name="NUM">3000</field> -->
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-            <!-- <category name="MP3">
-                <block type="music-set-play"></block>
-                <block type="music-set-volume"></block>
-                <block type="music-set-stop"></block>
-                <block type="music-set-pause"></block>
-            </category> -->
-            <category name="INFRARED" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-sun-o">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">INFRARED</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.infrared.learn">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Turn On</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.infrared.send">
-                    <value name="MAIN">
-                        <shadow type="text">
-                            <field name="TEXT">Turn On</field>
-                        </shadow>
-                    </value>
-                </block>
-            </category>
-    
-            <!-- <category name="MOTOR">
-                <block type = "pxt.motor.setValue">
-    
-                </block>
-            </category> -->
-            <category name="SERVO" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-steam">
-                <label text="Connection"></label>
-                <block type="pxt.core.portDeclare">
-                    <field name="MODULE">SERVO</field>
-                </block>
-                <label text="Usage"></label>
-                <block type="pxt.servo.setAngle">
-                    <value name="MAIN">
-                        <shadow type="math_number">
-    
-                        </shadow>
-                    </value>
-                </block>
-                <!-- <block type="pxt.servo.setAngle">
-                    <value name="MAIN">
-                        <shadow type="pxt.field.angle">
-    
-                        </shadow>
-                    </value>
-                </block> -->
-    
-            </category>
-            <!-- <category name="LED">
-                <block type="led-set">
-                    <value name="MAIN">
-                        <shadow type="state_output">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="led-fade">
-                    <value name="MAIN">
-                        <shadow type="led_pwm_output">
-                        </shadow>
-                    </value>
-                </block>
-            </category> -->
-        </category>
-    
-        <category name="DISPLAY" colour="%{BKY_TOOLBOX_DISPLAY_SOURCE}" icon="fa-tv">
-            <!-- <category name="LCD" colour = "%{BKY_TOOLBOX_DISPLAY}"> -->
-            <label text="Connection"></label>
-            <block type="pxt.core.portDeclare">
-                <field name="MODULE">LCD</field>
-            </block>
-            <label text="Usage"></label>
-            <block type="pxt.lcd.display">
-                <value name="LEFT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-                <value name="RIGHT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.lcd.clear">
-            </block>
-            <block type="pxt.lcd.backlight">
-                <value name="MAIN">
-                    <shadow type="pxt.dropdown.onoff"></shadow>
-                </value>
-            </block>
-            <!-- </category> -->
-            <!-- 
-            <category name="RGB">
-                <block type="rgb-set-multiple">
-                    <value name="COLOUR">
-                        <shadow type="rgb_colour">
-                        </shadow>
-                    </value>
-                    <value name="MAIN">
-                        <shadow type="display_number">
-                        </shadow>
-                    </value>
-                    <value name="TO">
-                        <shadow type="display_number">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="indicator_set_multiple">
-                    <value name="COLOUR">
-                        <shadow type="rgb_colour">
-                        </shadow>
-                    </value>
-                    <value name="MAIN">
-                        <shadow type="display_number">
-                        </shadow>
-                    </value>
-                    <value name="TO">
-                        <shadow type="display_number">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="indicator_set_single">
-                    <value name="COLOUR">
-                        <shadow type="rgb_colour">
-                        </shadow>
-                    </value>
-                    <value name="MAIN">
-                        <shadow type="display_number">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="rgb_brightness">
-                </block>
-            </category> -->
-        </category>
-        <category name="BLYNK" colour="%{BKY_TOOLBOX_APP}" icon="fa-bold">
-            <label text="Project Settings"></label>
-            <block type="pxt.widget.tab">
-                <value name="NAME">
-                    <shadow type="text">
-                        <value name="TEXT">My Tab</value>
-                    </shadow>
-                </value>
-            </block>
-    
-    
-            <category name="INPUT" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
-                <category name="BUTTON" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.button.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.button.onEvent"></block>
-                </category>
-                <category name="SLIDER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.slider.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.slider.getValue"></block>
-                </category>
-                <category name="STEP" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.step.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.step.getValue"></block>
-                </category>
-                <category name="JOYSTICK" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.joystick.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.joystick.getValue"></block>
-                </category>
-            </category>
-            <category name="DISPLAY" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
-                <category name="NUMBER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.number.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="PREFIX">
-                            <block type="text">
-                                <field name="TEXT">℃</field>
-    
-                            </block>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.number.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number"></shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="LED" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.led.declare">
-                        <value name="WIDGETNAME">
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.led.setValue">
-                        <value name="VALUE">
-                            <shadow type="colour_picker"></shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="GAUGE" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.gauge.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.gauge.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number">
-    
-                            </shadow>
-                        </value>
-                    </block>
-    
-                </category>
-                <category name="TERMINAL" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.terminal.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.terminal.setValue">
-                        <value name="VALUE">
-                            <shadow type="text">
-    
-                            </shadow>
-                        </value>
-                    </block>
-                </category>
-                <category name="CHART" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h">
-                    <label text="Config"></label>
-                    <block type="pxt.widget.superchart.declare">
-                        <value name="WIDGETNAME">x
-                            <shadow type="text">
-                                <field name="TEXT">My Widget</field>
-                            </shadow>
-                        </value>
-                        <value name="COLOUR">
-                            <shadow type="colour_picker">
-                            </shadow>
-                        </value>
-                    </block>
-                    <block type="pxt.widget.superchart.channel.declare">
-                        <value name="WIDGETNAME">
-                            <block type="text"></block>
-                        </value>
-                        <value name="COLOUR">
-                            <block type="colour_picker"></block>
-                        </value>
-                        <!-- <value name = "MIN">
-                            <block type = "math_number"></block>
-                        </value>
-                        <value name = "MAX">
-                            <block type ="math_number">
-    
-                            </block>
-                        </value> -->
-    
-    
-                    </block>
-                    <label text="Usage"></label>
-                    <block type="pxt.widget.superchart.setValue">
-                        <value name="VALUE">
-                            <shadow type="math_number"></shadow>
-                        </value>
-                    </block>
-    
-                </category>
-    
-    
-    
-    
-                <!-- <block type="pxt.widget.led.display">
-                    <value name="VALUE">
-                        <shadow type="pxt.dropdown.onoff">
-                        </shadow>
-                    </value>
-                </block>
-                <block type="pxt.widget.gauge.display">
-                    <value name="VALUE">
-                        <shadow type="math_number">
-                        </shadow>
-                    </value>
-                </block> -->
-            </category>
-            <!-- <category name="OTHERS" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h">
-                <label text="Notification"></label>
-                <label text="Email"></label>
-                <label text="Webhool"></label>
-            </category> -->
-        </category>
-        <category name="NETWORK" colour="%{BKY_TOOLBOX_NETWORK}" icon="fa-rss">
-            <label text="Blynk Appp"></label>
-            <block type="pxt.blynk.onReceive"></block>
-            <block type="pxt.blynk.onRequest">
+              <block type="lists_create_with">
+                <mutation items="3"></mutation>
+              </block>
+              <block type="lists_indexOf">
+                <field name="END">FIRST</field>
                 <value name="VALUE">
-                    <shadow type="text">
-    
-                    </shadow>
+                  <shadow type="variables_get">
+                    <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+                  </shadow>
                 </value>
-            </block>
-            <block type="pxt.blynk.virtualWrite">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.blynk.notify">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.blynk.email">
-                <value name="EMAIL">
-                    <shadow type="text">
-                        <field name="TEXT">yourmail@gmail.com</field>
-                    </shadow>
-                </value>
-                <value name="SUBJECT">
-                    <shadow type="text">
-                        <field name="TEXT">Your Subject</field>
-                    </shadow>
-                </value>
-                <value name="CONTENT">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.blynk.log">
-                <value name="MAIN">
-                    <shadow type="text">
-                        <field name="TEXT"> </field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.blynk.getMessage"></block>
-            <!-- <block type="pxt.blynk.getMessageIteration"></block> -->
-            <label text="IFTTT"></label>
-            <block type="pxt.ifttt.setKey">
-                <value name="MAIN">
-                    <shadow type="text">
-    
-                    </shadow>
-                </value>
-            </block>
-            <block type="pxt.ifttt.trigger">
-                <value name="MAIN">
-                    <shadow type="text">
-    
-                    </shadow>
-                </value>
-            </block>
-            <label text="XPATH"></label>
-            <block type="pxt.xpath.requestData">
-                <value name="URL">
-                    <shadow type="text">
-                        <!-- <field name  = "TEXT">https://www.facebook.com/uii.ueh.edu.vn/</field> -->
-    
-                    </shadow>
-                </value>
-                <value name="XPATH">
-                    <shadow type="text">
-    
-    
-                    </shadow>
-                </value>
-            </block>
-        </category>
-        <category name="TIMER" colour="%{BKY_TOOLBOX_TIMER}" icon="fa-clock-o">
-            <!-- <block type="timer-event-repeat"></block>
-            <block type="timer-event-alarm"></block>
-            <block type="timer-wait"></block>
-            <block type="timer-runtime"></block>
-            <block type="timer-ntp"></block>
-            <label text = "Advanced" ></label>
-            <block type="rtc-sync"></block> -->
-    
-            <block type="pxt.timer.createTask">
-                <!-- <value name = "MAIN">
-                    <shadow type = "pxt.dropdown.timeselect">
-    
-                    </shadow>
-                </value> -->
-            </block>
-            <block type="pxt.timer.wait">
-                <value name="MAIN">
-                    <shadow type="pxt.dropdown.timeselect"></shadow>
-                </value>
-            </block>
-            <block type="pxt.timer.runtime">
-    
-            </block>
-            <block type="pxt.timer.createAlarm"></block>
-            <block type="pxt.timer.ntp.get"></block>
-        </category>
-        <category name="LOOPS" colour="%{BKY_LOOPS_HUE}" icon="fa-repeat">
-            <block type="controls_repeat_ext">2
-                <value name="TIMES">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controls_whileUntil">
-                <field name="MODE">WHILE</field>
-            </block>
-            <block type="controls_for">
-                <field name="VAR" id="p(1APX:tPbR@_S=dKwsa" variabletype="">i</field>
-                <value name="FROM">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="TO">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-                <value name="BY">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controls_forEach">
-                <field name="VAR" id="LV!pxm=y2ER5K*iRn=gY" variabletype="">j</field>
-            </block>
-            <block type="controls_flow_statements">
-                <field name="FLOW">BREAK</field>
-            </block>
-        </category>
-        <category name="LOGIC" colour="%{BKY_LOGIC_HUE}" icon="fa-random">
-            <block type="controls_if">
-                <value name="IF0">
-                    <shadow type="logic_compare">
-                        <field name="OP">EQ</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="controls_if"></block>
-            <block type="logic_compare">
-                <field name="OP">EQ</field>
-            </block>
-            <block type="logic_operation">
-                <field name="OP">AND</field>
-            </block>
-            <block type="logic_negate"></block>
-            <block type="logic_boolean">
-                <field name="BOOL">TRUE</field>
-            </block>
-        </category>
-        <category name="VARIABLES" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}" icon="fa-vine"> </category>
-        <category name="MATH" colour="%{BKY_MATH_HUE}" icon="fa-calculator">
-            <block type="math_number">
-                <field name="NUM">123</field>
-            </block>
-            <block type="math_arithmetic"></block>
-            <block type="math_single"></block>
-            <block type="math_trig"></block>
-            <block type="math_constant"></block>
-            <block type="math_number_property"></block>
-            <block type="math_round"></block>
-            <block type="math_on_list"></block>
-            <block type="math_modulo"></block>
-            <block type="math_constrain">
-                <value name="LOW">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="HIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="math_random_int">
-                <value name="FROM">
-                    <shadow type="math_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="TO">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="math_random_float"></block>
-            <block type="pxt.math.map">
-                <value name="FROMLOW">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="FROMHIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">100</field>
-                    </shadow>
-                </value>
-                <value name="TOLOW">
-                    <shadow type="math_number">
-                        <field name="NUM">0</field>
-                    </shadow>
-                </value>
-                <value name="TOHIGH">
-                    <shadow type="math_number">
-                        <field name="NUM">1000</field>
-                    </shadow>
-                </value>
+              </block>
+              <block type="lists_repeat">
                 <value name="NUM">
-                    <shadow type="math_number">
-                        <field name="NUM">20</field>
-                    </shadow>
+                  <shadow type="math_number">
+                    <field name="NUM">5</field>
+                  </shadow>
                 </value>
-            </block>
-        </category>
-        <category name="TEXT" colour="%{BKY_TEXTS_HUE}" icon="fa-text-width">
-            <block type="text"></block>
-            <block type="text_join"></block>
-            <block type="text_append">
-                <value name="TEXT">
-                    <shadow type="text"></shadow>
-                </value>
-            </block>
-            <block type="text_length">
+              </block>
+              <block type="lists_length"></block>
+              <block type="lists_isEmpty"></block>
+              <block type="lists_create_with">
+                <mutation items="0"></mutation>
+              </block>
+              <block type="lists_getIndex">
+                <mutation statement="false" at="true"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">FROM_START</field>
                 <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
+                  <shadow type="variables_get">
+                    <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+                  </shadow>
                 </value>
-            </block>
-            <block type="text_isEmpty">
-                <value name="VALUE">
-                    <shadow type="text">
-                        <field name="TEXT"></field>
-                    </shadow>
+              </block>
+              <block type="lists_setIndex">
+                <mutation at="true"></mutation>
+                <field name="MODE">SET</field>
+                <field name="WHERE">FROM_START</field>
+                <value name="LIST">
+                  <shadow type="variables_get">
+                    <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+                  </shadow>
                 </value>
-            </block>
-            <block type="text_indexOf">
-                <value name="VALUE">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
+              </block>
+              <block type="lists_getSublist">
+                <mutation at1="true" at2="true"></mutation>
+                <field name="WHERE1">FROM_START</field>
+                <field name="WHERE2">FROM_START</field>
+                <value name="LIST">
+                  <shadow type="variables_get">
+                    <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
+                  </shadow>
                 </value>
-                <value name="FIND">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
+              </block>
+              <block type="lists_split">
+                <mutation mode="SPLIT"></mutation>
+                <field name="MODE">SPLIT</field>
+                <value name="DELIM">
+                  <shadow type="text">
+                    <field name="TEXT">,</field>
+                  </shadow>
                 </value>
-            </block>
-            <block type="text_charAt">
-                <value name="VALUE">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_getSubstring">
-                <value name="STRING">
-                    <shadow type="variables_get">
-                        <field name="VAR">text</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_changeCase">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_trim">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block>
-            <!-- <block type="text_print">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="text_prompt_ext">
-                <value name="TEXT">
-                    <shadow type="text">
-                        <field name="TEXT">abc</field>
-                    </shadow>
-                </value>
-            </block> -->
-        </category>
-        <sep></sep>
-        <category name="ADVANCED" colour="#000000" icon="fa-plus-circle">
-            <!-- <category name="DICTIONARY" colour=100>
-                <block type="dicts_create_with_container"></block>
-                <block type="dicts_create_with_item"></block>
-                <block type="dicts_create_with"></block>
-                <block type="dict_get"></block>
+              </block>
+              <block type="lists_sort">
+                <field name="TYPE">NUMERIC</field>
+                <field name="DIRECTION">1</field>
+              </block>
             </category>
-            <category name="JSON" colour=100></category>
-            <category name="STORAGE" colour=100>
-                <category name="CSV" colour=50>
-                    <shadow type="pxt.csv.newData"></block>
-                    <shadow type="pxt.csv.setDataField"></block>
-                    <shadow type="pxt.csv.createFile">
-                        <value name="FILENAME">
-                            <shadow type="text">
-                                <field name="TEXT">My CSV File</field>
-                            </shadow>
-                        </value>
-                        <value name="ATTRIBUTES">
-                            <shadow type="text">
-    
-                            </shadow>
-                        </value>
-                    </shadow>
-                </category>
-                <category name="FILE" colour=50></category>
-            </category>
-            <category name="CONNECTION" colour=100>
-                <category name="BLUETOOTH"></category>
-                <category name="LORA"></category>
-                <category name="GSM"></category>
-                <category name="SMS"></category>
-            </category> -->
-    
-            <category name="ARRAYS" colour="%{BKY_LISTS_HUE}" icon="fa-database">
-                <block type="lists_create_with">
-                    <mutation items="3"></mutation>
-                </block>
-                <block type="lists_indexOf">
-                    <field name="END">FIRST</field>
-                    <value name="VALUE">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_repeat">
-                    <value name="NUM">
-                        <shadow type="math_number">
-                            <field name="NUM">5</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_length"></block>
-                <block type="lists_isEmpty"></block>
-                <block type="lists_create_with">
-                    <mutation items="0"></mutation>
-                </block>
-                <block type="lists_getIndex">
-                    <mutation statement="false" at="true"></mutation>
-                    <field name="MODE">GET</field>
-                    <field name="WHERE">FROM_START</field>
-                    <value name="VALUE">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_setIndex">
-                    <mutation at="true"></mutation>
-                    <field name="MODE">SET</field>
-                    <field name="WHERE">FROM_START</field>
-                    <value name="LIST">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_getSublist">
-                    <mutation at1="true" at2="true"></mutation>
-                    <field name="WHERE1">FROM_START</field>
-                    <field name="WHERE2">FROM_START</field>
-                    <value name="LIST">
-                        <shadow type="variables_get">
-                            <field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_split">
-                    <mutation mode="SPLIT"></mutation>
-                    <field name="MODE">SPLIT</field>
-                    <value name="DELIM">
-                        <shadow type="text">
-                            <field name="TEXT">,</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_sort">
-                    <field name="TYPE">NUMERIC</field>
-                    <field name="DIRECTION">1</field>
-                </block>
-            </category>
-            <category name="FUNCTIONS" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}" icon="fa-share-alt"></category>>
-        </category>
-    </xml>
-                </block>
-                <block type="lists_split">
-                    <mutation mode="SPLIT"></mutation>
-                    <field name="MODE">SPLIT</field>
-                    <value name="DELIM">
-                        <shadow type="text">
-                            <field name="TEXT">,</field>
-                        </shadow>
-                    </value>
-                </block>
-                <block type="lists_sort">
-                    <field name="TYPE">NUMERIC</field>
-                    <field name="DIRECTION">1</field>
-                </block>
-            </category>
-            <category name="FUNCTIONS" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}" icon="fa-share-alt"></category>>
-        </category>
-    </xml>
+            <category name="FUNCTIONS" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}" icon="fa-share-alt"></category>
+            >
+          </category>
+        </xml>
+      </block>
+      <block type="lists_split">
+        <mutation mode="SPLIT"></mutation>
+        <field name="MODE">SPLIT</field>
+        <value name="DELIM">
+          <shadow type="text">
+            <field name="TEXT">,</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_sort">
+        <field name="TYPE">NUMERIC</field>
+        <field name="DIRECTION">1</field>
+      </block>
+    </category>
+    <category name="FUNCTIONS" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}" icon="fa-share-alt"></category>>
+  </category>
+</xml>

@@ -19,7 +19,7 @@
 */
 
 
-
+/*
 
 import { Injectable } from '@angular/core';
 import { ChatModule } from '../../chat.module';
@@ -119,10 +119,10 @@ $(document).ready(function() {
 });
 
 
+*/
 
 
-
-
+/*
 //# Soure File
 // https://github.com/zmyzheng/Socket-IO-Typescript-Chat-App/blob/d40bc04d12810a5ae1da06a087ec15ec62559789/client/src/app/chat/chat.component.ts
 import { Component, OnInit, ViewChildren, ViewChild, AfterViewInit, QueryList, ElementRef } from '@angular/core';
@@ -284,3 +284,4 @@ export class ChatComponent implements OnInit, AfterViewInit {
     this.socketService.send(message);
   }
 }
+*/

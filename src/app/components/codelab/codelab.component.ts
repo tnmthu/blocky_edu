@@ -1,15 +1,20 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { NgxBlocklyConfig, NgxBlocklyGeneratorConfig } from "ngx-blockly";
-import { NgxBlocklyComponent } from "ngx-blockly";
+import { Component, OnInit, ViewChild, AfterContentInit } from "@angular/core";
+import {
+  NgxBlocklyComponent,
+  NgxBlocklyConfig,
+  NgxBlocklyGeneratorConfig,
+  NgxBlocklyModule,
+  NgxToolboxBuilderService
+} from "ngx-blockly";
 import { ToolboxService } from "src/app/services/toolbox.service";
+// import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-codelab",
   templateUrl: "./codelab.component.html",
-  styleUrls: ["./codelab.component.scss"],
-
+  styleUrls: ["./codelab.component.scss"]
 })
-
 export class CodelabComponent implements OnInit {
   constructor(private toolboxService: ToolboxService) {}
 
@@ -23,7 +28,7 @@ export class CodelabComponent implements OnInit {
     grid: {
       spacing: 1,
       length: 10,
-      colour: "#00ffff",
+      colour: "#eeeeee",
       snap: true
     },
     zoom: {
@@ -45,15 +50,42 @@ export class CodelabComponent implements OnInit {
     xml: true
   };
 
-
-
   onCode(code: string) {
     console.log(code);
   }
   @ViewChild(NgxBlocklyComponent) workspace;
-
+  
   ngOnInit() {
     console.warn(this.workspace);
     console.warn(this.workspace.workspace);
+    
+  }
+
+  
+  onButtonNewProject() {
+    console.log("Click");
+     Swal.fire({ title: "Hey, let's name your new project",input : "text", type: "info" });
+    // window.Blockly.Events.disable();
+    // window.Blockly.Events.enable();
+  }
+
+  onWorkspace(event: any) {
+    console.log("Event", event);
+    console.log("Workspace" , this.workspace.workspace);
+    console.log(window);
+    window["codelab"] = this.workspace;
+  }
+
+  onButtonProjectUpload(){
+    
+  }
+
+  onButtonLoadProject(){
+
+  }
+
+  ngAfterViewInit (){
+    this.workspace.fromXml('<xml id="workspaceBlocks" style="display:none"><variables></variables><block type="pxt.onStart" x="50" y="50"><value name="CODE"></value></block></xml>');
+
   }
 }

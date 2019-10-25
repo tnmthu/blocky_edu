@@ -836,7 +836,13 @@ Blockly.Xml.deleteNext = function(xmlBlock) {
     }
   }
 };
-
+Blockly.Xml.clearWorkspaceAndLoadFromXml = function(xml, workspace) {
+  workspace.setResizesEnabled(false);
+  workspace.clear();
+  var blockIds = Blockly.Xml.domToWorkspace(xml, workspace);
+  workspace.setResizesEnabled(true);
+  return blockIds;
+};
 // Export symbols that would otherwise be renamed by Closure compiler.
 if (!goog.global['Blockly']) {
   goog.global['Blockly'] = {};
@@ -848,3 +854,4 @@ goog.global['Blockly']['Xml']['domToText'] = Blockly.Xml.domToText;
 goog.global['Blockly']['Xml']['domToWorkspace'] = Blockly.Xml.domToWorkspace;
 goog.global['Blockly']['Xml']['textToDom'] = Blockly.Xml.textToDom;
 goog.global['Blockly']['Xml']['workspaceToDom'] = Blockly.Xml.workspaceToDom;
+goog.global['Blockly']['Xml']['clearWorkspaceAndLoadFromXml'] = Blockly.Xml.clearWorkspaceAndLoadFromXml;
