@@ -30,6 +30,10 @@
               "src/styles.scss"
             ],
             "scripts": [
+              // "node_modules/ngx-blockly/scripts/blockly/blockly_compressed.js",
+              // "node_modules/ngx-blockly/scripts/blockly/blocks_compressed.js",
+              // "node_modules/ngx-blockly/scripts/blockly/python_compressed.js",
+              // "node_modules/ngx-blockly/scripts/blockly/msg/js/en.js",
               "src/pxt-blockly/Global.js",
               "src/pxt-blockly/blockly_compressed.js",
               "src/pxt-blockly/blocks_compressed.js",
@@ -64,10 +68,7 @@
               "src/pxt-blockly/__widget__.js",
               "src/pxt-blockly/__python__.js",
 
-              "node_modules/ngx-blockly/scripts/blockly/blockly_compressed.js",
-              "node_modules/ngx-blockly/scripts/blockly/blocks_compressed.js",
-              "node_modules/ngx-blockly/scripts/blockly/python_compressed.js",
-              "node_modules/ngx-blockly/scripts/blockly/msg/js/en.js"
+              
             ],
             "es5BrowserSupport": true
           },

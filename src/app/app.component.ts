@@ -1,61 +1,34 @@
-import { Component } from "@angular/core";
+import { Component,ViewChild,OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { NgxBlocklyConfig, NgxBlocklyGeneratorConfig } from "ngx-blockly";
+import {  NgxBlocklyComponent,NgxBlocklyConfig, NgxBlocklyGeneratorConfig,CustomBlock, BlockMutator } from "ngx-blockly";
+
+import {ToolboxService} from './toolbox.service';
+
+// import 'src/pxt-blockly/blockly_compressed.js';
+// import 'src/pxt-blockly/blocks_compressed.js';
+// import 'src/pxt-blockly/__blocks__.js';
+// import 'src/pxt-blockly/Global.js';
+
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })
+
+
+
+
+
+
+
 export class AppComponent {
   buttonClicked = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toolboxService: ToolboxService) {}
 
-  //# ngx-blockly
-  // collapse?: boolean; // Allows blocks to be collapsed or expanded. Defaults to true if the toolbox has categories, false otherwise.
-  //   comments?: boolean; // Allows blocks to have comments. Defaults to true if the toolbox has categories, false otherwise.
-  //   css?: boolean; // If false, don't inject CSS (providing CSS becomes the document's responsibility). Defaults to true.
-  //   disable?: boolean; // If false, don't inject CSS (providing CSS becomes the document's responsibility). Defaults to true.
-  //   grid?: {
-  //       spacing: number,
-  //       length: number,
-  //       colour: string,
-  //       snap: boolean
-  //   };
-  //   horizontalLayout?: boolean; // If true toolbox is horizontal, if false toolbox is vertical. Defaults to false.
-  //   maxBlocks?: number; // 	Maximum number of blocks that may be created. Useful for student exercises. Defaults to Infinity.
-  //   maxInstances?: object; // Map from block types to maximum number of blocks of that type that may be created. Undeclared types default to Infinity.
-  //   media?: string; // Path from page (or frame) to the Blockly media directory. Defaults to "https://blockly-demo.appspot.com/static/media/"
-  //   oneBasedIndex?: boolean; // If true list and string operations should index from 1, if false index from 0. Defaults to true.
-  //   readOnly?: boolean; // If true, prevent the user from editing. Supresses the toolbox and trashcan. Defaults to false.
-  //   rtl?: boolean; // If true, mirror the editor (for Arabic or Hebrew locales). Defaults to false.
-  //   scrollbars?: boolean; // Sets whether the workspace is scrollable or not. Defaults to true if the toolbox has categories, false otherwise
-  //   sounds?: boolean; // If false, don't play sounds (e.g. click and delete). Defaults to true.
-  //   theme?: any; // Defaults to classic theme if no theme is provided. (https://developers.google.com/blockly/guides/configure/web/themes)
-  //   toolbox?: string; // Tree structure of categories and blocks available to the user
-  //   toolboxPosition?: string; // If "start" toolbox is on top (if horizontal) or left (if vertical and LTR) or right (if vertical and RTL). If "end" toolbox is on opposite side. Defaults to "start".
-  //   trashcan?: boolean; // Displays or hides the trashcan. Defaults to true if the toolbox has categories, false otherwise.
-  //   maxTrashcanContents?: number; // Maximum number of deleted items that will appear in the trashcan flyout. '0' disables the feature. Defaults to '32'.
-  //   zoom?: {
-  //       controls: boolean,
-  //       wheel: boolean,
-  //       startScale: number,
-  //       maxScale: number,
-  //       minScale: number,
-  //       scaleSpeed: number
-  //   };
   public config: NgxBlocklyConfig = {
-    // toolbox:
-    //   '<xml id="toolbox" style="display: none">' +
-    //   '<block type="controls_if"></block>' +
-    //   '<block type="controls_repeat_ext"></block>' +
-    //   '<block type="logic_compare"></block>' +
-    //   '<block type="math_number"></block>' +
-    //   '<block type="math_arithmetic"></block>' +
-    //   '<block type="text"></block>' +
-    //   '<block type="text_print"></block>' +
-    //   "</xml>",
-    toolbox : '<xml id="toolbox" style="display: none"><category name = "CODELAB"><label text="Face Recognition"></label><button text="Add a face :D" callbackKey="buzzerKeyboardTrigger"></button><block type = "pxt.codelab.face"></block><label text="Voice Recognition"></label><button text="Add a phrase" callbackKey="buzzerKeyboardTrigger"></button><block type = "pxt.codelab.voice"></block><label text="Emotion Recognition"></label><block type = "pxt.codelab.emotion"></block><block type="pxt.blynk.virtualWrite"><value name="MAIN"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type = "pxt.node.trigger"></block><block type = "pxt.node.waitfor"></block></category><category name="INPUT" colour="%{BKY_TOOLBOX_INPUT_SOURCE}" icon="fa-dot-circle-o"><category name="BUTTON" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-hand-o-up"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">BUTTON</field></block><label text="Usage"></label><block type="pxt.button.onClick"></block><block type="pxt.button.getState"></block><block type= "pxt.demo.voiceRecognition"></block><block type= "pxt.demo.faceRecognition"></block><block type= "pxt.demo.emotion"></block></category><category name="SOUND" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-signing"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">SOUND</field></block><label text="Usage"></label><block type="pxt.sound.onClap"></block></category><category name="SLIDER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-sliders"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">SLIDER</field></block><label text="Usage"></label><block type="pxt.slider.getValue"></block></category><category name="WEATHER" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-thermometer"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">WEATHER</field></block><label text="Usage"></label><block type="pxt.weather.getValue"><field name="MODE">temperature</field></block><block type="pxt.weather.getValue"><field name="MODE">humidity</field></block></category><category name="LIGHT" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-lightbulb-o"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">LIGHT</field></block><label text="Usage"></label><block type="pxt.light.getValue"></block></category><category name="MOTION" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-blind"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">MOTION</field></block><label text="Usage"></label><block type="pxt.motion.onDetect"></block></category><category name="DISTANCE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-arrows-h"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">DISTANCE</field></block><label text="Usage"></label><block type="pxt.distance.getValue"></block></category><category name="MOISTURE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-tint"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">MOISTURE</field></block><label text="Usage"></label><block type="pxt.moisture.getValue"></block></category><category name="REMOTE" colour="%{BKY_TOOLBOX_INPUT}" icon="fa-podcast"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">REMOTE</field></block><label text="Usage"></label><block type="pxt.remote.onPress"></block></category></category><category name="ACTION" colour="%{BKY_TOOLBOX_OUTPUT_SOURCE}" icon="fa-gamepad"><category name="SPEECH" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-wechat"><block type="pxt.gtts.say"><value name="MAIN"><shadow type="text"><field name="TEXT">Hello World</field></shadow></value></block><block type="pxt.gtts.say"><value name="MAIN"><shadow type="text_join"></shadow></value></block></category><category name="PIXEL" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-lightbulb-o"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">PIXEL</field></block><label text="Usage"></label><block type="pxt.pixel.setColour"><value name="MAIN"><shadow type="pxt.dropdown.onoff"></shadow></value></block><block type="pxt.pixel.setColour"><value name="MAIN"><shadow type="colour_picker"></shadow></value></block></category><category name="RELAY" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-flash"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">RELAY</field></block><label text="Usage"></label><block type="pxt.relay.setValue"><value name="MAIN"><shadow type="pxt.dropdown.onoff"></shadow></value></block></category><category name="BUZZER" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-bell"><!-- <button text="Create your song now !" callbackKey="buzzerKeyboardTrigger"></button> --><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">BUZZER</field></block><label text="Usage"></label><block type="pxt.buzzer.setValue"><value name="MAIN"><shadow type="pxt.dropdown.onoff"></shadow></value></block><block type="pxt.buzzer.beep"><value name="MAIN"><shadow type="math_number"></shadow></value></block><block type="pxt.buzzer.playMelody"></block><block type="pxt.buzzer.playNote"></block><block type="pxt.buzzer.playFrequency"><value name="MAIN"><shadow type="math_number"><!-- <field name="NUM">3000</field> --></shadow></value></block></category><category name="INFRARED" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-sun-o"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">INFRARED</field></block><label text="Usage"></label><block type="pxt.infrared.learn"><value name="MAIN"><shadow type="text"><field name="TEXT">Turn On</field></shadow></value></block><block type="pxt.infrared.send"><value name="MAIN"><shadow type="text"><field name="TEXT">Turn On</field></shadow></value></block></category>   <category name="SERVO" colour="%{BKY_TOOLBOX_OUTPUT}" icon="fa-steam"><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">SERVO</field></block><label text="Usage"></label><block type="pxt.servo.setAngle"><value name="MAIN"><shadow type="math_number"></shadow></value></block></category>  </category><category name="DISPLAY" colour="%{BKY_TOOLBOX_DISPLAY_SOURCE}" icon="fa-tv"><!-- <category name="LCD" colour = "%{BKY_TOOLBOX_DISPLAY}"> --><label text="Connection"></label><block type="pxt.core.portDeclare"><field name="MODULE">LCD</field></block><label text="Usage"></label><block type="pxt.lcd.display"><value name="LEFT"><shadow type="text"><field name="TEXT"> </field></shadow></value><value name="RIGHT"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type="pxt.lcd.clear"></block><block type="pxt.lcd.backlight"><value name="MAIN"><shadow type="pxt.dropdown.onoff"></shadow></value></block>   </category><category name="BLYNK" colour="%{BKY_TOOLBOX_APP}" icon="fa-bold"><label text="Project Settings"></label><block type="pxt.widget.tab"><value name="NAME"><shadow type="text"><value name="TEXT">My Tab</value></shadow></value></block><category name="INPUT" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h"><category name="BUTTON" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.button.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.button.onEvent"></block></category><category name="SLIDER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.slider.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.slider.getValue"></block></category><category name="STEP" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.step.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.step.getValue"></block></category><category name="JOYSTICK" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.joystick.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.joystick.getValue"></block></category></category><category name="DISPLAY" colour="%{BKY_TOOLBOX_APP_DARK}" icon="fa-ellipsis-h"><category name="NUMBER" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.number.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="PREFIX"><block type="text"><field name="TEXT">℃</field></block></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.number.setValue"><value name="VALUE"><shadow type="math_number"></shadow></value></block></category><category name="LED" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.led.declare"><value name="WIDGETNAME"><shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.led.setValue"><value name="VALUE"><shadow type="colour_picker"></shadow></value></block></category><category name="GAUGE" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.gauge.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.gauge.setValue"><value name="VALUE"><shadow type="math_number"></shadow></value></block></category><category name="TERMINAL" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.terminal.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><label text="Usage"></label><block type="pxt.widget.terminal.setValue"><value name="VALUE"><shadow type="text"></shadow></value></block></category><category name="CHART" colour="%{BKY_TOOLBOX_APP_DARKER}" icon="fa-ellipsis-h"><label text="Config"></label><block type="pxt.widget.superchart.declare"><value name="WIDGETNAME">x<shadow type="text"><field name="TEXT">My Widget</field></shadow></value><value name="COLOUR"><shadow type="colour_picker"></shadow></value></block><block type="pxt.widget.superchart.channel.declare"><value name="WIDGETNAME"><block type="text"></block></value><value name="COLOUR"><block type="colour_picker"></block></value></block><label text="Usage"></label><block type="pxt.widget.superchart.setValue"><value name="VALUE"><shadow type="math_number"></shadow></value></block></category></category></category><category name="NETWORK" colour="%{BKY_TOOLBOX_NETWORK}" icon="fa-rss"><label text="Blynk Appp"></label><block type="pxt.blynk.onReceive"></block><block type="pxt.blynk.onRequest"><value name="VALUE"><shadow type="text"></shadow></value></block><block type="pxt.blynk.virtualWrite"><value name="MAIN"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type="pxt.blynk.notify"><value name="MAIN"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type="pxt.blynk.email"><value name="EMAIL"><shadow type="text"><field name="TEXT">yourmail@gmail.com</field></shadow></value><value name="SUBJECT"><shadow type="text"><field name="TEXT">Your Subject</field></shadow></value><value name="CONTENT"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type="pxt.blynk.log"><value name="MAIN"><shadow type="text"><field name="TEXT"> </field></shadow></value></block><block type="pxt.blynk.getMessage"></block><label text="IFTTT"></label><block type="pxt.ifttt.setKey"><value name="MAIN"><shadow type="text"></shadow></value></block><block type="pxt.ifttt.trigger"><value name="MAIN"><shadow type="text"></shadow></value></block><label text="XPATH"></label><block type="pxt.xpath.requestData"><value name="URL"><shadow type="text"></shadow></value><value name="XPATH"><shadow type="text"></shadow></value></block></category><category name="TIMER" colour="%{BKY_TOOLBOX_TIMER}" icon="fa-clock-o"><block type="pxt.timer.createTask"></block><block type="pxt.timer.wait"><value name="MAIN"><shadow type="pxt.dropdown.timeselect"></shadow></value></block><block type="pxt.timer.runtime"></block><block type="pxt.timer.createAlarm"></block><block type="pxt.timer.ntp.get"></block></category><category name="LOOPS" colour="%{BKY_LOOPS_HUE}" icon="fa-repeat"><block type="controls_repeat_ext">2<value name="TIMES"><shadow type="math_number"><field name="NUM">10</field></shadow></value></block><block type="controls_whileUntil"><field name="MODE">WHILE</field></block><block type="controls_for"><field name="VAR" id="p(1APX:tPbR@_S=dKwsa" variabletype="">i</field><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">10</field></shadow></value><value name="BY"><shadow type="math_number"><field name="NUM">1</field></shadow></value></block><block type="controls_forEach"><field name="VAR" id="LV!pxm=y2ER5K*iRn=gY" variabletype="">j</field></block><block type="controls_flow_statements"><field name="FLOW">BREAK</field></block></category><category name="LOGIC" colour="%{BKY_LOGIC_HUE}" icon="fa-random"><block type="controls_if"><value name="IF0"><shadow type="logic_compare"><field name="OP">EQ</field></shadow></value></block><block type="controls_if"></block><block type="logic_compare"><field name="OP">EQ</field></block><block type="logic_operation"><field name="OP">AND</field></block><block type="logic_negate"></block><block type="logic_boolean"><field name="BOOL">TRUE</field></block></category><category name="VARIABLES" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}" icon="fa-vine"> </category><category name="MATH" colour="%{BKY_MATH_HUE}" icon="fa-calculator"><block type="math_number"><field name="NUM">123</field></block><block type="math_arithmetic"></block><block type="math_single"></block><block type="math_trig"></block><block type="math_constant"></block><block type="math_number_property"></block><block type="math_round"></block><block type="math_on_list"></block><block type="math_modulo"></block><block type="math_constrain"><value name="LOW"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="HIGH"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block><block type="math_random_int"><value name="FROM"><shadow type="math_number"><field name="NUM">1</field></shadow></value><value name="TO"><shadow type="math_number"><field name="NUM">100</field></shadow></value></block><block type="math_random_float"></block><block type="pxt.math.map"><value name="FROMLOW"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="FROMHIGH"><shadow type="math_number"><field name="NUM">100</field></shadow></value><value name="TOLOW"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="TOHIGH"><shadow type="math_number"><field name="NUM">1000</field></shadow></value><value name="NUM"><shadow type="math_number"><field name="NUM">20</field></shadow></value></block></category><category name="TEXT" colour="%{BKY_TEXTS_HUE}" icon="fa-text-width"><block type="text"></block><block type="text_join"></block><block type="text_append"><value name="TEXT"><shadow type="text"></shadow></value></block><block type="text_length"><value name="VALUE"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block><block type="text_isEmpty"><value name="VALUE"><shadow type="text"><field name="TEXT"></field></shadow></value></block><block type="text_indexOf"><value name="VALUE"><shadow type="variables_get"><field name="VAR">text</field></shadow></value><value name="FIND"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block><block type="text_charAt"><value name="VALUE"><shadow type="variables_get"><field name="VAR">text</field></shadow></value></block><block type="text_getSubstring"><value name="STRING"><shadow type="variables_get"><field name="VAR">text</field></shadow></value></block><block type="text_changeCase"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block><block type="text_trim"><value name="TEXT"><shadow type="text"><field name="TEXT">abc</field></shadow></value></block>   </category><sep></sep><category name="ADVANCED" colour="#000000" icon="fa-plus-circle">   <category name="ARRAYS" colour="%{BKY_LISTS_HUE}" icon="fa-database"><block type="lists_create_with"><mutation items="3"></mutation></block><block type="lists_indexOf"><field name="END">FIRST</field><value name="VALUE"><shadow type="variables_get"><field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field></shadow></value></block><block type="lists_repeat"><value name="NUM"><shadow type="math_number"><field name="NUM">5</field></shadow></value></block><block type="lists_length"></block><block type="lists_isEmpty"></block><block type="lists_create_with"><mutation items="0"></mutation></block><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><shadow type="variables_get"><field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field></shadow></value></block><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><shadow type="variables_get"><field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field></shadow></value></block><block type="lists_getSublist"><mutation at1="true" at2="true"></mutation><field name="WHERE1">FROM_START</field><field name="WHERE2">FROM_START</field><value name="LIST"><shadow type="variables_get"><field name="VAR" id="5`P=m6T`ovSUq,V:[B[;" variabletype="">list</field></shadow></value></block><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="DELIM"><shadow type="text"><field name="TEXT">,</field></shadow></value></block><block type="lists_sort"><field name="TYPE">NUMERIC</field><field name="DIRECTION">1</field></block></category><category name="FUNCTIONS" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}" icon="fa-share-alt"></category>></category></xml>',
+    toolbox : this.toolboxService.ToolBoxXml ,
     scrollbars: true,
     trashcan: true,
     horizontalLayout : false,
@@ -87,7 +60,54 @@ export class AppComponent {
     xml: true
   };
 
+
+  public customBlocks: CustomBlock[] = [
+  
+  ];
+  
+
   onCode(code: string) {
     console.log(code);
   }
+  @ViewChild(NgxBlocklyComponent) workspace;
+  ngOnInit (){
+    console.warn(this.workspace);
+    console.warn(this.workspace.workspace);
+  }
+}
+
+
+
+
+
+//# Custom Blocks generation 
+declare var Blockly: any;
+ 
+export class TestBlock extends CustomBlock {
+    
+ 
+    constructor(type: string, block: any, blockMutator: BlockMutator) {
+        super(type, block, blockMutator);
+        this.class = TestBlock;
+    }
+ 
+    defineBlock() {
+        this.block.appendDummyInput()
+            .appendField(this.type)
+            .appendField(new Blockly.FieldImage('assets/testblock.png', 50, 50, '*'))
+            .appendField(new Blockly.FieldImage("this.args[0]", 50, 50, '*'));
+        this.block.setOutput(true, 'Input');
+        this.block.setColour(30);
+        this.block.setTooltip('');
+        this.block.setHelpUrl('');
+    }
+ 
+    toXML() {
+        return '<block type="test"></block>';
+    }
+ 
+ 
+    onChange(changeEvent: any) {
+        console.log(changeEvent);
+    }
 }

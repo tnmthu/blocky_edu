@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPipeModule } from './pipes/main-pipe.module';
 
 import { NgxBlocklyModule } from 'ngx-blockly';
-import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import {ToolboxService} from './toolbox.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +23,11 @@ import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ComponentsModule,
     BrowserAnimationsModule,
     MainPipeModule,
-    NgxBlocklyModule
+    NgxBlocklyModule,
   ],
-  providers: [],
+  providers: [
+    ToolboxService,
+  ],
   bootstrap: [AppComponent],
   // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
