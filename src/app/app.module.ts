@@ -13,6 +13,8 @@ import { ToolboxService } from './services/toolbox.service';
 import { CodelabControllerDirective } from './codelab-controller.directive';
 import { CodelabHeaderComponent } from './components/codelab-header/codelab-header.component';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { BlynkService } from './services/blynk.service';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { CodelabHeaderComponent } from './components/codelab-header/codelab-head
     BrowserAnimationsModule,
     MainPipeModule,
     NgxBlocklyModule,
+    AngularFontAwesomeModule,
     // SweetAlert2Module.forRoot()
   ],
   providers: [
     ToolboxService,
+    BlynkService
   ],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from "@angular/core";
+import { saveAs } from 'file-saver';
 import {
   NgxBlocklyComponent,
   NgxBlocklyConfig,
@@ -9,6 +10,7 @@ import {
 import { ToolboxService } from "src/app/services/toolbox.service";
 // import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import Swal from "sweetalert2";
+
 
 @Component({
   selector: "app-codelab",
@@ -77,11 +79,18 @@ export class CodelabComponent implements OnInit {
   }
 
   onButtonProjectUpload(){
-    
+
   }
 
   onButtonLoadProject(){
 
+  }
+
+  onButtonDownload (){
+    var code = new Blob([this.workspace.workspaceToCode()], {type: "text/plain;charset=utf-8"});
+    // var xml = new Blob([this.workspace.toXml()], {type: "text/plain;charset=utf-8"});
+    saveAs(code, "myCode.py");
+    // saveAs(xml, "myCode.xml");
   }
 
   ngAfterViewInit (){
