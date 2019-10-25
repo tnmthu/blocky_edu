@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgxBlocklyConfig, NgxBlocklyGeneratorConfig } from "ngx-blockly";
 import { NgxBlocklyComponent } from "ngx-blockly";
-import { ToolboxService } from "src/app/toolbox.service";
+import { ToolboxService } from "src/app/services/toolbox.service";
 
 @Component({
   selector: "app-codelab",
@@ -12,7 +12,7 @@ import { ToolboxService } from "src/app/toolbox.service";
 
 export class CodelabComponent implements OnInit {
   constructor(private toolboxService: ToolboxService) {}
-  
+
   public config: NgxBlocklyConfig = {
     toolbox: this.toolboxService.ToolBoxXml,
     scrollbars: true,
@@ -35,7 +35,7 @@ export class CodelabComponent implements OnInit {
       scaleSpeed: 2
     }
   };
-  
+
   public generatorConfig: NgxBlocklyGeneratorConfig = {
     dart: false,
     javascript: false,
@@ -45,7 +45,7 @@ export class CodelabComponent implements OnInit {
     xml: true
   };
 
-  
+
 
   onCode(code: string) {
     console.log(code);

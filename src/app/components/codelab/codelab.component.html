@@ -1,3 +1,178 @@
 <div class="container">
     <ngx-blockly  [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
+
 </div>
+
+<!-- CODELAB.html
+
+<div flex layout="row" id="code-lab">
+    <div flex id="main-content" layout="column">
+        <div ng-include src="vm.blocklyToolbox"></div>
+        <div ng-include src="vm.blocklyWorkspace"></div>
+        <div flex id="blocklyDiv" style="position: absolute" ng-style="{'visibility': vm.script.mode ==='block'?'visible':'hidden'}"></div>
+        <div flex ui-ace="vm.pythonEditorOptions" ng-style="{'visibility': vm.script.mode ==='python'?'visible':'hidden'}" ng-model="vm.script.python"></div>
+    </div>
+
+    <md-sidenav flex-gt-sm="25" flex="30" id="side-bar" class="md-whiteframe-1dp md-sidenav-right" md-is-locked-open="vm.isSidenavOpen && $mdMedia('gt-xs')"
+        md-component-id="right">
+        <div flex layout="column" layout-padding>
+            <div layout="row" id="device-actions">
+                <div layout="row">
+                    <md-button ng-hide="true" ng-disabled="!vm.isUserLoaded || !vm.currentDevice" ng-click="vm.updateFirmware()" class="md-icon-button"
+                        aria-label="Device Menu">
+                        <md-tooltip md-direction="bottom">
+                            Update firmware to latest version
+                        </md-tooltip>
+                        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    </md-button>
+                    <md-button ng-disabled="!vm.isUserLoaded || !vm.currentDevice" ng-click="vm.uploadScript('ota')"
+                        class="md-icon-button" aria-label="Device Menu">
+                        <md-tooltip md-direction="bottom">
+                            Send and save script. It will be run every time blocky starts.
+                        </md-tooltip>
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                    </md-button>
+                </div>
+                <md-select ng-model="vm.currentDevice" placeholder="Select a device" class="md-no-underline" ng-disabled="vm.otaInProgress">
+                    <md-option ng-repeat="device in vm.devices | orderBy:'name'" ng-value="device">
+                        <i ng-class="device.status ? 'fa fa-circle device-online' : 'fa fa-circle device-offline'"
+                        aria-hidden="true"></i> {{device.name}}
+                    </md-option>
+                </md-select>
+
+                <md-button ng-show="vm.isUserLoaded" ng-click="vm.reloadLoadUserDevices()" class="md-icon-button"
+                    aria-label="Reload Device">
+                    <md-tooltip md-direction="bottom">
+                        Reload devices
+                    </md-tooltip>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </md-button>
+            </div>
+            <md-card flex id="device-log">
+                <md-toolbar class="md-primary md-hue-1">
+                    <md-card-header layout="row" layout-align="center">
+                        <md-card-header-text flex>
+                            <span class="md-title">Device Log</span>
+                        </md-card-header-text>
+                        <md-button aria-label="Clear Log" ng-click="vm.clearDeviceLog()">
+                            <i class="fa fa-ban" aria-hidden="true"></i>
+                        </md-button>
+                    </md-card-header>
+                </md-toolbar>
+                <md-card-content flex>
+                    <p ng-bind-html="vm.currentLog"></p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-sidenav>
+</div>
+
+
+<div id="footer" layout="row" class="md-whiteframe-4dp">
+    <md-button class="md-accent md-raised tb-editor-mode" ng-click="vm.changeMode($event)">
+        <i class="fa" ng-class="vm.script.mode ==='block' ? 'fa-code' : 'fa-cubes'" aria-hidden="true"></i>
+        <span hide-xs hide-sm> {{vm.script.mode ==='block' ? 'Python' : 'Block'}} Mode</span>
+    </md-button>
+
+    <md-input-container flex="30" hide-xs>
+        <label>Project Name</label>
+        <input required name="clientName" ng-model="vm.script.name">
+    </md-input-container>
+    <md-button ng-click="vm.saveProject()" ng-disabled="!vm.script.name" hide-xs>
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        <span hide-sm> Save</span>
+    </md-button>
+    <md-button ng-click="vm.newProject()" hide-xs>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <span hide-sm> New</span>
+    </md-button>
+    <md-button ng-click="vm.openProject($event)" hide-xs>
+        <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+        <span hide-sm> Open</span>
+    </md-button>
+    <md-button ng-show="vm.script._id" ng-click="vm.duplicateProject()" hide-xs>
+        <i class="fa fa-files-o" aria-hidden="true"></i>
+        <span hide-sm> Duplicate</span>
+    </md-button>
+    <md-button ng-click="vm.downloadProject()" hide-xs>
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <span hide-sm> Download</span>
+    </md-button>
+    <md-button ng-show="vm.script._id" ng-click="vm.deleteProject()" hide-xs>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+        <span hide-sm> Delete</span>
+    </md-button>
+
+    <md-button ng-style="{'color': vm.script.isPublic ? 'green' : ''}" ng-show="vm.script._id" ng-click="vm.shareProject()"
+        hide-xs>
+        <i class="fa fa-share-alt" aria-hidden="true"></i>
+        <span hide-sm> {{vm.script.isPublic ? "Shared" : "Share"}}</span>
+    </md-button>
+
+    <md-button aria-label="Save Project" ng-click="vm.saveProjectMobile()" hide-gt-xs>
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+    </md-button>
+    <md-button ng-hide="true" ng-disabled="!vm.isUserLoaded || !vm.currentDevice" aria-label="Upload Script" ng-click="vm.updateFirmware()"
+        hide-gt-xs>
+        <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    </md-button>
+    <md-button ng-disabled="!vm.isUserLoaded || !vm.currentDevice" aria-label="Upload Script" ng-click="vm.uploadScript('ota')"
+        hide-gt-xs>
+        <i class="fa fa-upload" aria-hidden="true"></i>
+    </md-button>
+    <md-select ng-model="vm.currentDevice" placeholder="Select a device" class="md-no-underline" hide-gt-xs ng-disabled="vm.otaInProgress">
+        <md-option ng-repeat="device in vm.devices | orderBy:'name'" ng-value="device">
+            <i ng-class="device.status ? 'fa fa-circle device-online' : 'fa fa-circle device-offline'" aria-hidden="true"></i> {{device.name}}
+        </md-option>
+    </md-select>
+    <md-button ng-show="vm.isUserLoaded" ng-click="vm.reloadLoadUserDevices()" aria-label="Reload Device"
+        hide-gt-xs>
+        <i class="fa fa-refresh" aria-hidden="true"></i>
+    </md-button>
+
+    <span flex></span>
+    <md-button aria-label="Side Nav" ng-click="vm.toggleSidenav()" hide-xs>
+        <i ng-class="vm.isSidenavOpen ? 'fa fa-chevron-right' : 'fa fa-chevron-left'" aria-hidden="true"></i>
+    </md-button>
+    <md-button aria-label="Bottom Sheet" ng-click="vm.showBottomSheetActions()" hide-gt-xs>
+        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </md-button>
+</div>
+-->
+
+
+
+
+<!-- //# HOME.html -->
+<!--
+<div id="home" flex layout="column" tabIndex="-1" role="main">
+    <md-toolbar class="md-whiteframe-z1" ng-hide="vm.Fullscreen.isEnabled()">
+        <div layout="row" layout-align="space-between center" flex class="md-toolbar-tools">
+            <div layout="row" layout-align="space-between center">
+                <img src="/logo.png" width="150">
+                <div layout="column" hide-xs>
+                        <h1> Blocky</h1>
+                        <h6>
+                            Anyone can make
+                        </h6>
+                    </div>
+            </div>
+
+            <md-nav-bar layout="row" md-selected-nav-item="vm.currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item ng-repeat="item in vm.navItems" md-nav-sref="{{item.state}}" name="{{item.attributeName}}">
+                    <i class="fa {{item.faIcon}} fa-2x" aria-hidden="true"></i>
+                    <span hide-xs hide-sm>{{item.name | translate}}</span>
+                </md-nav-item>
+            </md-nav-bar>
+
+            <tb-user-menu></tb-user-menu>
+        </div>
+    </md-toolbar>
+    <md-progress-linear class="md-warn" style="z-index: 10; max-height: 0px; width: 100%;" md-mode="indeterminate"
+        ng-disabled="!loading" ng-show="loading"></md-progress-linear>
+
+    <div flex layout="column" id="toast-parent" style="position: relative;">
+        <md-content ng-cloak flex layout="column" class="page-content" ui-view name="content"></md-content>
+    </div>
+</div>
+-->

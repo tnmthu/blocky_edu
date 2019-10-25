@@ -17,6 +17,7 @@ import { CodelabComponent } from "./codelab/codelab.component";
 import {
   NgxBlocklyModule
 } from "ngx-blockly";
+import { CodelabFooterComponent } from './codelab-footer/codelab-footer.component';
 @NgModule({
   declarations: [
     EduComponent,
@@ -26,7 +27,8 @@ import {
     CourseContentDetailComponent,
     LogoComponent,
     WordpressComponent,
-    CodelabComponent
+    CodelabComponent,
+    CodelabFooterComponent
   ],
   imports: [
     CommonModule,

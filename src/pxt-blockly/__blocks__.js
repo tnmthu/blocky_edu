@@ -1012,7 +1012,7 @@ Blockly.Blocks['pxt.xpath.requestData'] = {
 
                 var url = Blockly.Python.valueToCode(this, 'URL', Blockly.Python.ORDER_ATOMIC);
                 var queryURL = 'https://blynk.getblocky.com:100/scan?url=';
-                // queryURL += encodeURI(url); 
+                // queryURL += encodeURI(url);
                 queryURL += url.slice(1, -1);
 
                 function updatePageDictionary(url, targetBlock) {
@@ -1700,7 +1700,7 @@ Blockly.Blocks["pxt.codelab.face"] = {
             .appendField(new Blockly.FieldDropdown([
                 ["Thuận","Thuận"]
             ]), 'PORT')
-            
+
             ;
         this.appendStatementInput('CODE');
         this.setOnChange(function (change) {
@@ -1729,7 +1729,7 @@ Blockly.Blocks["pxt.codelab.voice"] = {
 
 Blockly.Blocks['pxt.codelab.emotion'] = {
     init: function () {
-        
+
         this.setColour("#000000");
         this.setOutputShape(Blockly.OUTPUT_SHAPE_HEXAGONAL);
         this.setOutput(true, 'Boolean');
@@ -1748,7 +1748,7 @@ Blockly.Blocks['pxt.codelab.emotion'] = {
 
 Blockly.Blocks['pxt.codelab.emotion'] = {
     init: function () {
-        
+
         this.setColour("#000000");
         this.setOutputShape(Blockly.OUTPUT_SHAPE_HEXAGONAL);
         this.setOutput(true, 'Boolean');
@@ -1771,12 +1771,12 @@ Blockly.Blocks['pxt.node.trigger'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.appendDummyInput('DUMMY')
-            .appendField("trigger device")   
+            .appendField("trigger device")
             .appendField(new Blockly.FieldDropdown([
                 ["Hương's Controller","a"],
                 ["Nguyên's Controller","b"]
 
-            ]),"a") 
+            ]),"a")
             .appendField('');
         this.setOnChange(function (change) {
             changeHandle(this, change);
@@ -1790,12 +1790,12 @@ Blockly.Blocks['pxt.node.waitfor'] = {
         this.setPreviousStatement(true);
         this.setNextStatement(true);
         this.appendDummyInput('DUMMY')
-            .appendField("wait for  device")   
+            .appendField("wait for  device")
             .appendField(new Blockly.FieldDropdown([
                 ["Hương's Controller","a"],
                 ["Nguyên's Controller","b"]
 
-            ]),"a") 
+            ]),"a")
             .appendField('');
         this.setOnChange(function (change) {
             changeHandle(this, change);

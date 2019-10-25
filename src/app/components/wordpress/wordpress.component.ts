@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { WordpressService } from '../../services/wordpress/wordpress.service';
+import { WordpressService } from '../../services/wordpress.service';
 
 @Component({
   selector: 'app-wordpress',
@@ -12,7 +12,7 @@ import { WordpressService } from '../../services/wordpress/wordpress.service';
 export class WordpressComponent implements OnInit {
   posts: Observable<any[]>;
 
-  constructor(private wordpress: WordpressService) { 
+  constructor(private wordpress: WordpressService) {
     this.posts = this.wordpress.getPosts();
   }
 
