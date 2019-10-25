@@ -1,26 +1,17 @@
-<!-- <div class="container full-height" *ngIf="router.url !== '/'">
-  <app-codelab [ngClass]="{'half-screen half-screen__left': buttonClicked}"></app-codelab>
-  <button class="drawer edu__button" (click)="onClick()">Edu</button>
-  <div class="half-screen half-screen__right" *ngIf="buttonClicked">
-    <app-logo></app-logo>
-    <router-outlet></router-outlet>
-  </div>
-</div> -->
-
-<!-- Landing Page -->
-<!-- <div *ngIf="router.url === '/'">
-  <router-outlet></router-outlet>
-</div> -->
-<!-- <app-codelab ></app-codelab> -->
-
-<!-- <router-outlet></router-outlet> -->
-<!-- <app-wordpress></app-wordpress> -->
-
-
-<div flex layout = "row" id = "app-codelab">
-  <!-- <ngx-blockly (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly> -->
-<ngx-blockly [config]="config" [generatorConfig]="generatorConfig" (javascriptCode)="onCode($event)" (pythonCode)="onCode($event)"></ngx-blockly>
+<div class="container full-height" *ngIf="router.url !== '/'">
+    <div class="half-screen half-screen__right" *ngIf="buttonClicked">
+        <app-logo></app-logo>
+        <router-outlet></router-outlet>
+    </div>
+    <app-codelab [ngClass]="{'blockly blocklySvg': buttonClicked}"></app-codelab>
+    <button class="drawer edu__button" (click)="onClick()">Edu</button>
 </div>
+
+<div *ngIf="router.url === '/'">
+  <router-outlet></router-outlet>
+</div>
+
+
 
 
 <!-- 

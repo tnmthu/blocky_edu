@@ -9,12 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPipeModule } from './pipes/main-pipe.module';
 
 import { NgxBlocklyModule } from 'ngx-blockly';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import {ToolboxService} from './toolbox.service';
+import { CodelabControllerDirective } from './codelab-controller.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
+    CodelabControllerDirective,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,5 @@ import {ToolboxService} from './toolbox.service';
     ToolboxService,
   ],
   bootstrap: [AppComponent],
-  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

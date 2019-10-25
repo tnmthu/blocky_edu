@@ -1,31 +1,41 @@
-import { Component, OnInit } from "@angular/core";
-import { NgxBlocklyModule, NgxBlocklyConfig, NgxBlocklyGeneratorConfig } from 'ngx-blockly';
-import { Output, Input } from '@angular/core';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NgxBlocklyConfig, NgxBlocklyGeneratorConfig } from "ngx-blockly";
+import { NgxBlocklyComponent } from "ngx-blockly";
+import { ToolboxService } from "src/app/toolbox.service";
+
 @Component({
   selector: "app-codelab",
   templateUrl: "./codelab.component.html",
-  styleUrls: ["./codelab.component.scss"]
+  styleUrls: ["./codelab.component.scss"],
+
 })
 
 export class CodelabComponent implements OnInit {
-  workspace: any;
-  constructor() {
+  constructor(private toolboxService: ToolboxService) {}
   
-  }
   public config: NgxBlocklyConfig = {
-    toolbox:
-      '<xml id="toolbox" style="display: none">' +
-      '<block type="controls_if"></block>' +
-      '<block type="controls_repeat_ext"></block>' +
-      '<block type="logic_compare"></block>' +
-      '<block type="math_number"></block>' +
-      '<block type="math_arithmetic"></block>' +
-      '<block type="text"></block>' +
-      '<block type="text_print"></block>' +
-      "</xml>",
+    toolbox: this.toolboxService.ToolBoxXml,
     scrollbars: true,
     trashcan: true,
+    horizontalLayout: false,
+    collapse: true,
+    comments: true,
+    grid: {
+      spacing: 1,
+      length: 10,
+      colour: "#00ffff",
+      snap: true
+    },
+    zoom: {
+      controls: true,
+      wheel: true,
+      startScale: 1,
+      maxScale: 100,
+      minScale: 1,
+      scaleSpeed: 2
+    }
   };
+  
   public generatorConfig: NgxBlocklyGeneratorConfig = {
     dart: false,
     javascript: false,
@@ -34,17 +44,16 @@ export class CodelabComponent implements OnInit {
     python: true,
     xml: true
   };
-  //# wordpress
+
+  
+
   onCode(code: string) {
     console.log(code);
   }
-  onWorkspace(event : any){
-    console.log(event);
-  }
+  @ViewChild(NgxBlocklyComponent) workspace;
 
-  
   ngOnInit() {
-
+    console.warn(this.workspace);
+    console.warn(this.workspace.workspace);
   }
 }
-

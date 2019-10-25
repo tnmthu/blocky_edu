@@ -1,20 +1,22 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 
-import { EduComponent } from './edu/edu.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { CourseComponent } from './course/course.component';
-import { CourseContentComponent } from './course-content/course-content.component';
-import { CourseContentDetailComponent } from './course-content-detail/course-content-detail.component';
-import { LogoComponent } from './logo/logo.component';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { WordpressComponent } from './wordpress/wordpress.component';
-import { MainPipeModule } from '../pipes/main-pipe.module';
-import { CodelabComponent } from './codelab/codelab.component';
-
+import { EduComponent } from "./edu/edu.component";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { CourseComponent } from "./course/course.component";
+import { CourseContentComponent } from "./course-content/course-content.component";
+import { CourseContentDetailComponent } from "./course-content-detail/course-content-detail.component";
+import { LogoComponent } from "./logo/logo.component";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { WordpressComponent } from "./wordpress/wordpress.component";
+import { MainPipeModule } from "../pipes/main-pipe.module";
+import { CodelabComponent } from "./codelab/codelab.component";
+import {
+  NgxBlocklyModule
+} from "ngx-blockly";
 @NgModule({
   declarations: [
     EduComponent,
@@ -24,7 +26,7 @@ import { CodelabComponent } from './codelab/codelab.component';
     CourseContentDetailComponent,
     LogoComponent,
     WordpressComponent,
-    CodelabComponent,
+    CodelabComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { CodelabComponent } from './codelab/codelab.component';
     BrowserModule,
     RouterModule,
     MatExpansionModule,
-    MainPipeModule
+    MainPipeModule,
+    NgxBlocklyModule,
   ],
   providers: [],
   entryComponents: [],
@@ -44,8 +47,7 @@ import { CodelabComponent } from './codelab/codelab.component';
     CourseContentDetailComponent,
     LogoComponent,
     WordpressComponent,
-    CodelabComponent,
-  ],
+    CodelabComponent
+  ]
 })
-export class ComponentsModule {
-}
+export class ComponentsModule {}

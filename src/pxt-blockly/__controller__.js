@@ -9,9 +9,8 @@ goog.require('Blockly.Generator');
 
 Blockly.Python.addReservedWords('machine');
 Blockly.Python.addReservedWords('blocky');
-var codelab = {
-    functionName: {}
-};
+
+
 
 // patch , add definitions_ , no idea why is missing
 Blockly.Python.codeSections = Object.create(null);
