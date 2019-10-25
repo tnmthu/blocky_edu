@@ -1,0 +1,67 @@
+@import '../../../assets/scss/Colors.scss';
+
+.footer {
+    display: flex;
+    align-items: center;
+}
+i {
+    transition: ease-in 300ms;
+
+}
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    background: none;
+    border-radius: 10px;
+
+    transition: ease-in 250ms;
+
+    &_op, &_mode {
+        width: 8%;
+        height: 50px;
+        margin: 10px;
+
+    }
+
+    &_mode, &_mode>i {
+        background-color: $wild-strawberry;
+        color: $white;
+        font-weight: bold;
+    }
+
+    &_op:not(.disabled):hover, &_show:hover {
+        background: $gray;
+    }
+
+    &_mode:hover, &_mode:hover>i {
+        background-color: $wild-strawberry-darker;
+    }
+
+    &_show {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        right: 0;
+
+    }
+
+    &_show>i {
+        font-size: 40px;
+    }
+}
+
+.project {
+    width: 30%;
+    margin: 10px 10px 0 10px;
+
+    &_input {
+        width: 100%;
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
