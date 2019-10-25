@@ -11,13 +11,11 @@ import { MainPipeModule } from './pipes/main-pipe.module';
 import { NgxBlocklyModule } from 'ngx-blockly';
 import { ToolboxService } from './services/toolbox.service';
 import { CodelabControllerDirective } from './codelab-controller.directive';
-import { CodelabHeaderComponent } from './components/codelab-header/codelab-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CodelabControllerDirective,
-    CodelabHeaderComponent,
   ],
   imports: [
     BrowserModule,
