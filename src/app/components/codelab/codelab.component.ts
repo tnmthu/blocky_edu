@@ -10,7 +10,8 @@ import {
 import { ToolboxService } from "src/app/services/toolbox.service";
 // import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import Swal from "sweetalert2";
-
+import { encodeBase64 } from '@progress/kendo-file-saver';
+import * as JSZip from 'jszip';
 
 @Component({
   selector: "app-codelab",
@@ -53,7 +54,7 @@ export class CodelabComponent implements OnInit {
   };
 
   onCode(code: string) {
-    console.log(code);
+    // console.log(code);
   }
   @ViewChild(NgxBlocklyComponent) workspace;
   
@@ -86,13 +87,30 @@ export class CodelabComponent implements OnInit {
 
   }
 
+     
   onButtonDownload (){
-    var code = new Blob([this.workspace.workspaceToCode()], {type: "text/plain;charset=utf-8"});
-    // var xml = new Blob([this.workspace.toXml()], {type: "text/plain;charset=utf-8"});
-    saveAs(code, "myCode.py");
+    console.log("Current Id" , this.workspace.workspace.id);
+    var code = new Blob([window.Blockly.Python.workspaceToCode(this.workspace.workspace)], {type: "text/plain;charset=utf-8"});
+    var xml = new Blob([(new XMLSerializer()).serializeToString((window.Blockly.Xml.workspaceToDom(this.workspace.workspace)))], {type: "text/plain;charset=utf-8"});
+    console.log("Strunct" , xml);
+    // saveAs(code, "myCode.py");
     // saveAs(xml, "myCode.xml");
+    this.downloadFileExample(code,xml);
+    // saveAs(xml, "myCode.xml");
+    // console.log("UserCode" , window.Blockly.Python.workspaceToCode(this.workspace.workspace));
   }
+  downloadFileExample(code,xml) {
+    const jszip = new JSZip();
+    // jszip.file('Hello.txt', 'Hello World\n');
+    var files = jszip.folder("My Project");
+    files.file("MyProject.py",code);
+    files.file("MyProject.xml",xml);
 
+    jszip.generateAsync({ type: 'blob' }).then(function(content) {
+      // see FileSaver.js
+      saveAs(content, 'My Project.zip');
+    });
+  }
   ngAfterViewInit (){
     this.workspace.fromXml('<xml id="workspaceBlocks" style="display:none"><variables></variables><block type="pxt.onStart" x="50" y="50"><value name="CODE"></value></block></xml>');
 
