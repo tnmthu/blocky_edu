@@ -87,7 +87,55 @@ export class CodelabComponent implements OnInit {
 
   }
 
-     
+  async onButtonLogin(){
+
+    // Swal.fire({
+    //   title: 'Custom width, padding, background.',
+    //   width: 600,
+    //   padding: '3em',
+    //   background: '#fff url(/images/trees.png)',
+    //   backdrop: `
+    //     rgba(0,0,123,0.4)
+    //     url("/images/nyan-cat.gif")
+    //     center left
+    //     no-repeat
+    //   `
+    // })
+
+
+    var username = await Swal.fire({
+      title : "Login in",
+      type : "info",
+      input : "text",
+      inputPlaceholder : "ahihi@gmail.com",
+      background: '#22bf89 no-repeat left top url(http://66.media.tumblr.com/8210fd413c5ce209678ef82d65731443/tumblr_mjphnqLpNy1s5jjtzo1_400.gif)',
+      width: 600,
+      padding: '3em',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        center left
+        no-repeat
+      `,
+
+    });
+
+    console.log("username" , username);
+
+    // var password = await Swal.fire({
+    //   title : "Hello" ,
+    //   type : "info" , 
+    //   input : "password",
+    //   html : "<>"
+    // })
+
+    console.log("password" , password);
+
+
+
+
+
+  }
   onButtonDownload (){
     console.log("Current Id" , this.workspace.workspace.id);
     var code = new Blob([window.Blockly.Python.workspaceToCode(this.workspace.workspace)], {type: "text/plain;charset=utf-8"});
@@ -99,6 +147,7 @@ export class CodelabComponent implements OnInit {
     // saveAs(xml, "myCode.xml");
     // console.log("UserCode" , window.Blockly.Python.workspaceToCode(this.workspace.workspace));
   }
+
   downloadFileExample(code,xml) {
     const jszip = new JSZip();
     // jszip.file('Hello.txt', 'Hello World\n');
