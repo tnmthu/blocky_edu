@@ -14,23 +14,37 @@ import Swal from "sweetalert2";
 import * as JSZip from "jszip";
 import { Socket } from "ngx-socket-io";
 import * as EmailValidator from "email-validator";
-
+import { WebcamModule, WebcamComponent, WebcamImage, WebcamInitError, WebcamMirrorProperties, WebcamUtil } from "ngx-webcam";
 import { map } from "rxjs/operators";
 @Component({
   selector: "app-codelab",
   templateUrl: "./codelab.component.html",
-  styleUrls: ["./codelab.component.scss"]
+  styleUrls: ["./codelab.component.scss"],
+  
 })
 export class CodelabComponent implements OnInit {
+  // Customize Toast
+  Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000
+  });
+
   constructor(
     private toolboxService: ToolboxService,
     private socket: Socket,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private webcam: WebcamModule
   ) {}
 
   isUserLoggedIn: boolean = false;
   thisUsername: string;
   thisPassword: string;
+  loginProfile: any;
+  isWebcamEnable : boolean = false; 
+  Blockly : any ;
+
   public config: NgxBlocklyConfig = {
     toolbox: this.toolboxService.ToolBoxXml,
     scrollbars: true,
@@ -67,11 +81,6 @@ export class CodelabComponent implements OnInit {
     // console.log(code);
   }
   @ViewChild(NgxBlocklyComponent) workspace;
-
-  ngOnInit() {
-    console.warn(this.workspace);
-    console.warn(this.workspace.workspace);
-  }
 
   onButtonNewProject() {
     console.log("Click");
@@ -130,39 +139,44 @@ export class CodelabComponent implements OnInit {
     });
     this.thisUsername = username.value;
     this.thisPassword = password.value;
+    this.loginProfile = {
+      username: this.thisUsername,
+      password: this.thisPassword
+    };
+    localStorage.setItem("loginSession", this.loginProfile);
     var payload = { username: this.thisUsername, password: this.thisPassword };
     const data = await this.httpClient
       .post("http://localhost:5000/api/v1/login", JSON.stringify(payload), {
         headers: new HttpHeaders().set("Content-Type", "application/json")
       })
       .toPromise();
-    console.log(data);
+
     if (data["success"] === false) {
-      await Swal.fire({
+      this.Toast.fire({
         type: "error",
         title: "Wrong password",
-        text: "Please double check your password"
+        background: "#ee6500"
       });
-      this.isUserLoggedIn = false ;
+      this.isUserLoggedIn = false;
     } else {
-      await Swal.fire({
+      this.Toast.fire({
         type: "success",
-        title: "Welcome ^^",
-        background:
-          "#22bf89 no-repeat url(http://66.media.tumblr.com/8210fd413c5ce209678ef82d65731443/tumblr_mjphnqLpNy1s5jjtzo1_400.gif)",
-        width: 600,
-        padding: "3em",
-        backdrop: `
-        rgba(0,0,123,0.4)
-        url("/images/nyan-cat.gif")
-        center left
-        no-repeat
-      `
+        title: "Signed in successfully",
+        background: "#22bf89"
       });
+
       this.isUserLoggedIn = true;
     }
-
-    
+  }
+  async onSignOutButton() {
+    (this.thisPassword = ""),
+      (this.thisUsername = ""),
+      (this.loginProfile = this.isUserLoggedIn = false);
+    this.Toast.fire({
+      type: "success",
+      title: "You have signed out",
+      background: "#22bf89"
+    });
   }
   async onSignUpButton() {
     var _username = await Swal.fire({
@@ -248,11 +262,6 @@ export class CodelabComponent implements OnInit {
       saveAs(content, "My Project.zip");
     });
   }
-  ngAfterViewInit() {
-    this.workspace.fromXml(
-      '<xml id="workspaceBlocks" style="display:none"><variables></variables><block type="pxt.onStart" x="50" y="50"><value name="CODE"></value></block></xml>'
-    );
-  }
 
   // ███████╗ ██████╗  ██████╗██╗  ██╗███████╗████████╗██╗ ██████╗
   // ██╔════╝██╔═══██╗██╔════╝██║ ██╔╝██╔════╝╚══██╔══╝██║██╔═══██╗
@@ -271,5 +280,21 @@ export class CodelabComponent implements OnInit {
 
   socketTrigger() {
     this.sendMessage("Hello Worls");
+    localStorage.setItem("key", String(new Date().getTime() / 1000));
+    console.log(localStorage.getItem("key"));
+  }
+
+  ngOnInit() {
+    console.warn(this.workspace);
+    console.warn(this.workspace.workspace);
+  }
+  ngAfterViewInit() {
+    this.workspace.fromXml(
+      '<xml id="workspaceBlocks" style="display:none"><variables></variables><block type="pxt.onStart" x="50" y="50"><value name="CODE"></value></block></xml>'
+    );
+
+    if (localStorage.getItem("loginSession") != null) {
+      alert("User loggedin " + String(localStorage.getItem("loginSession ")));
+    }
   }
 }

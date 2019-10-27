@@ -16,6 +16,8 @@ import { CodelabHeaderComponent } from './components/codelab-header/codelab-head
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BlynkService } from './services/blynk.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+import {WebcamModule, WebcamComponent} from 'ngx-webcam';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: {} };
@@ -26,6 +28,7 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
     AppComponent,
     CodelabControllerDirective,
     CodelabHeaderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,8 +40,10 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
     NgxBlocklyModule,
     AngularFontAwesomeModule,
     BrowserModule,
-    SocketIoModule.forRoot(config)
+    WebcamModule,
+    SocketIoModule.forRoot(config),
     // SweetAlert2Module.forRoot()
+    
   ],
   providers: [
     ToolboxService,

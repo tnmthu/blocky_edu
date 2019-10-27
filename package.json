@@ -36,6 +36,7 @@
     "ng2-file-drop": "^5.0.0",
     "ngx-blockly": "0.0.43",
     "ngx-socket-io": "^3.0.1",
+    "ngx-webcam": "^0.2.6",
     "npm": "^6.12.0",
     "rxjs": "~6.3.3",
     "socket.io-client": "^2.3.0",
