@@ -13,6 +13,7 @@ import { ToolboxService } from "src/app/services/toolbox.service";
 import Swal from "sweetalert2";
 import * as JSZip from "jszip";
 import { Socket } from "ngx-socket-io";
+import * as EmailValidator from "email-validator";
 
 import { map } from "rxjs/operators";
 @Component({
@@ -27,6 +28,9 @@ export class CodelabComponent implements OnInit {
     private httpClient: HttpClient
   ) {}
 
+  isUserLoggedIn: boolean = false;
+  thisUsername: string;
+  thisPassword: string;
   public config: NgxBlocklyConfig = {
     toolbox: this.toolboxService.ToolBoxXml,
     scrollbars: true,
@@ -106,33 +110,83 @@ export class CodelabComponent implements OnInit {
         url("/images/nyan-cat.gif")
         center left
         no-repeat
-      `
+      `,
+      inputValidator: value => {
+        if (!EmailValidator.validate(value)) {
+          return "Dude, this is not an email :v";
+        }
+      }
     });
-
-    console.log("username", username);
 
     var password = await Swal.fire({
-      title: "Hello ${username}",
+      title: "Type in your password",
       type: "info",
       input: "password",
-      html: "<>"
+      inputValidator: value => {
+        if (!value) {
+          return "Please type in your password";
+        }
+      }
     });
+    this.thisUsername = username.value;
+    this.thisPassword = password.value;
+    var payload = { username: this.thisUsername, password: this.thisPassword };
+    const data = await this.httpClient
+      .post("http://localhost:5000/api/v1/login", JSON.stringify(payload), {
+        headers: new HttpHeaders().set("Content-Type", "application/json")
+      })
+      .toPromise();
+    console.log(data);
+    if (data["success"] === false) {
+      await Swal.fire({
+        type: "error",
+        title: "Wrong password",
+        text: "Please double check your password"
+      });
+      this.isUserLoggedIn = false ;
+    } else {
+      await Swal.fire({
+        type: "success",
+        title: "Welcome ^^",
+        background:
+          "#22bf89 no-repeat url(http://66.media.tumblr.com/8210fd413c5ce209678ef82d65731443/tumblr_mjphnqLpNy1s5jjtzo1_400.gif)",
+        width: 600,
+        padding: "3em",
+        backdrop: `
+        rgba(0,0,123,0.4)
+        url("/images/nyan-cat.gif")
+        center left
+        no-repeat
+      `
+      });
+      this.isUserLoggedIn = true;
+    }
 
-    console.log("password", password);
+    
   }
   async onSignUpButton() {
     var _username = await Swal.fire({
       title: "Create new account",
       text: "username ?",
       input: "text",
-      type: "info"
+      type: "info",
+      inputValidator: value => {
+        if (!EmailValidator.validate(value)) {
+          return "Dude, this is not an email :v";
+        }
+      }
     });
 
     var _password = await Swal.fire({
       title: "The password",
       text: "password ?",
       input: "password",
-      type: "info"
+      type: "info",
+      inputValidator: value => {
+        if (!value) {
+          return "Please type in your password";
+        }
+      }
     });
 
     // const data = await http("localhost/create-account",{
@@ -141,9 +195,13 @@ export class CodelabComponent implements OnInit {
     // });
     var payload = { username: _username.value, password: _password.value };
     const data = await this.httpClient
-      .post("http://localhost:5000/create-account", JSON.stringify(payload), {
-        headers: new HttpHeaders().set("Content-Type", "application/json")
-      })
+      .post(
+        "http://localhost:5000/api/v1/create-account",
+        JSON.stringify(payload),
+        {
+          headers: new HttpHeaders().set("Content-Type", "application/json")
+        }
+      )
       .toPromise();
 
     console.log("Data: " + JSON.stringify(data));

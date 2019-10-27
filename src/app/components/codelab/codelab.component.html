@@ -7,6 +7,9 @@
     <button (click)="onSignUpButton()">Sign Up</button>
     <button (click)="socketTrigger()">Socket Trigger</button>
 
+    <div *ngIf="isUserLoggedIn" >
+        <h1>Hello {{thisUsername}} ^^~</h1>
+    </div>
     <ngx-blockly  [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
 
 </div>
