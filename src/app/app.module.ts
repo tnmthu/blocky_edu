@@ -15,7 +15,12 @@ import { CodelabHeaderComponent } from './components/codelab-header/codelab-head
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BlynkService } from './services/blynk.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: {} };
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,8 @@ import { BlynkService } from './services/blynk.service';
     MainPipeModule,
     NgxBlocklyModule,
     AngularFontAwesomeModule,
+    BrowserModule,
+    SocketIoModule.forRoot(config)
     // SweetAlert2Module.forRoot()
   ],
   providers: [

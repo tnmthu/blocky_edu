@@ -4,6 +4,8 @@
     <button (click)="onButtonLoadProject()">Load Project</button>
     <button (click)="onButtonDownload()">Download Project</button>
     <button (click)="onButtonLogin()">Login</button>
+    <button (click)="onSignUpButton()">Sign Up</button>
+    <button (click)="socketTrigger()">Socket Trigger</button>
 
     <ngx-blockly  [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
 
