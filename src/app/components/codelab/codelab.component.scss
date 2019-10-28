@@ -5,18 +5,18 @@
 
   &_codelab {
     height: 90%;
-    width: 100%;
+    display: flex; // Here ???
 
     &_body {
-      float: left;
-      height: 100%;
+      width: 100%;
     }
 
-    &_sidebar{
-      float: right;
-      height: 100%;
+    &_sidebar {
+      overflow: hidden;
     }
   }
+  
+
   &_footer {
     height: 10%;
   }

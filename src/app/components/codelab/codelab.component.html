@@ -2,9 +2,7 @@
     <div class="container_codelab">
         <ngx-blockly class="container_codelab_body" [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
             (workspaceChange)="onWorkspace($event)"></ngx-blockly>
-        <span>
-            <app-codelab-sidebar class="container_codelab_sidebar" *ngIf="sidebarClicked"></app-codelab-sidebar>
-        </span>
+        <app-codelab-sidebar class="container_codelab_sidebar" [isOpen]="sidebarClicked"></app-codelab-sidebar>
     </div>
     <app-codelab-footer  class="container_footer" (openSidebarEventClicked)="sidebarEvent($event)"></app-codelab-footer>
 </div>
