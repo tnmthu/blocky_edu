@@ -14,13 +14,20 @@ import Swal from "sweetalert2";
 import * as JSZip from "jszip";
 import { Socket } from "ngx-socket-io";
 import * as EmailValidator from "email-validator";
-import { WebcamModule, WebcamComponent, WebcamImage, WebcamInitError, WebcamMirrorProperties, WebcamUtil } from "ngx-webcam";
+import {
+  WebcamModule,
+  WebcamComponent,
+  WebcamImage,
+  WebcamInitError,
+  WebcamMirrorProperties,
+  WebcamUtil
+} from "ngx-webcam";
 import { map } from "rxjs/operators";
+
 @Component({
   selector: "app-codelab",
   templateUrl: "./codelab.component.html",
-  styleUrls: ["./codelab.component.scss"],
-  
+  styleUrls: ["./codelab.component.scss"]
 })
 export class CodelabComponent implements OnInit {
   // Customize Toast
@@ -42,8 +49,8 @@ export class CodelabComponent implements OnInit {
   thisUsername: string;
   thisPassword: string;
   loginProfile: any;
-  isWebcamEnable : boolean = false; 
-  Blockly : any ;
+  isWebcamEnable: boolean = false;
+  Blockly: any;
 
   public config: NgxBlocklyConfig = {
     toolbox: this.toolboxService.ToolBoxXml,
@@ -115,16 +122,17 @@ export class CodelabComponent implements OnInit {
       width: 600,
       padding: "3em",
       backdrop: `
-        rgba(0,0,123,0.4)
-        url("/images/nyan-cat.gif")
-        center left
-        no-repeat
-      `,
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat.gif")
+                center left
+                no-repeat
+            `,
       inputValidator: value => {
         if (!EmailValidator.validate(value)) {
           return "Dude, this is not an email :v";
         }
       }
+      
     });
 
     var password = await Swal.fire({
@@ -166,6 +174,15 @@ export class CodelabComponent implements OnInit {
       });
 
       this.isUserLoggedIn = true;
+      // Save the JWT key for later auto
+      localStorage.setItem(
+        "loginJWT",
+        JSON.stringify({
+          username: this.thisUsername,
+          token: data["message"]
+        })
+      );
+      console.log("Saved Token : ", localStorage.getItem("loginJWT"));
     }
   }
   async onSignOutButton() {
@@ -288,13 +305,39 @@ export class CodelabComponent implements OnInit {
     console.warn(this.workspace);
     console.warn(this.workspace.workspace);
   }
-  ngAfterViewInit() {
+  async ngAfterViewInit() {
     this.workspace.fromXml(
       '<xml id="workspaceBlocks" style="display:none"><variables></variables><block type="pxt.onStart" x="50" y="50"><value name="CODE"></value></block></xml>'
     );
 
-    if (localStorage.getItem("loginSession") != null) {
-      alert("User loggedin " + String(localStorage.getItem("loginSession ")));
+    //# Auto Login in using JWT token
+    if (localStorage.getItem("loginJWT") != null) {
+      const decision = await Swal.fire({
+        type : "info",
+        title: "Logging in as ",
+        text: JSON.parse(localStorage.getItem("loginJWT")).username,
+        showCancelButton: true,
+        showConfirmButton : true ,
+        confirmButtonText: 'Login',  
+        focusConfirm: false,
+        animation : true ,
+        showLoaderOnConfirm: true,
+        preConfirm :  (value) => async function(){
+            const data = await this.httpClient
+            .post("http://localhost:5000/api/v1/login", JSON.stringify({}), {
+                headers: new HttpHeaders().set("Content-Type", "application/json")
+            })
+            .toPromise();
+            if (data["success"] == true){
+                Swal.insertQueueStep({
+                    type : "success",
+                    title : "Welcome back :D"
+                    
+                })
+            }
+        }
+
+      });
     }
   }
 }
