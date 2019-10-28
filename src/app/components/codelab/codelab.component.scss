@@ -2,4 +2,22 @@
 
 .container {
   height: 100%;
+
+  &_codelab {
+    height: 90%;
+    width: 100%;
+
+    &_body {
+      float: left;
+      height: 100%;
+    }
+
+    &_sidebar{
+      float: right;
+      height: 100%;
+    }
+  }
+  &_footer {
+    height: 10%;
+  }
 }

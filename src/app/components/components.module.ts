@@ -24,6 +24,7 @@ import {
   NgxBlocklyModule
 } from "ngx-blockly";
 import { CodelabFooterComponent } from './codelab-footer/codelab-footer.component';
+import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.component';
 @NgModule({
   declarations: [
     EduComponent,
@@ -34,7 +35,8 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     LogoComponent,
     WordpressComponent,
     CodelabComponent,
-    CodelabFooterComponent
+    CodelabFooterComponent,
+    CodelabSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +62,8 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     LogoComponent,
     WordpressComponent,
     CodelabComponent,
-    CodelabFooterComponent
+    CodelabFooterComponent,
+    CodelabSidebarComponent
   ]
 })
 export class ComponentsModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -16,7 +16,8 @@ export class ProjectErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./codelab-footer.component.scss']
 })
 export class CodelabFooterComponent implements OnInit {
-  
+  @Output() openSidebarEventClicked = new EventEmitter<boolean>(); 
+
   projectFormControl = new FormControl('', [
     Validators.required,
   ]);
@@ -52,6 +53,9 @@ export class CodelabFooterComponent implements OnInit {
   openSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
     this.sidebarIcon = this.isSidebarOpen ? "keyboard_arrow_right" : "keyboard_arrow_left";
+
+    this.openSidebarEventClicked.emit(this.isSidebarOpen);
+    console.log("Event isSidebarOpen " + this.isSidebarOpen);
   }
 
   saveProject() {}
