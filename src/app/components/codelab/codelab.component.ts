@@ -340,4 +340,12 @@ export class CodelabComponent implements OnInit {
       });
     }
   }
+
+
+  public sidebarClicked = false;
+  sidebarEvent(isSidebarOpen: boolean) {
+    this.sidebarClicked = isSidebarOpen;
+  }
+
+
 }

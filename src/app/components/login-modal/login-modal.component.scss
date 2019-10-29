@@ -1,0 +1,43 @@
+@import '../../../assets/scss/Colors.scss';
+
+.modal_container_login {
+  width: 250px;
+  height: 300px;
+}
+
+.input {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close_icon {
+  height: 24px;
+  cursor: pointer;
+}
+
+.btn {
+  height: 40px;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+
+  &_login {
+    background-color: $lightgray;
+    margin-bottom: 10px;
+    color: $tundora;
+  }
+
+  &_fb {
+    background-color: $facebookblue;
+    color: white !important;
+  }
+}
+
+.mat-form-field {
+  width: 100%;;
+}
