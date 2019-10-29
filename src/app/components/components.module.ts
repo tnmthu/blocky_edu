@@ -1,26 +1,29 @@
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { CommonModule } from "@angular/common";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatExpansionModule } from "@angular/material/expansion";
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
 
-import { EduComponent } from "./edu/edu.component";
-import { LandingPageComponent } from "./landing-page/landing-page.component";
-import { CourseComponent } from "./course/course.component";
-import { CourseContentComponent } from "./course-content/course-content.component";
-import { CourseContentDetailComponent } from "./course-content-detail/course-content-detail.component";
-import { LogoComponent } from "./logo/logo.component";
-import { WordpressComponent } from "./wordpress/wordpress.component";
-import { MainPipeModule } from "../pipes/main-pipe.module";
-import { CodelabComponent } from "./codelab/codelab.component";
-import {
-  NgxBlocklyModule
-} from "ngx-blockly";
+import { EduComponent } from './edu/edu.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CourseComponent } from './course/course.component';
+import { CourseContentComponent } from './course-content/course-content.component';
+import { CourseContentDetailComponent } from './course-content-detail/course-content-detail.component';
+import { LogoComponent } from './logo/logo.component';
+import { WordpressComponent } from './wordpress/wordpress.component';
+import { MainPipeModule } from '../pipes/main-pipe.module';
+import { CodelabComponent } from './codelab/codelab.component';
+import { NgxBlocklyModule } from 'ngx-blockly';
 import { CodelabHeaderComponent } from './codelab-header/codelab-header.component';
 import { CodelabFooterComponent } from './codelab-footer/codelab-footer.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 @NgModule({
   declarations: [
     EduComponent,
@@ -32,7 +35,9 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     WordpressComponent,
     CodelabComponent,
     CodelabFooterComponent,
-    CodelabHeaderComponent
+    CodelabHeaderComponent,
+    LoginModalComponent,
+    RegisterModalComponent
   ],
   imports: [
     CommonModule,
@@ -41,11 +46,18 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     RouterModule,
     MatExpansionModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
     MainPipeModule,
     NgxBlocklyModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  entryComponents: [],
+  entryComponents: [
+    LoginModalComponent,
+    RegisterModalComponent
+  ],
   exports: [
     EduComponent,
     LandingPageComponent,
@@ -56,6 +68,8 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
     WordpressComponent,
     CodelabComponent,
     CodelabHeaderComponent,
+    LoginModalComponent,
+    RegisterModalComponent,
   ]
 })
 export class ComponentsModule {}
