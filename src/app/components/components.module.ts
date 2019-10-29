@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 
 import { EduComponent } from './edu/edu.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -52,6 +53,7 @@ import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.compo
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MainPipeModule,
     NgxBlocklyModule,
     MatInputModule,

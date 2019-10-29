@@ -7,10 +7,15 @@
   display: flex;
   flex-direction: column;
 }
+
 .content {
   &__top {
     flex-grow: 1;
   }
+}
+
+.start {
+  width: 100%;
 }
 .lesson {
   color: white;

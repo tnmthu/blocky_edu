@@ -25,6 +25,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class CodelabSidebarComponent implements OnInit {
+  deviceList = ['haha', 'hihi', 'hoho', 'huhu'];
 
   @Input() isOpen = false;
 
