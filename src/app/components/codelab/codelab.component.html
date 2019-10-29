@@ -1,23 +1,26 @@
 <div class="container">
-  <button (click)="onButtonNewProject()">New Project :D</button>
-  <button (click)="onButtonProjectUpload()">Save Project</button>
-  <button (click)="onButtonLoadProject()">Load Project</button>
-  <button (click)="onButtonDownload()">Download Project</button>
-  <button (click)="onButtonLogin()" *ngIf="!isUserLoggedIn">Login</button>
-  <button (click)="onSignUpButton()" *ngIf="!isUserLoggedIn">Sign Up</button>
-  <button (click)="onSignOutButton()" *ngIf="isUserLoggedIn">Sign Out</button>
-  <button (click)="socketTrigger()">Socket Trigger</button>
-
-  <div *ngIf="isUserLoggedIn">
-    <h1>Hello {{thisUsername}}> ^^~</h1>
-  </div>
-  <div *ngIf="isWebcamEnable">
-    <!-- <webcam></webcam> -->
-  </div>
-
-  <ngx-blockly [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
-    (workspaceChange)="onWorkspace($event)"></ngx-blockly>
-
+    
+    <button (click)="onButtonNewProject()">New Project :D</button>
+    <button (click)="onButtonProjectUpload()">Save Project</button>
+    <button (click)="onButtonLoadProject()">Load Project</button>
+    <button (click)="onButtonDownload()">Download Project</button>
+    <button (click)="onButtonLogin()" *ngIf="!isUserLoggedIn">Login</button>
+    <button (click)="onSignUpButton()" *ngIf="!isUserLoggedIn">Sign Up</button>
+    <button (click)="onSignOutButton()" *ngIf="isUserLoggedIn">Sign Out</button>
+    <button (click)="socketTrigger()">Socket Trigger</button>
+    <div *ngIf="isUserLoggedIn">
+        <h1>Hello {{thisUsername}}> ^^~</h1>
+    </div>
+    <div *ngIf="isWebcamEnable">
+        <!-- <webcam></webcam> -->
+    </div>
+    <app-codelab-header class="container_header"></app-codelab-header>
+    <div class="container_codelab">
+        <ngx-blockly class="container_codelab_body" [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
+            (workspaceChange)="onWorkspace($event)"></ngx-blockly>
+        <app-codelab-sidebar  [ngClass]="{'container_codelab_sidebar': sidebarClicked}" [isOpen]="sidebarClicked"></app-codelab-sidebar>
+    </div>
+    <app-codelab-footer class="container_footer" (openSidebarEventClicked)="sidebarEvent($event)"></app-codelab-footer>
 </div>
 
 <!-- CODELAB.html

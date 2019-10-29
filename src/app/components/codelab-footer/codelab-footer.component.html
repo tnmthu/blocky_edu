@@ -1,0 +1,41 @@
+<div class="footer">
+    <button class="btn btn_mode" (click)="changeMode()">
+        <i class="material-icons">
+            {{mode.icon}}
+        </i>
+        {{mode.text}}
+    </button>
+
+    <form class="project">
+        <mat-form-field class="project_input">
+            <input  matInput placeholder="Project Name*" [formControl]="projectFormControl"
+                [errorStateMatcher]="matcher">
+            <mat-error *ngIf="projectFormControl.hasError('required')">
+                Project Name is required
+            </mat-error>
+        </mat-form-field>
+    </form>
+
+
+    <button class="btn btn_op" [ngClass]="(projectFormControl.hasError('required')) ? 'disabled' : ''" (click)="saveProject()">
+        <i class="material-icons">save</i>
+        Save
+    </button>
+    <button class="btn btn_op" (click)="newProject()">
+        <i class="material-icons">post_add</i>        
+        New
+    </button>
+    <button class="btn btn_op" (click)="openProject()">
+        <i class="material-icons">folder_open</i>
+        Open
+    </button>
+    <button class="btn btn_op" (click)="downloadProject()">
+        <i class="material-icons">cloud_download</i>
+        Download
+    </button>
+
+    <button class="btn btn_show" (click)="openSidebar()">
+        <i class="material-icons">{{sidebarIcon}}</i>
+    </button>
+
+</div>

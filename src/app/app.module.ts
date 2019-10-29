@@ -11,7 +11,6 @@ import { MainPipeModule } from './pipes/main-pipe.module';
 import { NgxBlocklyModule } from 'ngx-blockly';
 import { ToolboxService } from './services/toolbox.service';
 import { CodelabControllerDirective } from './codelab-controller.directive';
-import { CodelabHeaderComponent } from './components/codelab-header/codelab-header.component';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BlynkService } from './services/blynk.service';
@@ -27,8 +26,6 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
   declarations: [
     AppComponent,
     CodelabControllerDirective,
-    CodelabHeaderComponent,
-    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+@import '../../../assets/scss/Colors.scss';
+
+.container {
+    white-space: nowrap;
+    height: 100%;
+}
+
+.upper {
+  margin: 10px;
+  height: 65px;
+}
+
+.label_header {
+  display: flex;
+  align-items: center;
+}
+
+.upload_icon {
+  margin-right: 10px;
+}
+
+.icon-white {
+  color: white;
+}
+
+.lower {
+  margin: 10px;
+  height: calc(100% - 65px);
+  background-color: $silver;
+  border-radius: 7px;
+  padding-top: 10px;
+}
+
+.device_log_container {
+  margin: 0 10px 10px 10px;
+  padding: 10px;
+  height: 30px;
+  border-radius: 7px;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-form-field {
+  width: 100%;
+}
