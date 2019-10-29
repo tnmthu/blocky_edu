@@ -1,4 +1,5 @@
 <div class="container">
+    <app-codelab-header class="container_header"></app-codelab-header>
     <div class="container_codelab">
         <ngx-blockly class="container_codelab_body" [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
             (workspaceChange)="onWorkspace($event)"></ngx-blockly>

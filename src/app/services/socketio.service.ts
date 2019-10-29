@@ -1,4 +1,4 @@
-// /*
+// 
 //   List Event :
 
 //     codelab.tensorflow.voice.list
@@ -21,8 +21,8 @@
 
 
 
-import { Injectable } from '@angular/core';
-import { ChatModule } from '../../chat.module';
+// import { Injectable } from '@angular/core';
+// import { ChatModule } from '../../chat.module';
 
 // import { Observable, Observer } from 'rxjs';
 // import { Message } from '../model/message';
@@ -281,7 +281,6 @@ import { ChatModule } from '../../chat.module';
 //       };
 //     }
 
-    this.socketService.send(message);
-  }
-}
-*/
+//     this.socketService.send(message);
+//   }
+// }

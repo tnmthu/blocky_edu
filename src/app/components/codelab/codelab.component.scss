@@ -3,8 +3,12 @@
 .container {
   height: 100%;
 
+  &_header {
+    height: 10%;
+  }
+
   &_codelab {
-    height: 90%;
+    height: 80%;
     display: flex; // Here ???
 
     &_body {

@@ -1,5 +1,4 @@
 <div class="container full-height" *ngIf="router.url !== '/'">
-  <app-codelab-header></app-codelab-header>
   <app-codelab [ngClass]="{'blockly blocklySvg': buttonClicked}"></app-codelab>
   <button class="drawer edu__button" (click)="onClick()">Edu</button>
   <div class="half-screen half-screen__right" *ngIf="buttonClicked">
@@ -10,6 +9,5 @@
 
 <div *ngIf="router.url === '/'">
     <router-outlet></router-outlet>
-</div> -->
+</div>
 
-<app-codelab [ngClass]="{'blockly blocklySvg': buttonClicked}"></app-codelab>
