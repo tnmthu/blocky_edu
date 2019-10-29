@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+
+// Angular Materail Imports
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -24,6 +26,7 @@ import { CodelabHeaderComponent } from './codelab-header/codelab-header.componen
 import { CodelabFooterComponent } from './codelab-footer/codelab-footer.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
+import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.component';
 @NgModule({
   declarations: [
     EduComponent,
@@ -37,7 +40,8 @@ import { RegisterModalComponent } from './register-modal/register-modal.componen
     CodelabFooterComponent,
     CodelabHeaderComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    CodelabSidebarComponent
   ],
   imports: [
     CommonModule,
@@ -50,8 +54,10 @@ import { RegisterModalComponent } from './register-modal/register-modal.componen
     MatInputModule,
     MainPipeModule,
     NgxBlocklyModule,
+    MatInputModule,
+    MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   entryComponents: [
@@ -70,6 +76,8 @@ import { RegisterModalComponent } from './register-modal/register-modal.componen
     CodelabHeaderComponent,
     LoginModalComponent,
     RegisterModalComponent,
+    CodelabFooterComponent,
+    CodelabSidebarComponent
   ]
 })
 export class ComponentsModule {}

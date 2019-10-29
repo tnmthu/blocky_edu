@@ -45,8 +45,6 @@ export class CodelabComponent implements OnInit {
     xml: true
   };
 
-
-
   onCode(code: string) {
     console.log(code);
   }
@@ -56,4 +54,12 @@ export class CodelabComponent implements OnInit {
     console.warn(this.workspace);
     console.warn(this.workspace.workspace);
   }
+
+
+  public sidebarClicked = false;
+  sidebarEvent(isSidebarOpen: boolean) {
+    this.sidebarClicked = isSidebarOpen;
+  }
+
+
 }

@@ -2,4 +2,26 @@
 
 .container {
   height: 100%;
+
+  &_header {
+    height: 10%;
+  }
+
+  &_codelab {
+    height: 80%;
+    display: flex; // Here ???
+
+    &_body {
+      width: 100%;
+    }
+
+    &_sidebar {
+      overflow: hidden;
+    }
+  }
+  
+
+  &_footer {
+    height: 10%;
+  }
 }

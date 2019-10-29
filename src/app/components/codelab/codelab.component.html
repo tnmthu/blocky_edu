@@ -1,6 +1,11 @@
 <div class="container">
-    <ngx-blockly  [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
-
+    <app-codelab-header class="container_header"></app-codelab-header>
+    <div class="container_codelab">
+        <ngx-blockly class="container_codelab_body" [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
+            (workspaceChange)="onWorkspace($event)"></ngx-blockly>
+        <app-codelab-sidebar class="container_codelab_sidebar" [isOpen]="sidebarClicked"></app-codelab-sidebar>
+    </div>
+    <app-codelab-footer  class="container_footer" (openSidebarEventClicked)="sidebarEvent($event)"></app-codelab-footer>
 </div>
 
 <!-- CODELAB.html
