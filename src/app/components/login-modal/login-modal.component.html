@@ -1,0 +1,19 @@
+<div class="modal_container_login">
+  <div class="header" mat-dialog-title>{{title}}
+    <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
+  </div>
+
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+        <input class="input" matInput placeholder="Username (email)*" formControlName="description">
+    </mat-form-field>
+    <mat-form-field>
+      <input class="input" matInput placeholder="Password *" formControlName="description">
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="btn btn_login" (click)="save()">LOGIN</button>
+    <button class="btn btn_fb" (click)="save()">SIGN IN WITH FACEBOOK</button>
+  </mat-dialog-actions>
+</div>
