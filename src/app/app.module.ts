@@ -44,7 +44,8 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
   ],
   providers: [
     ToolboxService,
-    BlynkService
+    BlynkService,
+    Window
   ],
   bootstrap: [AppComponent],
 })

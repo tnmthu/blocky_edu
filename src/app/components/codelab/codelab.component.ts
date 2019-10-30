@@ -37,7 +37,6 @@ export class CodelabComponent implements OnInit {
     showConfirmButton: false,
     timer: 3000
   });
-
   constructor(
     private toolboxService: ToolboxService,
     private socket: Socket,
@@ -132,7 +131,6 @@ export class CodelabComponent implements OnInit {
           return "Dude, this is not an email :v";
         }
       }
-      
     });
 
     var password = await Swal.fire({
@@ -248,13 +246,13 @@ export class CodelabComponent implements OnInit {
   onButtonDownload() {
     console.log("Current Id", this.workspace.workspace.id);
     var code = new Blob(
-      [window.Blockly.Python.workspaceToCode(this.workspace.workspace)],
+      [window["Blockly"].Python.workspaceToCode(this.workspace.workspace)],
       { type: "text/plain;charset=utf-8" }
     );
     var xml = new Blob(
       [
         new XMLSerializer().serializeToString(
-          window.Blockly.Xml.workspaceToDom(this.workspace.workspace)
+          window["Blockly"].Xml.workspaceToDom(this.workspace.workspace)
         )
       ],
       { type: "text/plain;charset=utf-8" }
@@ -313,39 +311,38 @@ export class CodelabComponent implements OnInit {
     //# Auto Login in using JWT token
     if (localStorage.getItem("loginJWT") != null) {
       const decision = await Swal.fire({
-        type : "info",
+        type: "info",
         title: "Logging in as ",
         text: JSON.parse(localStorage.getItem("loginJWT")).username,
         showCancelButton: true,
-        showConfirmButton : true ,
-        confirmButtonText: 'Login',  
+        showConfirmButton: true,
+        confirmButtonText: "Login",
         focusConfirm: false,
-        animation : true ,
+        animation: true,
         showLoaderOnConfirm: true,
-        preConfirm :  (value) => async function(){
+        preConfirm: value =>
+          async function() {
             const data = await this.httpClient
-            .post("http://localhost:5000/api/v1/login", JSON.stringify({}), {
-                headers: new HttpHeaders().set("Content-Type", "application/json")
-            })
-            .toPromise();
-            if (data["success"] == true){
-                Swal.insertQueueStep({
-                    type : "success",
-                    title : "Welcome back :D"
-                    
-                })
+              .post("http://localhost:5000/api/v1/login", JSON.stringify({}), {
+                headers: new HttpHeaders().set(
+                  "Content-Type",
+                  "application/json"
+                )
+              })
+              .toPromise();
+            if (data["success"] == true) {
+              Swal.insertQueueStep({
+                type: "success",
+                title: "Welcome back :D"
+              });
             }
-        }
-
+          }
       });
     }
   }
-
 
   public sidebarClicked = false;
   sidebarEvent(isSidebarOpen: boolean) {
     this.sidebarClicked = isSidebarOpen;
   }
-
-
 }
