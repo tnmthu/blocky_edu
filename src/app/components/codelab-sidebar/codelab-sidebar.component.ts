@@ -15,7 +15,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       })),
       state('show', style({
         opacity: 1,
-        width: '300px',
+        width: '25%',
         visibility: 'visible'
       })),
 

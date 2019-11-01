@@ -1,6 +1,6 @@
 <div class="container full-height" *ngIf="router.url !== '/'" [ngClass]='{"d-flex": buttonClicked}'>
   <app-codelab [ngClass]="{'blockly blocklySvg': buttonClicked}"></app-codelab>
-  <button class="drawer edu__button" (click)="onClick()">Edu</button>
+  <!-- <button class="drawer edu__button" (click)="onClick()">Edu</button> -->
   <div class="half-screen half-screen__right" *ngIf="buttonClicked">
     <app-logo></app-logo>
     <router-outlet></router-outlet>

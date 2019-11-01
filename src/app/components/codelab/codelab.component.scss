@@ -4,22 +4,26 @@
   height: 100%;
   overflow: hidden;
 
-
   &_header {
     height: 10%;
   }
 
   &_codelab {
     height: 80%;
-    display: flex; // Here ???
+    position: relative;
+    // &_relative {
+    //   position: relative;
+    //   width: 100%;
+    // }
 
     &_body {
-      width: 100%;
+      display: inline-block;
+      height: 100%;
     }
 
     &_sidebar {
-      width: 25%;
-      overflow: hidden;
+      position: relative;
+      height: 100%;
     }
   }
 

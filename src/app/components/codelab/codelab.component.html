@@ -11,14 +11,14 @@
     <div *ngIf="isUserLoggedIn">
         <h1>Hello {{thisUsername}}> ^^~</h1>
     </div> -->
-    <div *ngIf="isWebcamEnable">
-        <!-- <webcam></webcam> -->
-    </div>
+    <!-- <div *ngIf="isWebcamEnable">
+        <webcam></webcam>
+    </div> -->
     <app-codelab-header class="container_header"></app-codelab-header>
     <div class="container_codelab">
-        <ngx-blockly class="container_codelab_body" [config]="config" [generatorConfig]="generatorConfig" (pythonCode)="onCode($event)"
-            (workspaceChange)="onWorkspace($event)"></ngx-blockly>
-        <app-codelab-sidebar  [ngClass]="{'container_codelab_sidebar': sidebarClicked}" [isOpen]="sidebarClicked"></app-codelab-sidebar>
+        <ngx-blockly class="container_codelab_body"  [config]="config" [generatorConfig]="generatorConfig"
+                (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
+        <app-codelab-sidebar [ngClass]="{'container_codelab_sidebar': sidebarClicked}" [isOpen]="sidebarClicked"></app-codelab-sidebar>
     </div>
     <app-codelab-footer class="container_footer" (openSidebarEventClicked)="sidebarEvent($event)"></app-codelab-footer>
 </div>
