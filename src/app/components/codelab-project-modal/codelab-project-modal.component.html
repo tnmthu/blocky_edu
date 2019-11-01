@@ -1,0 +1,31 @@
+<div class="modal_container">
+  <div class="header" mat-dialog-title>{{title}}
+    <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
+  </div>
+
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+      <input class="search_input" matInput placeholder="Enter search" formControlName="description">
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-list>
+    <mat-list-item *ngFor="let project of projects; let i = index">
+      <div class="project" id="{{'project_' + i}}" (mouseover)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
+        <div class="project_info" >
+          <h4 mat-line>{{ project.name }}</h4>
+          <p mat-line>{{ project.updated | date }}</p>
+        </div>
+        <div class="project_img">helpppppppppppppp</div>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = $event">
+  </mat-paginator>
+</div>
+

@@ -12,6 +12,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 import { EduComponent } from './edu/edu.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -28,6 +32,7 @@ import { CodelabFooterComponent } from './codelab-footer/codelab-footer.componen
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.component';
+import { CodelabProjectModalComponent } from './codelab-project-modal/codelab-project-modal.component';
 @NgModule({
   declarations: [
     EduComponent,
@@ -42,7 +47,8 @@ import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.compo
     CodelabHeaderComponent,
     LoginModalComponent,
     RegisterModalComponent,
-    CodelabSidebarComponent
+    CodelabSidebarComponent,
+    CodelabProjectModalComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +60,9 @@ import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.compo
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatListModule,
+    MatTooltipModule,
     MainPipeModule,
     NgxBlocklyModule,
     MatInputModule,
@@ -64,7 +73,8 @@ import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.compo
   providers: [],
   entryComponents: [
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    CodelabProjectModalComponent,
   ],
   exports: [
     EduComponent,
@@ -79,7 +89,8 @@ import { CodelabSidebarComponent } from './codelab-sidebar/codelab-sidebar.compo
     LoginModalComponent,
     RegisterModalComponent,
     CodelabFooterComponent,
-    CodelabSidebarComponent
+    CodelabSidebarComponent,
+    CodelabProjectModalComponent,
   ]
 })
 export class ComponentsModule {}

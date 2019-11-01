@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { CodelabProjectModalComponent } from '../codelab-project-modal/codelab-project-modal.component';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class ProjectErrorStateMatcher implements ErrorStateMatcher {
@@ -16,7 +18,7 @@ export class ProjectErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./codelab-footer.component.scss']
 })
 export class CodelabFooterComponent implements OnInit {
-  @Output() openSidebarEventClicked = new EventEmitter<boolean>(); 
+  @Output() openSidebarEventClicked = new EventEmitter<boolean>();
 
   projectFormControl = new FormControl('', [
     Validators.required,
@@ -28,7 +30,7 @@ export class CodelabFooterComponent implements OnInit {
     {
       "icon": "code",
       "text": "Python Mode",
-    }, 
+    },
     {
       "icon": "layers",
       "text": "Block Mode",
@@ -39,10 +41,10 @@ export class CodelabFooterComponent implements OnInit {
   isSidebarOpen = false;
   sidebarIcon = "keyboard_arrow_left";
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.mode = this.modes[0]; 
+    this.mode = this.modes[0];
   }
 
   changeMode() {
@@ -58,8 +60,23 @@ export class CodelabFooterComponent implements OnInit {
     console.log("Event isSidebarOpen " + this.isSidebarOpen);
   }
 
+  openProjectModal() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+        id: 1,
+        title: 'Projects',
+        description: '',
+    };
+
+    this.dialog.open(CodelabProjectModalComponent, dialogConfig);
+  }
+
   saveProject() {}
-  
+
   newProject() {}
 
   openProject() {}
