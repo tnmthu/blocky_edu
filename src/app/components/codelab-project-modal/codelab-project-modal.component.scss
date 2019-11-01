@@ -29,14 +29,18 @@
   cursor: pointer;
 }
 
-.project_info:hover, .project_img {
-  display: block;
-}
+// .project_info:hover, .project_img {
+//   display: block;
+// }
 
 .project_img {
   display: none;
   position: fixed;
-  right: calc(100% - 1200px);
+  // right: calc(100% - 1200px);
+
+  background-color: #000;
+  width: 300px;
+  height: 300px;
 }
 
 .mat-list-base .mat-list-item.mat-2-line, .mat-list-base .mat-list-option.mat-2-line {

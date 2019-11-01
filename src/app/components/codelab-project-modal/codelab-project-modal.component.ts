@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material';
 import {PageEvent} from '@angular/material/paginator';
@@ -31,6 +31,8 @@ export class CodelabProjectModalComponent implements OnInit {
       updated: new Date('1/28/16'),
     }
   ];
+
+  @ViewChild('modal') modal: ElementRef;
 
   // MatPaginator Output
   pageEvent: PageEvent;
@@ -89,13 +91,30 @@ export class CodelabProjectModalComponent implements OnInit {
   }
 
   mouseEnter(event) {
-    // console.log(event);
-    let element = event['fromElement']['id'];
-    console.log('From ' + element);
+    // console.log(event.srcElement);
+    let id = event['srcElement']['id'].split("_")[1]; // Get index
+
+    // Modal Coord
+    let coordModal = [this.modal.nativeElement.offsetLeft , this.modal.nativeElement.offsetTop];
+
+    // Image Coord (Some hardcoded padding)
+    let imagePos = [coordModal[0] + this.modal.nativeElement.offsetWidth + 24*2, coordModal[1] - 24]; 
+
+    // Get image
+    let img = document.getElementById(`img_${id}`);
+    img.style.position = 'fixed';
+    img.style.left = imagePos[0] + 'px';
+    img.style.top = imagePos[1] + 'px';
+    img.style.display = 'block';
   }
 
   mouseLeave(event) {
     // console.log(event);
+    let id = event['srcElement']['id'].split("_")[1]; // Get index
+
+    // Get image
+    let img = document.getElementById(`img_${id}`);
+    img.style.display = 'none';
   }
 
 }

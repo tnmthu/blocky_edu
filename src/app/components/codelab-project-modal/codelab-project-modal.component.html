@@ -1,4 +1,4 @@
-<div class="modal_container">
+<div class="modal_container" #modal>
   <div class="header" mat-dialog-title>{{title}}
     <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
   </div>
@@ -10,13 +10,13 @@
   </mat-dialog-content>
 
   <mat-list>
-    <mat-list-item *ngFor="let project of projects; let i = index">
-      <div class="project" id="{{'project_' + i}}" (mouseover)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
+    <mat-list-item *ngFor="let project of projects; let i = index" >
+      <div class="project" id="{{'project_' + i}}" (mouseenter)="mouseEnter($event)" (mouseleave)="mouseLeave($event)">
         <div class="project_info" >
           <h4 mat-line>{{ project.name }}</h4>
           <p mat-line>{{ project.updated | date }}</p>
         </div>
-        <div class="project_img">helpppppppppppppp</div>
+        <div class="project_img" id="{{'img_' + i}}">helpppppppppppppp</div>
       </div>
       <mat-divider></mat-divider>
     </mat-list-item>
