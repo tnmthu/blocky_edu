@@ -75,11 +75,24 @@ export class CodelabFooterComponent implements OnInit {
     this.dialog.open(CodelabProjectModalComponent, dialogConfig);
   }
 
-  saveProject() {}
+  @Output() saveProjectEvent = new EventEmitter();
+  saveProject() {
+    this.saveProjectEvent.next();
+  }
 
-  newProject() {}
+  @Output() newProjectEvent = new EventEmitter();
+  newProject() {
+    this.newProjectEvent.next();
+  }
 
-  openProject() {}
+  // Currently using openProjectModal()
+  @Output() openProjectEvent = new EventEmitter();
+  openProject() {
+    this.openProjectEvent.next();
+  }
 
-  downloadProject() {}
+  @Output() downloadProjectEvent = new EventEmitter();
+  downloadProject() {
+    this.downloadProjectEvent.next();
+  }
 }

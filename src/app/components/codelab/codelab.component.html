@@ -20,7 +20,12 @@
                 (pythonCode)="onCode($event)" (workspaceChange)="onWorkspace($event)"></ngx-blockly>
         <app-codelab-sidebar [ngClass]="{'container_codelab_sidebar': sidebarClicked}" [isOpen]="sidebarClicked"></app-codelab-sidebar>
     </div>
-    <app-codelab-footer class="container_footer" (openSidebarEventClicked)="sidebarEvent($event)"></app-codelab-footer>
+    <app-codelab-footer class="container_footer" 
+        (openSidebarEventClicked)="sidebarEvent($event)"
+        (saveProjectEvent)="onButtonProjectUpload()"
+        (newProjectEvent)="onButtonNewProject()"
+        (downloadProjectEvent)="onButtonDownload()" 
+    ></app-codelab-footer>
 </div>
 
 <!-- CODELAB.html
