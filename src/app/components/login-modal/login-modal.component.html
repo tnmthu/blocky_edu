@@ -3,13 +3,16 @@
     <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
   </div>
 
-  <mat-dialog-content [formGroup]="form">
-    <mat-form-field>
-      <input class="input" matInput placeholder="Username (email)*" formControlName="description">
-    </mat-form-field>
-    <mat-form-field>
-      <input class="input" matInput placeholder="Password *" formControlName="description">
-    </mat-form-field>
+  <mat-dialog-content >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input class="input" matInput placeholder="Username (email)*" name="mail" formControlName="mail">
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" type="password" matInput placeholder="Password *" name="password" formControlName="password">
+      </mat-form-field>
+    </form>
+    <p *ngIf="toastr">Wrong credentials</p>
   </mat-dialog-content>
 
   <mat-dialog-actions>
