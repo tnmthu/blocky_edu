@@ -17,6 +17,10 @@ import { BlynkService } from './services/blynk.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import {WebcamModule, WebcamComponent} from 'ngx-webcam';
+
+import {UserService} from "./services/users.service";
+import {ApiService} from "./services/api.service";
+import { JwtService } from './services/jwt.service';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: {} };
@@ -45,7 +49,11 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
   providers: [
     ToolboxService,
     BlynkService,
-    Window
+    Window,
+    UserService,
+    ApiService,
+    JwtService
+    
   ],
   bootstrap: [AppComponent],
 })

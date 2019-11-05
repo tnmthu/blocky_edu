@@ -23,6 +23,8 @@ import {
   WebcamUtil
 } from "ngx-webcam";
 import { map } from "rxjs/operators";
+import {UserService} from "../../services/users.service";
+
 
 @Component({
   selector: "app-codelab",
@@ -41,6 +43,7 @@ export class CodelabComponent implements OnInit {
     private toolboxService: ToolboxService,
     private socket: Socket,
     private httpClient: HttpClient,
+    private userService : UserService,
     private webcam: WebcamModule
   ) {}
 
@@ -309,36 +312,36 @@ export class CodelabComponent implements OnInit {
     );
 
     //# Auto Login in using JWT token
-    if (localStorage.getItem("loginJWT") != null) {
-      const decision = await Swal.fire({
-        type: "info",
-        title: "Logging in as ",
-        text: JSON.parse(localStorage.getItem("loginJWT")).username,
-        showCancelButton: true,
-        showConfirmButton: true,
-        confirmButtonText: "Login",
-        focusConfirm: false,
-        animation: true,
-        showLoaderOnConfirm: true,
-        preConfirm: value =>
-          async function() {
-            const data = await this.httpClient
-              .post("http://localhost:5000/api/v1/login", JSON.stringify({}), {
-                headers: new HttpHeaders().set(
-                  "Content-Type",
-                  "application/json"
-                )
-              })
-              .toPromise();
-            if (data["success"] == true) {
-              Swal.insertQueueStep({
-                type: "success",
-                title: "Welcome back :D"
-              });
-            }
-          }
-      });
-    }
+    // if (localStorage.getItem("loginJWT") != null) {
+    //   const decision = await Swal.fire({
+    //     type: "info",
+    //     title: "Logging in as ",
+    //     text: JSON.parse(localStorage.getItem("loginJWT")).username,
+    //     showCancelButton: true,
+    //     showConfirmButton: true,
+    //     confirmButtonText: "Login",
+    //     focusConfirm: false,
+    //     animation: true,
+    //     showLoaderOnConfirm: true,
+    //     preConfirm: value =>
+    //       async function() {
+    //         const data = await this.httpClient
+    //           .post("http://localhost:5000/api/v1/login", JSON.stringify({}), {
+    //             headers: new HttpHeaders().set(
+    //               "Content-Type",
+    //               "application/json"
+    //             )
+    //           })
+    //           .toPromise();
+    //         if (data["success"] == true) {
+    //           Swal.insertQueueStep({
+    //             type: "success",
+    //             title: "Welcome back :D"
+    //           });
+    //         }
+    //       }
+    //   });
+    // }
   }
 
   public sidebarClicked = false;
