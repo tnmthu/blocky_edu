@@ -48,10 +48,14 @@ export class LoginModalComponent implements OnInit {
     this.email = this.form.controls.email.value;
     this.pw = this.form.controls.password.value;
     this.userService.attemptAuth('login', { login: this.email, password: this.pw }).subscribe(res => {
-      if (res.success === false) {
-        this.toastr = true;
-      }
+      // if (res.success === false) {
+      //   this.toastr = true;
+      // }
     });
+  }
+
+  join() {
+    this.dialogRef.close(this.form.value);
   }
 
 }

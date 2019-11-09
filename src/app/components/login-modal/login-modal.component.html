@@ -1,4 +1,4 @@
-<div class="modal_container_login">
+<!-- <div class="modal_container_login">
   <div class="header" mat-dialog-title>{{title}}
     <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
   </div>
@@ -19,4 +19,52 @@
     <button class="btn btn_login" (click)="save()">LOGIN</button>
     <button class="btn btn_fb" (click)="save()">SIGN IN WITH FACEBOOK</button>
   </mat-dialog-actions>
+</div> -->
+
+<div class="modal_container_login">
+  <div class="header" mat-dialog-title>{{title}}
+    <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
+  </div>
+
+  <mat-dialog-content class="dialog">
+    <div class="dialog_left">
+      <div class="dialog_header">
+        If you already registered
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="dialog_input">
+          <mat-form-field>
+            <input class="input" matInput placeholder="Username (email)" name="mail" formControlName="mail" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input class="input" type="password" matInput placeholder="Password" name="password"
+              formControlName="password" required>
+          </mat-form-field>
+        </div>
+
+        <button class="btn btn_login" (click)="save()">LOGIN</button>
+
+      </form>
+
+    </div>
+
+    <div class="dialog_divider"></div>
+
+    <div class="dialog_right">
+      <div class="dialog_header">
+        Using Access Code
+      </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="dialog_input">
+          <mat-form-field>
+            <input class="input" matInput placeholder="Access PIN" name="code" formControlName="code">
+          </mat-form-field>
+        </div>
+
+        <button class="btn btn_login" (click)="join()">JOIN</button>
+
+      </form>
+    </div>
+  </mat-dialog-content>
+
 </div>
