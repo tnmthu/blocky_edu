@@ -12,7 +12,7 @@ export class LoginModalComponent implements OnInit {
   form: FormGroup;
   title: string;
   description: string;
-  email;
+  mail;
   pw;
   toastr = false;
 
@@ -30,8 +30,9 @@ export class LoginModalComponent implements OnInit {
       this.form = this.fb.group({
           title: this.title,
           description: [this.description, []],
-          email: new FormControl(null),
-          password: new FormControl(null)
+          mail: new FormControl(''),
+          password: new FormControl(''),
+          code: new FormControl(''),
       });
   }
 
@@ -45,9 +46,9 @@ export class LoginModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.email = this.form.controls.email.value;
+    this.mail = this.form.controls.mail.value;
     this.pw = this.form.controls.password.value;
-    this.userService.attemptAuth('login', { login: this.email, password: this.pw }).subscribe(res => {
+    this.userService.attemptAuth('login', { login: this.mail, password: this.pw }).subscribe(res => {
       // if (res.success === false) {
       //   this.toastr = true;
       // }
