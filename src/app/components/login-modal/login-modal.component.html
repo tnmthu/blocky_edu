@@ -36,7 +36,7 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="dialog_input">
           <mat-form-field>
-            <input class="input" matInput placeholder="Access PIN" name="code" formControlName="code">
+            <input class="input" matInput pattern="[0-9]{9}" placeholder="Access PIN" name="code" formControlName="code">
           </mat-form-field>
         </div>
 
