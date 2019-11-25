@@ -23,6 +23,8 @@ import {ApiService} from "./services/api.service";
 import { JwtService } from './services/jwt.service';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+import { HttpClientModule } from '@angular/common/http';
+
 const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: {} };
 
 
@@ -44,6 +46,8 @@ const config: SocketIoConfig = { url: 'http://localhost:5000/codelab', options: 
     WebcamModule,
     SocketIoModule.forRoot(config),
     // SweetAlert2Module.forRoot()
+
+    HttpClientModule,
     
   ],
   providers: [
