@@ -48,11 +48,11 @@ export class LoginModalComponent implements OnInit {
   onSubmit() {
     this.mail = this.form.controls.mail.value;
     this.pw = this.form.controls.password.value;
-    this.userService.attemptAuth('login', { login: this.mail, password: this.pw }).subscribe(res => {
-      // if (res.success === false) {
-      //   this.toastr = true;
-      // }
-    });
+    // this.userService.attemptAuth('login', { login: this.mail, password: this.pw }).subscribe(res => {
+    //   // if (res.success === false) {
+    //   //   this.toastr = true;
+    //   // }
+    // });
   }
 
   join() {

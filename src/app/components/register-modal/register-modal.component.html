@@ -3,16 +3,30 @@
     <i class="material-icons md-36 close_icon" (click)="close()">clear</i>
   </div>
 
-  <mat-dialog-content [formGroup]="form">
-    <mat-form-field>
-        <input class="input" matInput placeholder="Username (email)*" formControlName="description">
-    </mat-form-field>
-    <mat-form-field>
-      <input class="input" matInput placeholder="Password *" formControlName="description">
-    </mat-form-field>
+  <mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+          <input class="input" matInput placeholder="Username (email)*" name="email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" type="password" matInput placeholder="Password *" name="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" matInput placeholder="Organization" name="organization" formControlName="organization">
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" matInput placeholder="Full Name" name="fullname" formControlName="fullname">
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" matInput placeholder="Address" name="address" formControlName="address">
+      </mat-form-field>
+      <mat-form-field>
+        <input class="input" matInput placeholder="Birthday" name="birthday" formControlName="birthday">
+      </mat-form-field>
+    </form>
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <button class="btn btn_register" (click)="save()">SIGN UP</button>
+    <button class="btn btn_register" (click)="onSubmit()">SIGN UP</button>
   </mat-dialog-actions>
 </div>
