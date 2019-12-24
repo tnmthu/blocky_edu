@@ -29,6 +29,7 @@ export class RegisterModalComponent implements OnInit {
   }
 
   save() {
+      console.log("This : " , this.form.value);
       this.dialogRef.close(this.form.value);
   }
 
